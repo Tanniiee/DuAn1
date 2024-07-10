@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">DuAn1_CatMusic</string>
+    <string name="dk_dieukhoan">Khi bạn đăng nhập,bất kỳ ai khác sử dụng thiết bị này
+    đều có thể truy cập vào tài khoản của bạn</string>
 </resources>
