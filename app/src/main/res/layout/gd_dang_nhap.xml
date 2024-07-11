@@ -20,8 +20,16 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hàng triệu bài hát.
-        Miễn phí trên Cat Music"
+        android:text="Hàng triệu bài hát."
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:textSize="32sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Miễn phí trên Cat Music"
         android:textColor="@color/white"
         android:gravity="center"
         android:textSize="32sp"
