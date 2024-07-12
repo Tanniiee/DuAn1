@@ -57,6 +57,7 @@ public class Screen_Ngay extends AppCompatActivity {
         int style = AlertDialog.THEME_HOLO_DARK;
 
         datePickerDialog = new DatePickerDialog(this, style, dateSetListener, year, mounth, day);
+        datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
     }
 
     private String makeDateString(int dayOfMonth, int month, int year) {

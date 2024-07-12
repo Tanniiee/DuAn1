@@ -13,6 +13,9 @@
         android:theme="@style/Theme.DuAn1_CatMusic"
         tools:targetApi="31">
         <activity
+            android:name=".Sreen_Chao"
+            android:exported="false" />
+        <activity
             android:name=".Screen_TaoMatKhau"
             android:exported="false" />
         <activity
@@ -22,7 +25,7 @@
             android:name=".Screen_DangNhap"
             android:exported="false" />
         <activity
-            android:name=".Sreen_Chao"
+            android:name=".Screen_Ngay"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
