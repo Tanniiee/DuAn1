@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#40454E"
-    tools:context=".Screen_mail">
+    tools:context=".Activity.Screen_mail">
 
     <LinearLayout
         android:layout_width="match_parent"

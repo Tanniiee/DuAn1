@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:padding="20dp"
     android:background="#40454E"
-    tools:context=".Screen_DangNhap">
+    tools:context=".Activity.Screen_DangNhap">
 
 
     <ImageView
