@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:background="#40454E"
     android:padding="10dp"
-    tools:context=".Sreen_Chao">
+    tools:context=".Activity.Sreen_Chao">
 
 
     <LinearLayout

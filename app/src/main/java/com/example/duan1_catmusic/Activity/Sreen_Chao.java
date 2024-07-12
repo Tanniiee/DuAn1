@@ -1,4 +1,4 @@
-package com.example.duan1_catmusic;
+package com.example.duan1_catmusic.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.bumptech.glide.Glide;
+import com.example.duan1_catmusic.R;
 
 public class Sreen_Chao extends AppCompatActivity {
 

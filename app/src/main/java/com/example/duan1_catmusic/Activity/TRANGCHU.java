@@ -1,4 +1,4 @@
-package com.example.duan1_catmusic;
+package com.example.duan1_catmusic.Activity;
 
 import android.os.Bundle;
 
@@ -8,13 +8,15 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class Screen_TaoMatKhau extends AppCompatActivity {
+import com.example.duan1_catmusic.R;
+
+public class TRANGCHU extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.gd_tao_mat_khau);
+        setContentView(R.layout.gd_trangchu);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);

@@ -13,16 +13,19 @@
         android:theme="@style/Theme.DuAn1_CatMusic"
         tools:targetApi="31">
         <activity
-            android:name=".Screen_TaoMatKhau"
+            android:name=".Activity.TRANGCHU"
             android:exported="false" />
         <activity
-            android:name=".Screen_mail"
+            android:name=".Activity.Screen_TaoMatKhau"
             android:exported="false" />
         <activity
-            android:name=".Screen_DangNhap"
+            android:name=".Activity.Screen_mail"
             android:exported="false" />
         <activity
-            android:name=".Sreen_Chao"
+            android:name=".Activity.Screen_DangNhap"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Sreen_Chao"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
