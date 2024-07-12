@@ -1,4 +1,4 @@
-package com.example.duan1_catmusic;
+package com.example.duan1_catmusic.Activity;
 
 import android.os.Bundle;
 
@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.duan1_catmusic.R;
 
 public class Screen_Chon5NgheSi extends AppCompatActivity {
 
