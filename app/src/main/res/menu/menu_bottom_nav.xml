@@ -5,21 +5,25 @@
     <item
         android:id="@+id/navHome"
         android:title="Trang chủ"
+        android:enabled="true"
         android:icon="@mipmap/trang_chu">
     </item>
     <item
         android:id="@+id/navTimKiem"
         android:title="Tìm kiếm"
+        android:enabled="true"
         android:icon="@mipmap/tim_kiem">
     </item>
     <item
         android:id="@+id/navThuVien"
         android:title="Thư viện"
+        android:enabled="true"
         android:icon="@mipmap/thu_vien">
     </item>
     <item
         android:id="@+id/navPremium"
         android:title="Premium"
+        android:enabled="true"
         android:icon="@mipmap/premium">
     </item>
 

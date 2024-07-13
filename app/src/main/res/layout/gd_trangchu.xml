@@ -9,26 +9,33 @@
     tools:context=".Activity.TRANGCHU">
 
 
-    <androidx.viewpager2.widget.ViewPager2
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/frameLayout">
+    </FrameLayout>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_alignParentBottom="true"
-        android:layout_margin="10dp"
+        android:layout_margin="20dp"
         app:cardCornerRadius="40dp"
         android:elevation="5dp"
-        android:translationZ="10dp"
-        android:layout_height="wrap_content">
+        android:translationZ="10px"
+        android:layout_marginHorizontal="10dp"
+        android:layout_height="65dp">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
+            style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
+            android:id="@+id/bottom_nav_view"
             android:layout_width="match_parent"
             app:menu="@menu/menu_bottom_nav"
             android:background="@drawable/bottom_nav"
+            app:itemIconSize="30dp"
             app:itemIconTint="@color/color_item_bottomnavigation"
             app:itemTextColor="@color/color_item_bottomnavigation"
-            android:layout_height="wrap_content"/>
+            android:layout_height="65dp"/>
     </androidx.cardview.widget.CardView>
 
 

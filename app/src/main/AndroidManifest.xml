@@ -16,9 +16,6 @@
             android:name=".Activity.Screen_Ten"
             android:exported="false" />
         <activity
-            android:name=".Activity.TRANGCHU"
-            android:exported="false" />
-        <activity
             android:name=".Activity.Screen_Chon5NgheSi"
             android:exported="false" />
         <activity
@@ -32,6 +29,9 @@
             android:exported="false" />
         <activity
             android:name=".Activity.Sreen_Chao"
+            android:exported="false" />     
+         <activity
+            android:name=".Activity.TRANGCHU"
             android:exported="false" />
         <activity
             android:name=".Activity.Screen_Ngay"
