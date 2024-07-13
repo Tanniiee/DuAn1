@@ -13,7 +13,7 @@
         android:theme="@style/Theme.DuAn1_CatMusic"
         tools:targetApi="31">
         <activity
-            android:name=".Activity.Screen_Ngay"
+            android:name=".Activity.Screen_Ten"
             android:exported="false" />
         <activity
             android:name=".Activity.Screen_Chon5NgheSi"
@@ -29,10 +29,12 @@
             android:exported="false" />
         <activity
             android:name=".Activity.Sreen_Chao"
-            android:exported="false" />  
-          
+            android:exported="false" />     
          <activity
             android:name=".Activity.TRANGCHU"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Screen_Ngay"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -14,7 +14,7 @@ public class Dbhelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
         //User
-        String QuanlyUser = "CREATE TABLE User(MaUser TEXT PRIMARY KEY, TenUser TEXT, Gmail TEXT, SDT TEXT, NamSinh TEXT, DiaChi TEXT)";
+        String QuanlyUser = "CREATE TABLE User(MaUser TEXT PRIMARY KEY, TenUser TEXT, Gmail TEXT, GioiTinh TEXT, NamSinh TEXT, DiaChi TEXT)";
         sqLiteDatabase.execSQL(QuanlyUser);
 
         //DanhSachPlayList
