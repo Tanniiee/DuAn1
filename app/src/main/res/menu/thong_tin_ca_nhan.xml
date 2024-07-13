@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item
         android:id="@+id/themtk"
         android:icon="@mipmap/them"
@@ -17,5 +18,6 @@
         android:id="@+id/cai_dat"
         android:icon="@mipmap/cai_dat"
         android:title="Cài đặt và quyền riêng tư" />
+
 
 </menu>
