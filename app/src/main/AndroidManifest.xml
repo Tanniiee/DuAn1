@@ -22,6 +22,9 @@
             android:name=".Activity.Screen_TaoMatKhau"
             android:exported="false" />
         <activity
+            android:name=".Activity.Screen_GioiTinh"
+            android:exported="false" />
+        <activity
             android:name=".Activity.Screen_mail"
             android:exported="false" />
         <activity
@@ -31,10 +34,10 @@
             android:name=".Activity.Sreen_Chao"
             android:exported="false" />     
          <activity
-            android:name=".Activity.TRANGCHU"
+            android:name=".Activity.Screen_Ngay"
             android:exported="false" />
         <activity
-            android:name=".Activity.Screen_Ngay"
+            android:name=".Activity.TRANGCHU"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
