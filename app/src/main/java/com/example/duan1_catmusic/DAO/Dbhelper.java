@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class Dbhelper extends SQLiteOpenHelper {
 
     public Dbhelper(Context context){
-        super(context,"music",null,1);
+        super(context,"music",null,2);
     }
 
     @Override
@@ -39,7 +39,7 @@ public class Dbhelper extends SQLiteOpenHelper {
 
 
         //TheLoai
-        String QuanLyTheLoai = "CREATE TABLE TheLoai(MaLoai TEXT PRIMARY KEY, TenLoai TEXT)";
+        String QuanLyTheLoai = "CREATE TABLE TheLoai(MaLoai TEXT PRIMARY KEY, TenLoai TEXT, MauLoai TEXT)";
         sqLiteDatabase.execSQL(QuanLyTheLoai);
 
 
@@ -49,7 +49,7 @@ public class Dbhelper extends SQLiteOpenHelper {
 
 
         //CaSi
-        String QuanLyCaSi = "CREATE TABLE CaSi(MaCaSi TEXT PRIMARY KEY, TenCaSi TEXT, QueQuan TEXT, NamSinh TEXT)";
+        String QuanLyCaSi = "CREATE TABLE CaSi(MaCaSi TEXT PRIMARY KEY, TenCaSi TEXT, QueQuan TEXT, NamSinh TEXT, HinhCasi TEXT)";
         sqLiteDatabase.execSQL(QuanLyCaSi);
 
 
