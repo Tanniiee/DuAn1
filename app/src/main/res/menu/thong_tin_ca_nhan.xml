@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/themtk"
+        android:icon="@mipmap/them"
+        android:title="Thêm tài khoản"
+        android:checked="true" />
+    <item
+        android:id="@+id/thong_tin_moi"
+        android:icon="@mipmap/thong_tin_moi"
+        android:title="Thông tin mới" />
+    <item
+        android:id="@+id/Noi_dung_da_nghe"
+        android:icon="@mipmap/noi_dung_da_nghe"
+        android:title="Nội dung đã nghe" />
+    <item
+        android:id="@+id/cai_dat"
+        android:icon="@mipmap/cai_dat"
+        android:title="Cài đặt và quyền riêng tư" />
+
+
+</menu>
