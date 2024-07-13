@@ -6,4 +6,15 @@
     </style>
 
     <style name="Theme.DuAn1_CatMusic" parent="Base.Theme.DuAn1_CatMusic" />
+
+    <!-- Base application theme -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="bottomNavigationStyle">@style/Widget.BottomNavigationView.Custom</item>
+    </style>
+
+    <style name="Widget.BottomNavigationView.Custom" parent="Widget.Design.BottomNavigationView">
+        <item name="itemBackground">@drawable/item_bg</item>
+    </style>
+
 </resources>
