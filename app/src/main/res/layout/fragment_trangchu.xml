@@ -1,18 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg"
-    tools:context=".fragment.Trangchu_fm">
+    tools:context=".fragment.Trangchu_fm"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp">
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:text="Nhạc"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:backgroundTint="#4CAF50"/>
+
+        <Button
+            android:layout_width="140dp"
+            android:layout_height="60dp"
+            android:text="Podcasts"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:backgroundTint="#080809"
+            android:layout_marginLeft="10dp"/>
+
+    </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="TRANG CHỦ"
-        android:textStyle="bold"
-        android:textSize="32sp"
+        android:layout_height="wrap_content"
+        android:text="Nghệ sĩ Bạn Yêu Thích"
         android:textColor="@color/white"
-        android:gravity="center"/>
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"/>
 
-</FrameLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvnghesi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:padding="10dp"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hãy Thử Cách Khác"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvtop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:padding="10dp"
+        android:layout_marginLeft="10dp"/>
+
+
+
+
+
+
+</LinearLayout>
