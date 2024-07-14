@@ -1,4 +1,4 @@
-package com.example.duan1_catmusic.DAO;
+package com.example.duan1_catmusic.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
