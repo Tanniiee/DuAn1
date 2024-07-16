@@ -36,9 +36,10 @@ public class Screen_NhapTTDangnhap extends AppCompatActivity {
 
                 boolean check = nguoiDungDAO.KiemTraDangNhap(namemail, MatKhau);
                 if (check) {
-                    startActivity(new Intent(Screen_NhapTTDangnhap.this, Trangchu_fm.class));
+                    Intent intent = new Intent(Screen_NhapTTDangnhap.this, TRANGCHU.class);
+                    startActivity(intent);
                 } else {
-                    Toast.makeText(Screen_NhapTTDangnhap.this, "Nhập user name, email hoặc mật khẩu sai ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Screen_NhapTTDangnhap.this, "Nhập user name, email hoặc mật khẩu sai", Toast.LENGTH_SHORT).show();
                 }
             }
         });

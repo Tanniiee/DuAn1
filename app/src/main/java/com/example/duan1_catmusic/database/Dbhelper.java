@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class Dbhelper extends SQLiteOpenHelper {
 
     public Dbhelper(Context context){
-        super(context,"music",null,2);
+        super(context,"music",null,3);
     }
 
     @Override
@@ -116,7 +116,7 @@ public class Dbhelper extends SQLiteOpenHelper {
         // 2 la admin
         String insertUser1 = "INSERT INTO User (MaUser, TenUser, Gmail, MatKhau, GioiTinh, NamSinh, DiaChi, role) " +
                 "VALUES ('U1', 'Đặng Thị Thu Thảo', 'tannie1101999@gmail.com', '123456', 'Nữ', '1999', 'Vĩnh Long', 1)";
-        String insertUser2 = "INSERT INTO User (MaUser, TenUser, Gmail, GioiTinh, NamSinh, DiaChi, role) " +
+        String insertUser2 = "INSERT INTO User (MaUser, TenUser, Gmail, MatKhau, GioiTinh, NamSinh, DiaChi, role) " +
                 "VALUES ('U2', 'Nguyễn Công Thành', 'congthanhnguyen041199@gmail.com','123456', 'Nam', '1999', 'Vũng Tàu', 2)";
         sqLiteDatabase.execSQL(insertUser1);
         sqLiteDatabase.execSQL(insertUser2);
