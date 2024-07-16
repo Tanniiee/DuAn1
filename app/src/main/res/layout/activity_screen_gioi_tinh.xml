@@ -118,7 +118,14 @@
 
 
     </LinearLayout>
-
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tiếp"
+        android:background="@drawable/btn_xac_nhan"
+        app:backgroundTint="@null"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"/>
 
 
 </LinearLayout>

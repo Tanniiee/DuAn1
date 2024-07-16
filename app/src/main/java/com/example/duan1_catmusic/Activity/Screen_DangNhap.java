@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,14 +19,9 @@ public class Screen_DangNhap extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.gd_dang_nhap);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
 
+        TextView btn_dn = findViewById(R.id.btn_dn);
         Button btn_dk = findViewById(R.id.btn_dangky);
 
         btn_dk.setOnClickListener(new View.OnClickListener() {
@@ -35,5 +31,13 @@ public class Screen_DangNhap extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        btn_dn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Screen_DangNhap.this, Screen_NhapTTDangnhap.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }
