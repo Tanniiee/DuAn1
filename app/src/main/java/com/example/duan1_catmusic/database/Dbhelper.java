@@ -53,9 +53,11 @@ public class Dbhelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(QuanLyCaSi);
 
 
+
         //LoiNhac
         String QuanLyLoiNhac = "CREATE TABLE LoiNhac(MaLoi TEXT PRIMARY KEY, TenLoi TEXT)";
         sqLiteDatabase.execSQL(QuanLyLoiNhac);
+
     }
 
     @Override
