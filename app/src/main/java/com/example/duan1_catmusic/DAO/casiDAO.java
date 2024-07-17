@@ -18,7 +18,7 @@ public class casiDAO {
 
 
 
-    public ArrayList<casi> getDSLoaiSach(){
+    public ArrayList<casi> getcasi(){
         ArrayList<casi> list = new ArrayList<>();
         SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM CaSi", null);
