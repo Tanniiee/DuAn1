@@ -5,4 +5,21 @@
     <color name="bg">#40454E</color>
     <color name="item_bg">#1C1C1E</color>
 
+
+    //random màu
+
+    <color name="random1">#00FF00</color>
+    <color name="random2">#00FA9A</color>
+    <color name="random3">#00CED1</color>
+    <color name="random4">#00BFFF</color>
+    <color name="random5">#008B8B</color>
+    <color name="random6">#008080</color>
+    <color name="random7">#008000</color>
+    <color name="random8">#006400</color>
+    <color name="random9">#0000FF</color>
+    <color name="random10">#0000CD</color>
+    <color name="random11">#00008B</color>
+    <color name="random12">#000080</color>
+    <color name="random13">#000000</color>
+
 </resources>
