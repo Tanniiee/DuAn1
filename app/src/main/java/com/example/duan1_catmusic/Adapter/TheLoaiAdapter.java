@@ -62,7 +62,14 @@ public class TheLoaiAdapter extends RecyclerView.Adapter<TheLoaiAdapter.ViewHode
         colorList.add(R.color.random6);
         colorList.add(R.color.random7);
         colorList.add(R.color.random8);
-        colorList.add(R.color.random9);
+        colorList.add(R.color.random10);
+        colorList.add(R.color.random11);
+        colorList.add(R.color.random12);
+        colorList.add(R.color.random13);
+        colorList.add(R.color.random14);
+        colorList.add(R.color.random15);
+        colorList.add(R.color.random16);
+        colorList.add(R.color.random17);
 
 
         Random random = new Random();
