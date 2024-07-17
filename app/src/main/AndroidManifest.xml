@@ -13,10 +13,11 @@
         android:theme="@style/Theme.DuAn1_CatMusic"
         tools:targetApi="31">
         <activity
+            android:name=".Activity.Screen_Next"
+            android:exported="false" />
+        <activity
             android:name=".Activity.TrangchuAdmin"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".Activity.Screen_DnKMK"
             android:exported="false" />
@@ -25,15 +26,12 @@
             android:exported="false" />
         <activity
             android:name=".Activity.TRANGCHU"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
-
         </activity>
         <activity
             android:name=".Activity.Screen_Chon5NgheSi"
@@ -52,9 +50,7 @@
             android:exported="false" />
         <activity
             android:name=".Activity.Sreen_Chao"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>
