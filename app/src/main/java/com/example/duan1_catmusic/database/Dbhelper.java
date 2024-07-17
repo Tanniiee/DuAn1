@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class Dbhelper extends SQLiteOpenHelper {
 
     public Dbhelper(Context context){
-        super(context,"music",null,3);
+        super(context,"music",null,4);
     }
 
     @Override
@@ -76,8 +76,22 @@ public class Dbhelper extends SQLiteOpenHelper {
                 "VALUES ('L1', 'Pop', 'Red')";
         String insertTheLoai2 = "INSERT INTO TheLoai (MaLoai, TenLoai, MauTheLoai) " +
                 "VALUES ('L2', 'Rock', 'Blue')";
+        String insertTheLoai3 = "INSERT INTO TheLoai (MaLoai, TenLoai, MauTheLoai) " +
+                "VALUES ('L3', 'Nhạc', 'Blue')";
+        String insertTheLoai4 = "INSERT INTO TheLoai (MaLoai, TenLoai, MauTheLoai) " +
+                "VALUES ('L4', 'Sự Kiện Trực Tiếp', 'Blue')";
+        String insertTheLoai5 = "INSERT INTO TheLoai (MaLoai, TenLoai, MauTheLoai) " +
+                "VALUES ('L5', 'Dành cho bạn', 'Blue')";
+        String insertTheLoai6 = "INSERT INTO TheLoai (MaLoai, TenLoai, MauTheLoai) " +
+                "VALUES ('L6', 'Nhạc Việt', 'Blue')";
+
+
         sqLiteDatabase.execSQL(insertTheLoai1);
         sqLiteDatabase.execSQL(insertTheLoai2);
+        sqLiteDatabase.execSQL(insertTheLoai3);
+        sqLiteDatabase.execSQL(insertTheLoai4);
+        sqLiteDatabase.execSQL(insertTheLoai5);
+        sqLiteDatabase.execSQL(insertTheLoai6);
 
         // Insert sample data into TacGia
         String insertTacGia1 = "INSERT INTO TacGia (MaTacGia, TenTacGia, NamSinh, QueQuan) " +

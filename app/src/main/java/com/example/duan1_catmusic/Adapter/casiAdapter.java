@@ -15,6 +15,7 @@ import com.example.duan1_catmusic.R;
 import com.example.duan1_catmusic.model.casi;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class casiAdapter extends RecyclerView.Adapter<casiAdapter.ViewHoder>{
 
@@ -48,6 +49,7 @@ public class casiAdapter extends RecyclerView.Adapter<casiAdapter.ViewHoder>{
     public int getItemCount() {
         return list.size();
     }
+
 
 
     public class ViewHoder extends RecyclerView.ViewHolder {

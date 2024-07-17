@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 
 import com.example.duan1_catmusic.Adapter.casiAdapter;
 import com.example.duan1_catmusic.DAO.casiDAO;
@@ -29,6 +30,8 @@ public class Trangchu_fm extends Fragment {
         View view = inflater.inflate(R.layout.fragment_trangchu, container, false);
 
         rcvnghesi = view.findViewById(R.id.rcvnghesi);
+
+
         casiDAO  =new casiDAO(getContext());
 
         ArrayList<casi> list = casiDAO.getcasi();

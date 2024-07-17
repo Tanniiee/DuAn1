@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginLeft="5dp"
+    android:layout_marginBottom="20dp"   >
+
+    <LinearLayout
+        android:layout_width="180dp"
+        android:layout_height="130dp"
+        android:backgroundTint="#673AB7"
+        android:background="@drawable/custom_theloai"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nhạc"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            />
+        
+    </LinearLayout>
+
+</LinearLayout>
