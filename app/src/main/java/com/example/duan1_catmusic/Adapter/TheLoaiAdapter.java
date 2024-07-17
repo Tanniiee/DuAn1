@@ -1,5 +1,6 @@
 package com.example.duan1_catmusic.Adapter;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duan1_catmusic.R;
@@ -17,8 +19,12 @@ import com.example.duan1_catmusic.model.TheLoai;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class TheLoaiAdapter extends RecyclerView.Adapter<TheLoaiAdapter.ViewHoder> implements Filterable {
+
+
+
 
 
     private Context context;
@@ -39,10 +45,30 @@ public class TheLoaiAdapter extends RecyclerView.Adapter<TheLoaiAdapter.ViewHode
 
         return new ViewHoder(view);
     }
-
+    @SuppressLint({"RecyclerView", "NewApi"})
     @Override
     public void onBindViewHolder(@NonNull TheLoaiAdapter.ViewHoder holder, int position) {
         holder.name.setText(list.get(position).getTenLoai());
+        holder.card.setCardBackgroundColor(holder.itemView.getResources().getColor(getRandomColor(),null));
+    }
+
+    private int getRandomColor(){
+        List<Integer> colorList = new ArrayList<>();
+        colorList.add(R.color.random1);
+        colorList.add(R.color.random2);
+        colorList.add(R.color.random3);
+        colorList.add(R.color.random4);
+        colorList.add(R.color.random5);
+        colorList.add(R.color.random6);
+        colorList.add(R.color.random7);
+        colorList.add(R.color.random8);
+        colorList.add(R.color.random9);
+
+
+        Random random = new Random();
+        int number = random.nextInt(colorList.size());
+
+        return colorList.get(number);
     }
 
     @Override
@@ -57,13 +83,14 @@ public class TheLoaiAdapter extends RecyclerView.Adapter<TheLoaiAdapter.ViewHode
         // khai bao cac component co o trong item
 
         TextView name;
-
+        CardView card;
 
         public ViewHoder(@NonNull View itemView) {
             super(itemView);
 
             // anh xa
             name = itemView.findViewById(R.id.name);
+            card = itemView.findViewById(R.id.card);
 
         }
 
