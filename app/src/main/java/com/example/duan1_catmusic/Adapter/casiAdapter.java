@@ -5,6 +5,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -43,6 +44,7 @@ public class casiAdapter extends RecyclerView.Adapter<casiAdapter.ViewHoder>{
         holder.ten.setText(list.get(position).getTenCaSi());
 
 
+
     }
 
     @Override
@@ -57,7 +59,7 @@ public class casiAdapter extends RecyclerView.Adapter<casiAdapter.ViewHoder>{
         // khai bao cac component co o trong item
 
         TextView name , ten;
-        LinearLayout backgroundcasi;
+        ImageView backgroundcasi;
 
         public ViewHoder(@NonNull View itemView) {
             super(itemView);
@@ -67,6 +69,7 @@ public class casiAdapter extends RecyclerView.Adapter<casiAdapter.ViewHoder>{
             name = itemView.findViewById(R.id.name);
             ten = itemView.findViewById(R.id.ten);
             backgroundcasi = itemView.findViewById(R.id.backgroundcasi);
+
         }
 
 

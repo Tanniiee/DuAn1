@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class Dbhelper extends SQLiteOpenHelper {
 
     public Dbhelper(Context context){
-        super(context,"music",null,4);
+        super(context,"music",null,8);
     }
 
     @Override
@@ -103,11 +103,29 @@ public class Dbhelper extends SQLiteOpenHelper {
 
         // Insert sample data into CaSi
         String insertCaSi1 = "INSERT INTO CaSi (MaCaSi, TenCaSi, QueQuan, NamSinh, HinhCaSi) " +
-                "VALUES ('CS1', 'Son Tung M-TP', 'Thai Binh', '1994', 'son_tung.jpg')";
+                "VALUES ('CS1', 'Black Pink', 'Hàn Quốc', '2016', 'blackpink')";
         String insertCaSi2 = "INSERT INTO CaSi (MaCaSi, TenCaSi, QueQuan, NamSinh, HinhCaSi) " +
-                "VALUES ('CS2', 'My Tam', 'Da Nang', '1981', 'my_tam.jpg')";
+                "VALUES ('CS2', 'Jennie', 'Hàn Quốc', '1996', 'jenni')";
+        String insertCaSi3 = "INSERT INTO CaSi (MaCaSi, TenCaSi, QueQuan, NamSinh, HinhCaSi) " +
+                "VALUES ('CS3', 'Jiso', 'Hàn Quốc', '1995', 'jiso')";
+        String insertCaSi4 = "INSERT INTO CaSi (MaCaSi, TenCaSi, QueQuan, NamSinh, HinhCaSi) " +
+                "VALUES ('CS4', 'Jungkook', 'Hàn Quốc', '1995', 'jungkook')";
+        String insertCaSi5 = "INSERT INTO CaSi (MaCaSi, TenCaSi, QueQuan, NamSinh, HinhCaSi) " +
+                "VALUES ('CS5', 'Lisa', 'Thái Lan', '1997', 'lisa')";
+        String insertCaSi6 = "INSERT INTO CaSi (MaCaSi, TenCaSi, QueQuan, NamSinh, HinhCaSi) " +
+                "VALUES ('CS6', 'Rosé', 'Úc', '1997', 'rose')";
+        String insertCaSi7 = "INSERT INTO CaSi (MaCaSi, TenCaSi, QueQuan, NamSinh, HinhCaSi) " +
+                "VALUES ('CS7', 'Rosé', 'Úc', '1997', 'rose')";
+        String insertCaSi8 = "INSERT INTO CaSi (MaCaSi, TenCaSi, QueQuan, NamSinh, HinhCaSi) " +
+                "VALUES ('CS8', 'V-BTS', 'Hàn Quốc', '1994', 'v')";
         sqLiteDatabase.execSQL(insertCaSi1);
         sqLiteDatabase.execSQL(insertCaSi2);
+        sqLiteDatabase.execSQL(insertCaSi3);
+        sqLiteDatabase.execSQL(insertCaSi4);
+        sqLiteDatabase.execSQL(insertCaSi5);
+        sqLiteDatabase.execSQL(insertCaSi6);
+        sqLiteDatabase.execSQL(insertCaSi7);
+        sqLiteDatabase.execSQL(insertCaSi8);
 
         // Insert sample data into LoiNhac
         String insertLoiNhac1 = "INSERT INTO LoiNhac (MaLoi, TenLoi) " +
@@ -122,8 +140,17 @@ public class Dbhelper extends SQLiteOpenHelper {
                 "VALUES ('N1', 'Bai Hat 1', 'L1', 'TG1', 'CS1', 'Loi1')";
         String insertNhac2 = "INSERT INTO Nhac (MaNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi) " +
                 "VALUES ('N2', 'Bai Hat 2', 'L2', 'TG2', 'CS2', 'Loi2')";
+        String insertNhac3 = "INSERT INTO Nhac (MaNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi) " +
+                "VALUES ('N3', 'Bai Hat 2', 'L2', 'TG2', 'CS3', 'Loi2')";
+        String insertNhac4 = "INSERT INTO Nhac (MaNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi) " +
+                "VALUES ('N4', 'Bai Hat 2', 'L2', 'TG2', 'CS4', 'Loi2')";
+        String insertNhac5 = "INSERT INTO Nhac (MaNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi) " +
+                "VALUES ('N5', 'Bai Hat 2', 'L2', 'TG2', 'CS5', 'Loi2')";
         sqLiteDatabase.execSQL(insertNhac1);
         sqLiteDatabase.execSQL(insertNhac2);
+        sqLiteDatabase.execSQL(insertNhac3);
+        sqLiteDatabase.execSQL(insertNhac4);
+        sqLiteDatabase.execSQL(insertNhac5);
 
         // Insert sample data into User
         // 1 la user
