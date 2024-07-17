@@ -1,6 +1,8 @@
 package com.example.duan1_catmusic.model;
 
-public class TheLoai {
+import java.io.Serializable;
+
+public class TheLoai implements Serializable {
 
     private int MaLoai;
 

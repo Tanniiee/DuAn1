@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -11,6 +11,7 @@
     android:background="#40454E">
 
     <TextView
+        android:id="@+id/chon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Chọn 5 nghệ sĩ bạn yêu thích."
@@ -21,7 +22,7 @@
     android:layout_width="match_parent"
     android:layout_height="45sp"
     android:orientation="horizontal"
-    android:layout_marginTop="30sp"
+    android:layout_marginTop="50sp"
     android:background="@color/white">
 
     <SearchView
@@ -29,7 +30,7 @@
         android:layout_height="wrap_content"/>
 
     <com.google.android.material.textfield.TextInputEditText
-        android:layout_width="290sp"
+        android:layout_width="275dp"
         android:layout_height="wrap_content"
         android:hint="Tìm kiếm"
         android:textColorHint="@color/black"
@@ -46,8 +47,24 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcViewchon5NgheSi"
-        android:layout_marginTop="40sp"
+        android:layout_marginTop="130sp"
         android:layout_width="match_parent"
+        android:layout_gravity="center"
         android:layout_height="wrap_content"/>
 
-</LinearLayout>
+    <Button
+        android:id="@+id/btn_chon_tiep"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:background="@drawable/btn_xac_nhan"
+        app:backgroundTint="@null"
+        android:layout_gravity="center"
+        android:text="Tiếp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:layout_marginTop="10dp"/>
+
+</RelativeLayout>
