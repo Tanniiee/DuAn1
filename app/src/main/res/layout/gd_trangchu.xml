@@ -27,7 +27,7 @@
             android:layout_marginHorizontal="10dp"
             android:elevation="5dp"
             android:translationZ="10px"
-            app:cardCornerRadius="40dp">
+            app:cardCornerRadius="10dp">
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
