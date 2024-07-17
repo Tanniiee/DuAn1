@@ -1,6 +1,8 @@
 package com.example.duan1_catmusic.model;
 
-public class casi {
+import java.io.Serializable;
+
+public class casi implements Serializable {
 
     private int MaCaSi;
 

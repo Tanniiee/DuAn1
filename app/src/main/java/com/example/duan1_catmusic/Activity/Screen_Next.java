@@ -1,26 +1,37 @@
 package com.example.duan1_catmusic.Activity;
 
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
 import com.example.duan1_catmusic.R;
+import java.util.ArrayList;
 
 public class Screen_Next extends AppCompatActivity {
+
+    private ImageView ivHinhCasi1, ivHinhCasi2, ivHinhCasi3, ivHinhCasi4, ivHinhCasi5;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_screen_next);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
+        ivHinhCasi1 = findViewById(R.id.ivHinhCasi1);
+        ivHinhCasi2 = findViewById(R.id.ivHinhCasi2);
+        ivHinhCasi3 = findViewById(R.id.ivHinhCasi3);
+        ivHinhCasi4 = findViewById(R.id.ivHinhCasi4);
+        ivHinhCasi5 = findViewById(R.id.ivHinhCasi5);
+
+        ArrayList<String> selectedArtistIds = getIntent().getStringArrayListExtra("selectedArtistIds");
+
+        if (selectedArtistIds != null && selectedArtistIds.size() == 5) {
+            ivHinhCasi1.setImageResource(getResources().getIdentifier(selectedArtistIds.get(0), "drawable", getPackageName()));
+            ivHinhCasi2.setImageResource(getResources().getIdentifier(selectedArtistIds.get(1), "drawable", getPackageName()));
+            ivHinhCasi3.setImageResource(getResources().getIdentifier(selectedArtistIds.get(2), "drawable", getPackageName()));
+            ivHinhCasi4.setImageResource(getResources().getIdentifier(selectedArtistIds.get(3), "drawable", getPackageName()));
+            ivHinhCasi5.setImageResource(getResources().getIdentifier(selectedArtistIds.get(4), "drawable", getPackageName()));
+        }
     }
 }
