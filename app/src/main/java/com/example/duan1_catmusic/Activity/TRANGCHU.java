@@ -1,8 +1,11 @@
 package com.example.duan1_catmusic.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.FrameLayout;
 
 import androidx.activity.EdgeToEdge;
@@ -33,6 +36,7 @@ public class TRANGCHU extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gd_trangchu);
+        Button btnnhac = findViewById(R.id.btnnhac);
 
         bottomNavigationView = findViewById(R.id.bottom_nav_view);
         frameLayout = findViewById(R.id.frameLayout);
@@ -40,6 +44,13 @@ public class TRANGCHU extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        btnnhac.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TRANGCHU.this, Screen_listening_music.class);
+                startActivity(intent);
+            }
+        });
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
