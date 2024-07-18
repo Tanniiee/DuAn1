@@ -9,68 +9,99 @@
     android:orientation="vertical"
     android:background="@color/bg">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-        <ImageView
-            android:id="@+id/back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/icon_back"
-            android:layout_marginLeft="25dp"/>
-        <TextView
-
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="NHẠC"
-            android:textSize="25sp"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:paddingRight="25dp"/>
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp">
+
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_back"
+                    android:layout_marginLeft="25dp"/>
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="NHẠC"
+                    android:textSize="25sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:paddingRight="25dp"/>
 
 
-    </LinearLayout>
+            </LinearLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Khám phá âm nhạc mới"
-        android:textSize="20sp"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_marginTop="50dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Khám phá âm nhạc mới"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginTop="50dp"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcvlist1"
-        android:layout_width="wrap_content"
-        android:layout_height="216dp"
-        android:layout_marginTop="15dp"
-        android:clipToPadding="false"
-        android:padding="10dp"
-        tools:listitem="@layout/item_nhac" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Danh sách phát do biên tập viên chọn"
-        android:textSize="20sp"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_marginTop="15dp"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvlist1"
+                android:layout_width="wrap_content"
+                android:layout_height="216dp"
+                android:layout_marginTop="15dp"
+                android:clipToPadding="false"
+                android:padding="10dp"
+                tools:listitem="@layout/item_nhac" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Danh sách phát do biên tập viên chọn"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginTop="15dp"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcvlist"
-        android:layout_width="wrap_content"
-        android:layout_height="216dp"
-        android:clipToPadding="false"
-        android:padding="10dp"
-        android:layout_marginTop="15dp"
-        tools:listitem="@layout/item_nhac"
-        />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvlist"
+                android:layout_width="wrap_content"
+                android:layout_height="216dp"
+                android:clipToPadding="false"
+                android:padding="10dp"
+                android:layout_marginTop="15dp"
+                tools:listitem="@layout/item_nhac"
+                />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lựa chọn khác"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginTop="15dp"/>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvtheloai"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:padding="10dp"
+                tools:listitem="@layout/item_theloai" />
+        </LinearLayout>
+
+
+    </ScrollView>
 
 </LinearLayout>
