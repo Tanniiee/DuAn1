@@ -8,7 +8,7 @@ public class Dbhelper extends SQLiteOpenHelper {
 
     public Dbhelper(Context context){
 
-        super(context,"music",null,10);
+        super(context,"music",null,11);
     }
 
     @Override
@@ -169,11 +169,11 @@ public class Dbhelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(insertPlayList2);
 
         // Insert sample data into DanhSachPlaylist
-        String insertDanhSachPlaylist1 = "INSERT INTO DanhSachPlaylist (MaDanhSachPlayList, MaNhac,TenDSPlaylist,HINH) VALUES ('DSP1', 'N1','New music Friday VN','album1.jpg')";
-        String insertDanhSachPlaylist2 = "INSERT INTO DanhSachPlaylist (MaDanhSachPlayList, MaNhac,TenDSPlaylist,HINH) VALUES ('DSP2', 'N2','Discover Weekly','album2.jpg')";
-        String insertDanhSachPlaylist3 = "INSERT INTO DanhSachPlaylist (MaDanhSachPlayList, MaNhac,TenDSPlaylist,HINH) VALUES ('DSP3', 'N3','Mới Ra Lò','album3.jpg')";
-        String insertDanhSachPlaylist4 = "INSERT INTO DanhSachPlaylist (MaDanhSachPlayList, MaNhac,TenDSPlaylist,HINH) VALUES ('DSP4', 'N4','Đẳng Cấp','album4.jpg')";
-        String insertDanhSachPlaylist5 = "INSERT INTO DanhSachPlaylist (MaDanhSachPlayList, MaNhac,TenDSPlaylist,HINH) VALUES ('DSP5', 'N5','Yêu Thích','album5.jpg')";
+        String insertDanhSachPlaylist1 = "INSERT INTO DanhSachPlaylist (MaDanhSachPlayList, MaNhac,TenDSPlaylist,HINH) VALUES ('DSP1', 'N1','New music Friday VN','album1')";
+        String insertDanhSachPlaylist2 = "INSERT INTO DanhSachPlaylist (MaDanhSachPlayList, MaNhac,TenDSPlaylist,HINH) VALUES ('DSP2', 'N2','Discover Weekly','album2')";
+        String insertDanhSachPlaylist3 = "INSERT INTO DanhSachPlaylist (MaDanhSachPlayList, MaNhac,TenDSPlaylist,HINH) VALUES ('DSP3', 'N3','Mới Ra Lò','album3')";
+        String insertDanhSachPlaylist4 = "INSERT INTO DanhSachPlaylist (MaDanhSachPlayList, MaNhac,TenDSPlaylist,HINH) VALUES ('DSP4', 'N4','Đẳng Cấp','album4')";
+        String insertDanhSachPlaylist5 = "INSERT INTO DanhSachPlaylist (MaDanhSachPlayList, MaNhac,TenDSPlaylist,HINH) VALUES ('DSP5', 'N5','Yêu Thích','album5')";
         sqLiteDatabase.execSQL(insertDanhSachPlaylist1);
         sqLiteDatabase.execSQL(insertDanhSachPlaylist2);
         sqLiteDatabase.execSQL(insertDanhSachPlaylist3);
