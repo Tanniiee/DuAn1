@@ -1,18 +1,220 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg"
-    tools:context=".fragment.Thuvien_fm">
+    android:orientation="vertical"
+    >
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="THƯ VIỆN"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:textSize="32sp"
-        android:gravity="center"/>
+        android:orientation="vertical"
+        android:background="@color/bg"
+        android:paddingHorizontal="10dp">
 
-</FrameLayout>
+        <RelativeLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="5dp"
+            >
+            <ImageView
+                android:id="@+id/img_account"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@mipmap/lasi"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thư viện"
+                android:layout_toEndOf="@id/img_account"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_marginStart="10dp"
+                android:layout_centerVertical="true"/>
+            <ImageView
+                android:id="@+id/ico_add"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@mipmap/add"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"/>
+            <ImageView
+                android:id="@+id/ico_search"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@mipmap/tim_kiem"
+                android:layout_toStartOf="@id/ico_add"
+                android:layout_marginEnd="5dp"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/all"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="Tất cả"
+                android:textStyle="bold"
+                android:layout_marginEnd="7dp"
+                android:backgroundTint="@color/green"/>
+            <Button
+                android:id="@+id/playlist"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="Danh sách phát"
+                android:textStyle="bold"
+                android:layout_toEndOf="@id/all"
+                android:layout_marginEnd="7dp"
+                android:backgroundTint="@color/darkgray"/>
+            <Button
+                android:id="@+id/artist"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="Nghệ sĩ"
+                android:textStyle="bold"
+                android:layout_toEndOf="@id/playlist"
+                android:backgroundTint="@color/darkgray"/>
+        </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Duyệt tìm tất cả"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginVertical="10dp"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/img_song"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@mipmap/tim"
+                android:layout_marginEnd="10dp"/>
+            <TextView
+                android:id="@+id/songtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bài hát đã thích"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_toEndOf="@id/img_song"
+                android:layout_marginTop="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Danh sách phát - 1 bài hát"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/songtitle"
+                android:layout_toEndOf="@id/img_song" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+            <ImageView
+                android:id="@+id/img_podcast"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:src="@mipmap/bg_purple"
+                android:layout_marginEnd="10dp"/>
+            <TextView
+                android:id="@+id/podcasttitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bài hát đã thích"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_toEndOf="@id/img_podcast"
+                android:layout_marginTop="15dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Các tập đã lưu và tải xuống"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:layout_marginTop="7dp"
+                android:layout_below="@id/podcasttitle"
+                android:layout_toEndOf="@id/img_podcast" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+            <ImageView
+                android:id="@+id/img_artist"
+                android:layout_width="100dp"
+                android:layout_height="66.6dp"
+                android:src="@mipmap/abc"
+                android:layout_marginEnd="10dp"/>
+
+            <TextView
+                android:id="@+id/artisttitle"
+                android:layout_width="96dp"
+                android:layout_height="26dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@id/img_artist"
+                android:text="Bùi Anh Tuấn"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nghệ sĩ"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+
+                android:layout_below="@id/artisttitle"
+                android:layout_toEndOf="@id/img_artist" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+            <ImageView
+                android:id="@+id/img_artist"
+                android:layout_width="100dp"
+                android:layout_height="66.6dp"
+                android:src="@mipmap/img_1"
+                android:layout_marginEnd="10dp"/>
+
+            <TextView
+                android:id="@+id/artisttitle"
+                android:layout_width="96dp"
+                android:layout_height="26dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@id/img_artist"
+                android:text="Ha Anh Tuấn"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nghệ sĩ"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+
+                android:layout_below="@id/artisttitle"
+                android:layout_toEndOf="@id/img_artist" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
