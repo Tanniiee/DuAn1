@@ -210,7 +210,9 @@
 
                 android:layout_below="@id/artisttitle"
                 android:layout_toEndOf="@id/img_artist" />
+
         </RelativeLayout>
+
 
     </LinearLayout>
 
