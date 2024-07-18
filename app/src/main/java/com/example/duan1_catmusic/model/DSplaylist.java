@@ -13,11 +13,11 @@ public class DSplaylist implements Serializable {
     private String HINH;
 
 
-    public DSplaylist(String maDanhSachPlayList, String HINH, String tenDSPlaylist, String maNhac) {
+    public DSplaylist(String maDanhSachPlayList, String maNhac, String tenDSPlaylist, String HINH) {
         MaDanhSachPlayList = maDanhSachPlayList;
-        this.HINH = HINH;
-        TenDSPlaylist = tenDSPlaylist;
         MaNhac = maNhac;
+        TenDSPlaylist = tenDSPlaylist;
+        this.HINH = HINH;
     }
 
     public String getMaDanhSachPlayList() {
