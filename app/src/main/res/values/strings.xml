@@ -6,4 +6,9 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="_29_500_3_th_ng">29,500đ/3 tháng</string>
+    <string name="_29_500_cho_3_th_ng">29,500đ cho 3 tháng</string>
+    <string name="sau_l_59_000_th_ng">Sau đó là 59,000đ/tháng</string>
+    <string name="_29_500_2_th_ng">29,500đ/2 tháng</string>
+    <string name="_29_500_cho_2_th_ng">29,500đ cho 2 tháng</string>
 </resources>
