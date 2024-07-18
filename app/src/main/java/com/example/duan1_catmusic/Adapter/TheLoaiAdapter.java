@@ -3,6 +3,7 @@ package com.example.duan1_catmusic.Adapter;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.duan1_catmusic.Activity.Screen_nhacTheotheloai;
 import com.example.duan1_catmusic.R;
 import com.example.duan1_catmusic.model.TheLoai;
 
@@ -50,6 +52,14 @@ public class TheLoaiAdapter extends RecyclerView.Adapter<TheLoaiAdapter.ViewHode
     public void onBindViewHolder(@NonNull TheLoaiAdapter.ViewHoder holder, int position) {
         holder.name.setText(list.get(position).getTenLoai());
         holder.card.setCardBackgroundColor(holder.itemView.getResources().getColor(getRandomColor(),null));
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, Screen_nhacTheotheloai.class);
+                context.startActivity(intent);
+            }
+        });
     }
 
     private int getRandomColor(){
