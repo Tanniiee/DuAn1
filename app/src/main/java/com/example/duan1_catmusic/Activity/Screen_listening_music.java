@@ -1,15 +1,15 @@
 package com.example.duan1_catmusic.Activity;
 
+import android.animation.ObjectAnimator;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
+import android.view.animation.LinearInterpolator;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.duan1_catmusic.R;
 
@@ -18,6 +18,8 @@ public class Screen_listening_music extends AppCompatActivity {
     private SeekBar seekBar;
     private MediaPlayer mediaPlayer;
     private Handler handler = new Handler();
+    private ImageView imgDia;
+    private ObjectAnimator animator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,14 +27,21 @@ public class Screen_listening_music extends AppCompatActivity {
         setContentView(R.layout.activity_screen_listening_music);
 
         seekBar = findViewById(R.id.seekBar);
+        imgDia = findViewById(R.id.img_dia);
         mediaPlayer = MediaPlayer.create(this, R.raw.musictest);
-
         seekBar.setMax(mediaPlayer.getDuration());
+
+        animator = ObjectAnimator.ofFloat(imgDia, "rotation", 0f, 360f);
+        animator.setDuration(7000); // Duration of one full rotation in milliseconds
+        animator.setInterpolator(new LinearInterpolator());
+        animator.setRepeatCount(ObjectAnimator.INFINITE);
+        animator.setRepeatMode(ObjectAnimator.RESTART);
 
         mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mp) {
                 mediaPlayer.start();
+                animator.start();
                 updateSeekBar();
             }
         });
@@ -73,5 +82,8 @@ public class Screen_listening_music extends AppCompatActivity {
             mediaPlayer = null;
         }
         handler.removeCallbacks(runnable);
+        if (animator != null) {
+            animator.cancel();
+        }
     }
 }
