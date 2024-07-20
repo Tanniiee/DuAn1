@@ -224,7 +224,7 @@
                     android:text="Individual"
                     android:textStyle="bold"
                     android:textSize="20sp"
-                    android:textColor="#F7C2B2"
+                    android:textColor="#4B0082"
                     android:layout_marginLeft="10dp" />
 
                 <TextView
@@ -387,7 +387,7 @@
                     android:text="Student"
                     android:textStyle="bold"
                     android:textSize="20sp"
-                    android:textColor="#F7C2B2"
+                    android:textColor="#4B0082"
                     android:layout_marginLeft="10dp"/>
                 <TextView
 
