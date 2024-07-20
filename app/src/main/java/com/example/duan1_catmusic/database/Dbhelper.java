@@ -99,8 +99,11 @@ public class Dbhelper extends SQLiteOpenHelper {
                 "VALUES ('TG1', 'Nguyen Nhat Anh', '1955', 'Quang Nam')";
         String insertTacGia2 = "INSERT INTO TacGia (MaTacGia, TenTacGia, NamSinh, QueQuan) " +
                 "VALUES ('TG2', 'To Huu', '1920', 'Thua Thien Hue')";
+        String insertTacGia3 = "INSERT INTO TacGia (MaTacGia, TenTacGia, NamSinh, QueQuan) " +
+                "VALUES ('TG3', 'Taylor Swift', '1989', 'USA')";
         sqLiteDatabase.execSQL(insertTacGia1);
         sqLiteDatabase.execSQL(insertTacGia2);
+        sqLiteDatabase.execSQL(insertTacGia3);
 
         // Insert sample data into CaSi
         String insertCaSi1 = "INSERT INTO CaSi (MaCaSi, TenCaSi, QueQuan, NamSinh, HinhCaSi) " +
@@ -119,6 +122,8 @@ public class Dbhelper extends SQLiteOpenHelper {
                 "VALUES ('CS7', 'Rosé', 'Úc', '1997', 'rose')";
         String insertCaSi8 = "INSERT INTO CaSi (MaCaSi, TenCaSi, QueQuan, NamSinh, HinhCaSi) " +
                 "VALUES ('CS8', 'V-BTS', 'Hàn Quốc', '1994', 'v')";
+        String insertCaSi9 = "INSERT INTO CaSi (MaCaSi, TenCaSi, QueQuan, NamSinh, HinhCaSi) " +
+                "VALUES ('CS9', 'Taylor Swift', 'USA', '1989', 'taylor')";
         sqLiteDatabase.execSQL(insertCaSi1);
         sqLiteDatabase.execSQL(insertCaSi2);
         sqLiteDatabase.execSQL(insertCaSi3);
@@ -127,6 +132,7 @@ public class Dbhelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(insertCaSi6);
         sqLiteDatabase.execSQL(insertCaSi7);
         sqLiteDatabase.execSQL(insertCaSi8);
+        sqLiteDatabase.execSQL(insertCaSi9);
 
         // Insert sample data into LoiNhac
         String insertLoiNhac1 = "INSERT INTO LoiNhac (MaLoi, TenLoi) " +
