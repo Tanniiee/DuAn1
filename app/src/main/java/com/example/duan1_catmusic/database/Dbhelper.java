@@ -8,7 +8,7 @@ public class Dbhelper extends SQLiteOpenHelper {
 
     public Dbhelper(Context context){
 
-        super(context,"music",null,11);
+        super(context,"music",null,12);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class Dbhelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(QuanLyLoiNhac);
 
         // Nhac
-        String QuanLyNhac = "CREATE TABLE Nhac(MaNhac TEXT PRIMARY KEY, TenNhac TEXT, MaLoai TEXT, MaTacGia TEXT, MaCaSi TEXT, MaLoi TEXT," +
+        String QuanLyNhac = "CREATE TABLE Nhac(MaNhac TEXT PRIMARY KEY,HinhNhac TEXT, TenNhac TEXT, MaLoai TEXT, MaTacGia TEXT, MaCaSi TEXT, MaLoi TEXT, FileNhac TEXT," +
                 "FOREIGN KEY(MaLoai) REFERENCES TheLoai(MaLoai)," +
                 "FOREIGN KEY(MaTacGia) REFERENCES TacGia(MaTacGia)," +
                 "FOREIGN KEY(MaCaSi) REFERENCES CaSi(MaCaSi)," +
@@ -86,7 +86,6 @@ public class Dbhelper extends SQLiteOpenHelper {
         String insertTheLoai6 = "INSERT INTO TheLoai (MaLoai, TenLoai, MauTheLoai) " +
                 "VALUES ('L6', 'Nhạc Việt', 'Blue')";
 
-
         sqLiteDatabase.execSQL(insertTheLoai1);
         sqLiteDatabase.execSQL(insertTheLoai2);
         sqLiteDatabase.execSQL(insertTheLoai3);
@@ -137,16 +136,16 @@ public class Dbhelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(insertLoiNhac2);
 
         // Insert sample data into Nhac
-        String insertNhac1 = "INSERT INTO Nhac (MaNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi) " +
-                "VALUES ('N1', 'Bai Hat 1', 'L1', 'TG1', 'CS1', 'Loi1')";
-        String insertNhac2 = "INSERT INTO Nhac (MaNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi) " +
-                "VALUES ('N2', 'Bai Hat 2', 'L2', 'TG2', 'CS2', 'Loi2')";
-        String insertNhac3 = "INSERT INTO Nhac (MaNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi) " +
-                "VALUES ('N3', 'Bai Hat 2', 'L2', 'TG2', 'CS3', 'Loi2')";
-        String insertNhac4 = "INSERT INTO Nhac (MaNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi) " +
-                "VALUES ('N4', 'Bai Hat 2', 'L2', 'TG2', 'CS4', 'Loi2')";
-        String insertNhac5 = "INSERT INTO Nhac (MaNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi) " +
-                "VALUES ('N5', 'Bai Hat 2', 'L2', 'TG2', 'CS5', 'Loi2')";
+        String insertNhac1 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
+                "VALUES ('N1','album6' ,'Bai Hat 1', 'L1', 'TG1', 'CS1', 'Loi1', 'musictest')";
+        String insertNhac2 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
+                "VALUES ('N2', 'album6' , 'Bai Hat 2', 'L2', 'TG2', 'CS2', 'Loi2', 'file2')";
+        String insertNhac3 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
+                "VALUES ('N3', 'album6' , 'Bai Hat 3', 'L3', 'TG3', 'CS3', 'Loi3', 'file3')";
+        String insertNhac4 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
+                "VALUES ('N4', 'album6' , 'Bai Hat 4', 'L4', 'TG4', 'CS4', 'Loi4', 'file4')";
+        String insertNhac5 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
+                "VALUES ('N5', 'album6' , 'Bai Hat 5', 'L5', 'TG5', 'CS5', 'Loi5', 'file5')";
         sqLiteDatabase.execSQL(insertNhac1);
         sqLiteDatabase.execSQL(insertNhac2);
         sqLiteDatabase.execSQL(insertNhac3);
@@ -154,30 +153,35 @@ public class Dbhelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(insertNhac5);
 
         // Insert sample data into User
-        // 1 la user
-        // 2 la admin
         String insertUser1 = "INSERT INTO User (MaUser, TenUser, Gmail, MatKhau, GioiTinh, NamSinh, DiaChi, role) " +
                 "VALUES ('U1', 'Đặng Thị Thu Thảo', 'tannie1101999@gmail.com', '123456', 'Nữ', '1999', 'Vĩnh Long', 1)";
         String insertUser2 = "INSERT INTO User (MaUser, TenUser, Gmail, MatKhau, GioiTinh, NamSinh, DiaChi, role) " +
                 "VALUES ('U2', 'admin', 'admin@gmail.com','123456', 'Nam', '1999', 'Vũng Tàu', 2)";
         sqLiteDatabase.execSQL(insertUser1);
         sqLiteDatabase.execSQL(insertUser2);
-// Insert sample data into PlayList
+
+        // Insert sample data into PlayList
         String insertPlayList1 = "INSERT INTO PlayList (MaPlayList, MaUser) VALUES ('PL1', 'U1')";
         String insertPlayList2 = "INSERT INTO PlayList (MaPlayList, MaUser) VALUES ('PL2', 'U2')";
         sqLiteDatabase.execSQL(insertPlayList1);
         sqLiteDatabase.execSQL(insertPlayList2);
 
         // Insert sample data into DanhSachPlaylist
-        String insertDanhSachPlaylist1 = "INSERT INTO DanhSachPlaylist (MaDanhSachPlayList, MaNhac,TenDSPlaylist,HINH) VALUES ('DSP1', 'N1','New music Friday VN','album1')";
-        String insertDanhSachPlaylist2 = "INSERT INTO DanhSachPlaylist (MaDanhSachPlayList, MaNhac,TenDSPlaylist,HINH) VALUES ('DSP2', 'N2','Discover Weekly','album2')";
-        String insertDanhSachPlaylist3 = "INSERT INTO DanhSachPlaylist (MaDanhSachPlayList, MaNhac,TenDSPlaylist,HINH) VALUES ('DSP3', 'N3','Mới Ra Lò','album3')";
-        String insertDanhSachPlaylist4 = "INSERT INTO DanhSachPlaylist (MaDanhSachPlayList, MaNhac,TenDSPlaylist,HINH) VALUES ('DSP4', 'N4','Đẳng Cấp','album4')";
-        String insertDanhSachPlaylist5 = "INSERT INTO DanhSachPlaylist (MaDanhSachPlayList, MaNhac,TenDSPlaylist,HINH) VALUES ('DSP5', 'N5','Yêu Thích','album5')";
+        String insertDanhSachPlaylist1 = "INSERT INTO DanhSachPlaylist (MaDanhSachPlayList, MaNhac, TenDSPlaylist, HINH) " +
+                "VALUES ('DSP1', 'N1', 'New music Friday VN', 'album1')";
+        String insertDanhSachPlaylist2 = "INSERT INTO DanhSachPlaylist (MaDanhSachPlayList, MaNhac, TenDSPlaylist, HINH) " +
+                "VALUES ('DSP2', 'N2', 'Discover Weekly', 'album2')";
+        String insertDanhSachPlaylist3 = "INSERT INTO DanhSachPlaylist (MaDanhSachPlayList, MaNhac, TenDSPlaylist, HINH) " +
+                "VALUES ('DSP3', 'N3', 'Mới Ra Lò', 'album3')";
+        String insertDanhSachPlaylist4 = "INSERT INTO DanhSachPlaylist (MaDanhSachPlayList, MaNhac, TenDSPlaylist, HINH) " +
+                "VALUES ('DSP4', 'N4', 'Đẳng Cấp', 'album4')";
+        String insertDanhSachPlaylist5 = "INSERT INTO DanhSachPlaylist (MaDanhSachPlayList, MaNhac, TenDSPlaylist, HINH) " +
+                "VALUES ('DSP5', 'N5', 'Yêu Thích', 'album5')";
         sqLiteDatabase.execSQL(insertDanhSachPlaylist1);
         sqLiteDatabase.execSQL(insertDanhSachPlaylist2);
         sqLiteDatabase.execSQL(insertDanhSachPlaylist3);
         sqLiteDatabase.execSQL(insertDanhSachPlaylist4);
         sqLiteDatabase.execSQL(insertDanhSachPlaylist5);
     }
+
 }
