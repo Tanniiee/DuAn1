@@ -2,6 +2,7 @@ package com.example.duan1_catmusic.Adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.duan1_catmusic.Activity.DanhSachBaiHat;
 import com.example.duan1_catmusic.R;
 import com.example.duan1_catmusic.model.casi;
 
@@ -42,6 +44,14 @@ public class casiAdapter extends RecyclerView.Adapter<casiAdapter.ViewHoder>{
     public void onBindViewHolder(@NonNull casiAdapter.ViewHoder holder, int position) {
         holder.name.setText(list.get(position).getTenCaSi());
         holder.ten.setText(list.get(position).getTenCaSi());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DanhSachBaiHat.class);
+                context.startActivity(intent);
+            }
+        });
 
 
 

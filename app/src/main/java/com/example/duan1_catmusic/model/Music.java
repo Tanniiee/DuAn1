@@ -1,6 +1,8 @@
 package com.example.duan1_catmusic.model;
 
-public class Music {
+import java.io.Serializable;
+
+public class Music implements Serializable {
 //    MaNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac
     private String MaNhac;
     private String HinhNhac;
