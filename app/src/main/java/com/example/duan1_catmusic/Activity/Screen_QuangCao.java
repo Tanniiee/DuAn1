@@ -46,6 +46,13 @@ public class Screen_QuangCao extends AppCompatActivity {
         imageView = findViewById(R.id.imageView);
         tvCountdown = findViewById(R.id.tvCountdown);
 
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
         countDownTimer = new CountDownTimer(5000, 1000) { // Đếm ngược mỗi 1 giây
             @Override
             public void onTick(long millisUntilFinished) {
