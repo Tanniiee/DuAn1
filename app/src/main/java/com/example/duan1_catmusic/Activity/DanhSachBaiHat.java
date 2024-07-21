@@ -37,9 +37,17 @@ public class DanhSachBaiHat extends AppCompatActivity {
 
         rcv_list_danh_sach_nhac = findViewById(R.id.rcvlistDanhsachnhac);
 
-        list = nhac_DAO.getnhac();
+
+        list = new ArrayList<>();
         nhac_DAO = new nhacDAO(this);
 
+        loaddata();
+
+
+    }
+
+    private void loaddata(){
+        list = nhac_DAO.getnhac();
 
         LinearLayoutManager manager = new LinearLayoutManager(this);
         manager.setOrientation(RecyclerView.VERTICAL);
