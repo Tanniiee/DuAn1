@@ -1,6 +1,7 @@
 package com.example.duan1_catmusic.Activity;
 
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
@@ -20,6 +21,7 @@ public class Screen_listening_music extends AppCompatActivity {
     private Handler handler = new Handler();
     private ImageView imgDia;
     private ObjectAnimator animator;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,7 @@ public class Screen_listening_music extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if (fromUser) {
                     mediaPlayer.seekTo(progress);
+
                 }
             }
 
@@ -58,19 +61,30 @@ public class Screen_listening_music extends AppCompatActivity {
             public void onStartTrackingTouch(SeekBar seekBar) {}
 
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {}
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+                int max = seekBar.getMax();
+                if (seekBar.getProgress() == max) {
+                    // Xử lý khi SeekBar đạt tới giá trị tối đa (hết thời gian)
+                    startActivity(new Intent(Screen_listening_music.this, Screen_QuangCao.class));
+                    finish();
+                }
+
+            }
         });
     }
 
     private void updateSeekBar() {
         seekBar.setProgress(mediaPlayer.getCurrentPosition());
         handler.postDelayed(runnable, 1000);
+
     }
 
     private Runnable runnable = new Runnable() {
         @Override
         public void run() {
             updateSeekBar();
+
         }
     };
 
