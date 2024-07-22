@@ -3,12 +3,12 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/backgroundcasi"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/staylor"
-                android:layout_marginRight="10dp"/>
+    <ImageView
+        android:id="@+id/backgroundcasi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:src="@mipmap/staylor" />
 
             <ImageView
                 android:layout_width="30dp"

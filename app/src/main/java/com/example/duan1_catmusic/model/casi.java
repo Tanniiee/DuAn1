@@ -14,12 +14,15 @@ public class casi implements Serializable {
 
     private String HinhCaSi;
 
-    public casi(int maCaSi, String tenCaSi, String queQuan, String namSinh, String hinhCaSi) {
+    private String Hinhalbum;
+
+    public casi(int maCaSi, String tenCaSi, String queQuan, String namSinh, String hinhCaSi, String hinhalbum) {
         MaCaSi = maCaSi;
         TenCaSi = tenCaSi;
         QueQuan = queQuan;
         NamSinh = namSinh;
         HinhCaSi = hinhCaSi;
+        Hinhalbum = hinhalbum;
     }
 
     public int getMaCaSi() {
@@ -60,5 +63,13 @@ public class casi implements Serializable {
 
     public void setHinhCaSi(String hinhCaSi) {
         HinhCaSi = hinhCaSi;
+    }
+
+    public String getHinhalbum() {
+        return Hinhalbum;
+    }
+
+    public void setHinhalbum(String hinhalbum) {
+        Hinhalbum = hinhalbum;
     }
 }
