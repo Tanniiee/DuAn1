@@ -8,7 +8,7 @@ public class Dbhelper extends SQLiteOpenHelper {
 
     public Dbhelper(Context context){
 
-        super(context,"music",null,15);
+        super(context,"music",null,17);
     }
 
     @Override
@@ -106,23 +106,23 @@ public class Dbhelper extends SQLiteOpenHelper {
 
         // Insert sample data into CaSi
         String insertCaSi1 = "INSERT INTO CaSi (MaCaSi, TenCaSi, QueQuan, NamSinh, HinhCaSi,Hinhalbum) " +
-                "VALUES ('CS1', 'Black Pink', 'Hàn Quốc', '2016', 'blackpink','staylor')";
+                "VALUES ('CS1', 'Black Pink', 'Hàn Quốc', '2016', 'blackpink','stayloralbum')";
         String insertCaSi2 = "INSERT INTO CaSi (MaCaSi, TenCaSi, QueQuan, NamSinh, HinhCaSi,Hinhalbum) " +
-                "VALUES ('CS2', 'Jennie', 'Hàn Quốc', '1996', 'jenni','casialbum1')";
+                "VALUES ('CS2', 'Jennie', 'Hàn Quốc', '1996', 'jenni','jennialbum')";
         String insertCaSi3 = "INSERT INTO CaSi (MaCaSi, TenCaSi, QueQuan, NamSinh, HinhCaSi,Hinhalbum) " +
-                "VALUES ('CS3', 'Jiso', 'Hàn Quốc', '1995', 'jiso','casialbum2')";
+                "VALUES ('CS3', 'Jiso', 'Hàn Quốc', '1995', 'jiso','jisoalbum')";
         String insertCaSi4 = "INSERT INTO CaSi (MaCaSi, TenCaSi, QueQuan, NamSinh, HinhCaSi,Hinhalbum) " +
-                "VALUES ('CS4', 'Jungkook', 'Hàn Quốc', '1995', 'jungkook','casialbum3')";
+                "VALUES ('CS4', 'Jungkook', 'Hàn Quốc', '1995', 'jungkook','vvalbum')";
         String insertCaSi5 = "INSERT INTO CaSi (MaCaSi, TenCaSi, QueQuan, NamSinh, HinhCaSi,Hinhalbum) " +
-                "VALUES ('CS5', 'Lisa', 'Thái Lan', '1997', 'lisa','casialbum4')";
+                "VALUES ('CS5', 'Lisa', 'Thái Lan', '1997', 'lisa','lisaalbum')";
         String insertCaSi6 = "INSERT INTO CaSi (MaCaSi, TenCaSi, QueQuan, NamSinh, HinhCaSi,Hinhalbum) " +
-                "VALUES ('CS6', 'Rosé', 'Úc', '1997', 'rose','casialbum5')";
+                "VALUES ('CS6', 'Rosé', 'Úc', '1997', 'rose','rosealbum')";
         String insertCaSi7 = "INSERT INTO CaSi (MaCaSi, TenCaSi, QueQuan, NamSinh, HinhCaSi,Hinhalbum) " +
-                "VALUES ('CS7', 'Rosé', 'Úc', '1997', 'rose','casialbum6')";
+                "VALUES ('CS7', 'Rosé', 'Úc', '1997', 'rose','rosealbum')";
         String insertCaSi8 = "INSERT INTO CaSi (MaCaSi, TenCaSi, QueQuan, NamSinh, HinhCaSi,Hinhalbum) " +
-                "VALUES ('CS8', 'V-BTS', 'Hàn Quốc', '1994', 'v','casialbum7')";
+                "VALUES ('CS8', 'V-BTS', 'Hàn Quốc', '1994', 'v','valbum')";
         String insertCaSi9 = "INSERT INTO CaSi (MaCaSi, TenCaSi, QueQuan, NamSinh, HinhCaSi,Hinhalbum) " +
-                "VALUES ('CS9', 'Taylor Swift', 'USA', '1989', 'taylor','casialbum8')";
+                "VALUES ('CS9', 'Taylor Swift', 'USA', '1989', 'taylor','stayloralbum')";
         sqLiteDatabase.execSQL(insertCaSi1);
         sqLiteDatabase.execSQL(insertCaSi2);
         sqLiteDatabase.execSQL(insertCaSi3);
