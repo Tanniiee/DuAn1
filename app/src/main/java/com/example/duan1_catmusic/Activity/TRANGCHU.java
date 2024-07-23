@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -36,7 +37,7 @@ public class TRANGCHU extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gd_trangchu);
-        Button btnnhac = findViewById(R.id.btnnhac);
+        RelativeLayout choi_nhac = findViewById(R.id.choi_nhac);
 
         bottomNavigationView = findViewById(R.id.bottom_nav_view);
         frameLayout = findViewById(R.id.frameLayout);
@@ -44,7 +45,7 @@ public class TRANGCHU extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        btnnhac.setOnClickListener(new View.OnClickListener() {
+        choi_nhac.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(TRANGCHU.this, Screen_listening_music.class);
