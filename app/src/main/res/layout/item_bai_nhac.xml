@@ -3,20 +3,19 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="15dp"
-    android:layout_margin="20dp"
-    android:background="#40454E">
+    android:background="@color/bg"
+    android:layout_margin="10dp">
 
     <LinearLayout
-        android:background="#1C1C1E"
-        android:padding="20dp"
+        android:background="@color/bg"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
         <ImageView
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:src="@drawable/album1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/killthislove"
             android:id="@+id/img_item_listnhac"/>
         <LinearLayout
             android:layout_width="wrap_content"

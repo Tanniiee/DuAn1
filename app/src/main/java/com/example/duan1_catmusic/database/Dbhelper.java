@@ -8,7 +8,7 @@ public class Dbhelper extends SQLiteOpenHelper {
 
     public Dbhelper(Context context){
 
-        super(context,"music",null,17);
+        super(context,"music",null,20);
     }
 
     @Override
@@ -143,15 +143,15 @@ public class Dbhelper extends SQLiteOpenHelper {
 
         // Insert sample data into Nhac
         String insertNhac1 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
-                "VALUES ('N1','album6' ,'Bai Hat 1', 'L1', 'TG1', 'CS1', 'Loi1', 'musictest')";
+                "VALUES ('N1','killthislove' ,'Kill This Love', 'L1', 'TG1', 'CS1', 'Loi1', 'musictest')";
         String insertNhac2 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
-                "VALUES ('N2', 'album6' , 'Bai Hat 2', 'L2', 'TG2', 'CS2', 'Loi2', 'file2')";
+                "VALUES ('N2', 'stay_backpink' , 'Stay', 'L2', 'TG2', 'CS2', 'Loi2', 'file2')";
         String insertNhac3 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
-                "VALUES ('N3', 'album6' , 'Bai Hat 3', 'L3', 'TG3', 'CS3', 'Loi3', 'file3')";
+                "VALUES ('N3', 'howyoulikethat' , 'How You Like That', 'L3', 'TG3', 'CS3', 'Loi3', 'file3')";
         String insertNhac4 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
-                "VALUES ('N4', 'album6' , 'Bai Hat 4', 'L4', 'TG4', 'CS4', 'Loi4', 'file4')";
+                "VALUES ('N4', 'lovesick' , 'Lovesick Girl', 'L4', 'TG4', 'CS4', 'Loi4', 'file4')";
         String insertNhac5 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
-                "VALUES ('N5', 'album6' , 'Bai Hat 5', 'L5', 'TG5', 'CS5', 'Loi5', 'file5')";
+                "VALUES ('N5', 'album1' , 'Bai Hat 5', 'L5', 'TG5', 'CS5', 'Loi5', 'file5')";
         sqLiteDatabase.execSQL(insertNhac1);
         sqLiteDatabase.execSQL(insertNhac2);
         sqLiteDatabase.execSQL(insertNhac3);

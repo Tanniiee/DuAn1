@@ -41,26 +41,32 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.tvTenNhac.setText(list.get(position).getTenNhac());
         holder.tvNgheSi.setText(list.get(position).getMaCaSi());
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, DanhSachBaiHat.class);
-                context.startActivity(intent);
-            }
-        });
+        String imgNhac = String.valueOf(list.get(position).getHinhNhac());
+        int resID = ((Activity)context).getResources().getIdentifier(imgNhac,"drawable",((Activity)context).getPackageName());
+        holder.imgNhac.setImageResource(resID);
+
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(context, DanhSachBaiHat.class);
+//                context.startActivity(intent);
+//            }
+//        });
     }
 
     @Override
     public int getItemCount() {
         return list.size();
     }
+
+
     public class ViewHolder extends RecyclerView.ViewHolder{
-        ImageView img_item_listnhac;
+        ImageView imgNhac;
         TextView tvTenNhac;
         TextView tvNgheSi;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            img_item_listnhac = itemView.findViewById(R.id.img_item_listnhac);
+            imgNhac = itemView.findViewById(R.id.img_item_listnhac);
             tvTenNhac = itemView.findViewById(R.id.tvTenNhac);
             tvNgheSi = itemView.findViewById(R.id.tvNgheSi);
         }
