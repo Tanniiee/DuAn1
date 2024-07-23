@@ -6,14 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    >
+    android:background="@color/bg">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/bg"
-        android:paddingHorizontal="10dp">
 
         <RelativeLayout
             android:id="@+id/header"
@@ -21,16 +15,11 @@
             android:layout_height="wrap_content"
             android:paddingVertical="5dp"
             >
-            <ImageView
-                android:id="@+id/img_account"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:src="@mipmap/lasi"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Thư viện"
-                android:layout_toEndOf="@id/img_account"
+
                 android:textSize="26sp"
                 android:textStyle="bold"
                 android:textColor="@color/white"
@@ -82,6 +71,7 @@
                 android:layout_toEndOf="@id/playlist"
                 android:backgroundTint="@color/darkgray"/>
         </RelativeLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -90,17 +80,66 @@
             android:textSize="16sp"
             android:textStyle="bold"
             android:layout_marginVertical="10dp"/>
-        <RelativeLayout
+
+
+        <LinearLayout
+            android:layout_margin="10dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
             <ImageView
+                android:background="#00BCD4"
                 android:id="@+id/img_song"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@mipmap/tim"
-                android:layout_marginEnd="10dp"/>
+                android:src="@drawable/heart1"
+                android:layout_marginEnd="10dp"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/songtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bài hát đã thích"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_toEndOf="@id/img_song"
+                    android:layout_marginTop="20dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Danh sách phát - 1 bài hát"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@id/songtitle"
+                    android:layout_toEndOf="@id/img_song" />
+            </LinearLayout>
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:background="@color/random10"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/save2"
+            android:layout_marginEnd="10dp"
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
             <TextView
-                android:id="@+id/songtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Bài hát đã thích"
@@ -118,103 +157,63 @@
                 android:layout_marginTop="10dp"
                 android:layout_below="@id/songtitle"
                 android:layout_toEndOf="@id/img_song" />
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
-            <ImageView
-                android:id="@+id/img_podcast"
-                android:layout_width="100dp"
-                android:layout_height="80dp"
-                android:src="@mipmap/bg_purple"
-                android:layout_marginEnd="10dp"/>
-            <TextView
-                android:id="@+id/podcasttitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Bài hát đã thích"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_toEndOf="@id/img_podcast"
-                android:layout_marginTop="15dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Các tập đã lưu và tải xuống"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:layout_marginTop="7dp"
-                android:layout_below="@id/podcasttitle"
-                android:layout_toEndOf="@id/img_podcast" />
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
-            <ImageView
-                android:id="@+id/img_artist"
-                android:layout_width="100dp"
-                android:layout_height="66.6dp"
-                android:src="@mipmap/abc"
-                android:layout_marginEnd="10dp"/>
-
-            <TextView
-                android:id="@+id/artisttitle"
-                android:layout_width="96dp"
-                android:layout_height="26dp"
-                android:layout_marginTop="10dp"
-                android:layout_toEndOf="@id/img_artist"
-                android:text="Bùi Anh Tuấn"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nghệ sĩ"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-
-                android:layout_below="@id/artisttitle"
-                android:layout_toEndOf="@id/img_artist" />
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
-            <ImageView
-                android:id="@+id/img_artist"
-                android:layout_width="100dp"
-                android:layout_height="66.6dp"
-                android:src="@mipmap/img_1"
-                android:layout_marginEnd="10dp"/>
-
-            <TextView
-                android:id="@+id/artisttitle"
-                android:layout_width="96dp"
-                android:layout_height="26dp"
-                android:layout_marginTop="10dp"
-                android:layout_toEndOf="@id/img_artist"
-                android:text="Ha Anh Tuấn"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nghệ sĩ"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-
-                android:layout_below="@id/artisttitle"
-                android:layout_toEndOf="@id/img_artist" />
-
-        </RelativeLayout>
-
-
+        </LinearLayout>
     </LinearLayout>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvListCaSi"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_margin="10dp">
 
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="10dp"
+            android:background="@color/black"
+            android:src="@mipmap/addcsi" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Thêm nghệ sĩ"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <ImageView
+            android:background="@color/black"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@mipmap/addcsi"
+            android:layout_marginEnd="10dp"/>
+        <TextView
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thêm podcasts"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            />
+    </LinearLayout>
 </LinearLayout>
