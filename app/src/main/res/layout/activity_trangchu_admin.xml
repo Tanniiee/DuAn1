@@ -6,7 +6,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.TrangchuAdmin">
+    tools:context=".Activity.TrangChuAdmin">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -14,7 +14,7 @@
         android:background="@color/bg">
 
         <FrameLayout
-            android:id="@+id/frameLayout"
+            android:id="@+id/frameLayoutAdmin"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1" />
