@@ -5,7 +5,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.duan1_catmusic.database.Dbhelper;
-import com.example.duan1_catmusic.model.Music;
+import com.example.duan1_catmusic.model.Nhac;
+import com.example.duan1_catmusic.model.Nhac;
 import com.example.duan1_catmusic.model.casi;
 
 import java.util.ArrayList;
@@ -18,14 +19,14 @@ public class nhacDAO {
 
 
 
-    public ArrayList<Music> getnhac(){
-        ArrayList<Music> list = new ArrayList<>();
+    public ArrayList<Nhac> getnhac(){
+        ArrayList<Nhac> list = new ArrayList<>();
         SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM Nhac", null);
         if (cursor.getCount() > 0){
             cursor.moveToFirst();
             do{
-                list.add(new Music(cursor.getString(0),
+                list.add(new Nhac(cursor.getString(0),
                         cursor.getString(1),
                         cursor.getString(2),
                         cursor.getString(3),
