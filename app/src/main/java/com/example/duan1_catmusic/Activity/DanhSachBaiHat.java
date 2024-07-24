@@ -24,9 +24,10 @@ import com.example.duan1_catmusic.model.Nhac;
 import com.example.duan1_catmusic.model.casi;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DanhSachBaiHat extends AppCompatActivity {
-    private ArrayList<Nhac> list;
+    private List<Nhac> list;
     private RecyclerView rcv_list_danh_sach_nhac;
     private nhacDAO nhac_DAO;
 
@@ -47,7 +48,7 @@ public class DanhSachBaiHat extends AppCompatActivity {
     }
 
     private void loaddata(){
-        list = nhac_DAO.getnhac();
+        list = nhac_DAO.getSongArtistList();
 
         LinearLayoutManager manager = new LinearLayoutManager(this);
         manager.setOrientation(RecyclerView.VERTICAL);

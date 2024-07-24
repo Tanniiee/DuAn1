@@ -5,10 +5,10 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,7 +21,7 @@ public class Screen_listening_music extends AppCompatActivity {
     private Handler handler = new Handler();
     private ImageView imgDia;
     private ObjectAnimator animator;
-
+    private TextView tvTimeStart, tvTimeEnd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,22 +30,16 @@ public class Screen_listening_music extends AppCompatActivity {
 
         seekBar = findViewById(R.id.seekBar);
         imgDia = findViewById(R.id.img_dia);
-        mediaPlayer = MediaPlayer.create(this, R.raw.musictest);
-        seekBar.setMax(mediaPlayer.getDuration());
+        tvTimeStart = findViewById(R.id.tv_time_start);
+        tvTimeEnd = findViewById(R.id.tv_time_end);
+        mediaPlayer = MediaPlayer.create(this, R.raw.gone);
 
-        animator = ObjectAnimator.ofFloat(imgDia, "rotation", 0f, 360f);
-        animator.setDuration(7000); // Duration of one full rotation in milliseconds
-        animator.setInterpolator(new LinearInterpolator());
-        animator.setRepeatCount(ObjectAnimator.INFINITE);
-        animator.setRepeatMode(ObjectAnimator.RESTART);
-
-        mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-            @Override
-            public void onPrepared(MediaPlayer mp) {
-                mediaPlayer.start();
-                animator.start();
-                updateSeekBar();
-            }
+        mediaPlayer.setOnPreparedListener(mp -> {
+            seekBar.setMax(mediaPlayer.getDuration());
+            updateTimeEnd();
+            mediaPlayer.start();
+            startRotation();
+            updateSeekBar();
         });
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -53,7 +47,6 @@ public class Screen_listening_music extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if (fromUser) {
                     mediaPlayer.seekTo(progress);
-
                 }
             }
 
@@ -62,29 +55,51 @@ public class Screen_listening_music extends AppCompatActivity {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
-                int max = seekBar.getMax();
-                if (seekBar.getProgress() == max) {
-                    // Xử lý khi SeekBar đạt tới giá trị tối đa (hết thời gian)
+                if (seekBar.getProgress() == seekBar.getMax()) {
                     startActivity(new Intent(Screen_listening_music.this, Screen_QuangCao.class));
                     finish();
                 }
-
             }
         });
     }
 
+    private void startRotation() {
+        animator = ObjectAnimator.ofFloat(imgDia, "rotation", 0f, 360f);
+        animator.setDuration(7000);
+        animator.setInterpolator(new LinearInterpolator());
+        animator.setRepeatCount(ObjectAnimator.INFINITE);
+        animator.setRepeatMode(ObjectAnimator.RESTART);
+        animator.start();
+    }
+
     private void updateSeekBar() {
         seekBar.setProgress(mediaPlayer.getCurrentPosition());
+        updateTimeStart();
         handler.postDelayed(runnable, 1000);
+    }
 
+    private void updateTimeStart() {
+        int currentPosition = mediaPlayer.getCurrentPosition();
+        tvTimeStart.setText(formatTime(currentPosition));
+    }
+
+    private void updateTimeEnd() {
+        int duration = mediaPlayer.getDuration();
+        tvTimeEnd.setText(formatTime(duration));
+    }
+
+    private String formatTime(int milliseconds) {
+        int minutes = (milliseconds / 1000) / 60;
+        int seconds = (milliseconds / 1000) % 60;
+        return String.format("%d:%02d", minutes, seconds);
     }
 
     private Runnable runnable = new Runnable() {
         @Override
         public void run() {
-            updateSeekBar();
-
+            if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+                updateSeekBar();
+            }
         }
     };
 
