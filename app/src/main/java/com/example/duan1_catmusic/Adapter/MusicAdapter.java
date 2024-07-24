@@ -42,7 +42,7 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.tvTenNhac.setText(list.get(position).getTenNhac());
-        holder.tvNgheSi.setText(list.get(position).getMaCaSi());
+        holder.tvNgheSi.setText(list.get(position).getTenCaSi());
         String imgNhac = String.valueOf(list.get(position).getHinhNhac());
         int resID = ((Activity)context).getResources().getIdentifier(imgNhac,"drawable",((Activity)context).getPackageName());
         String audioFileName = String.valueOf(list.get(position).getFileNhac());

@@ -9,6 +9,7 @@ import com.example.duan1_catmusic.model.DSplaylist;
 import com.example.duan1_catmusic.model.casi;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DSplaylistDAO {
 
@@ -34,4 +35,6 @@ public class DSplaylistDAO {
 
         return list;
     }
+
+
 }

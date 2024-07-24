@@ -8,7 +8,7 @@ public class Dbhelper extends SQLiteOpenHelper {
 
     public Dbhelper(Context context){
 
-        super(context,"music",null,21);
+        super(context,"music",null,22);
     }
 
     @Override
@@ -116,7 +116,7 @@ public class Dbhelper extends SQLiteOpenHelper {
         String insertCaSi5 = "INSERT INTO CaSi (MaCaSi, TenCaSi, QueQuan, NamSinh, HinhCaSi,Hinhalbum) " +
                 "VALUES ('CS5', 'Lisa', 'Thái Lan', '1997', 'lisa','lisaalbum')";
         String insertCaSi6 = "INSERT INTO CaSi (MaCaSi, TenCaSi, QueQuan, NamSinh, HinhCaSi,Hinhalbum) " +
-                "VALUES ('CS6', 'Charlie Puth', 'USA', '1997', 'rose','charlie_bg')";
+                "VALUES ('CS6', 'Charlie Puth', 'USA', '1995', 'rose','charlie_bg')";
         String insertCaSi7 = "INSERT INTO CaSi (MaCaSi, TenCaSi, QueQuan, NamSinh, HinhCaSi,Hinhalbum) " +
                 "VALUES ('CS7', 'Rosé', 'Úc', '1997', 'rose','rosealbum')";
         String insertCaSi8 = "INSERT INTO CaSi (MaCaSi, TenCaSi, QueQuan, NamSinh, HinhCaSi,Hinhalbum) " +
@@ -145,13 +145,13 @@ public class Dbhelper extends SQLiteOpenHelper {
         String insertNhac1 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
                 "VALUES ('N1','killthislove' ,'Kill This Love', 'L1', 'TG1', 'CS1', 'Loi1', 'kill_this_love')";
         String insertNhac2 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
-                "VALUES ('N2', 'stay_backpink' , 'Stay', 'L2', 'TG2', 'CS2', 'Loi2', 'stay')";
+                "VALUES ('N2', 'stay_backpink' , 'Stay', 'L2', 'TG2', 'CS1', 'Loi2', 'stay')";
         String insertNhac3 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
-                "VALUES ('N3', 'howyoulikethat' , 'How You Like That', 'L3', 'TG3', 'CS3', 'Loi3', 'how_you_like_that')";
+                "VALUES ('N3', 'howyoulikethat' , 'How You Like That', 'L3', 'TG3', 'CS1', 'Loi3', 'how_you_like_that')";
         String insertNhac4 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
-                "VALUES ('N4', 'lovesick' , 'Lovesick Girl', 'L4', 'TG4', 'CS4', 'Loi4', 'love_sick_girl')";
+                "VALUES ('N4', 'lovesick' , 'Lovesick Girl', 'L4', 'TG4', 'CS1', 'Loi4', 'love_sick_girl')";
         String insertNhac5 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
-                "VALUES ('N5', 'stayloralbum' , 'Love Story', 'L5', 'TG5', 'CS5', 'Loi5', 'love_story')";
+                "VALUES ('N5', 'stayloralbum' , 'Love Story', 'L5', 'TG5', 'CS9', 'Loi5', 'love_story')";
         sqLiteDatabase.execSQL(insertNhac1);
         sqLiteDatabase.execSQL(insertNhac2);
         sqLiteDatabase.execSQL(insertNhac3);
