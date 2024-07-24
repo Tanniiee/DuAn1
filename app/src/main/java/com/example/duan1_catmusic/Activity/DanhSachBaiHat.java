@@ -20,13 +20,13 @@ import com.example.duan1_catmusic.DAO.TheLoaiDAO;
 import com.example.duan1_catmusic.DAO.casiDAO;
 import com.example.duan1_catmusic.DAO.nhacDAO;
 import com.example.duan1_catmusic.R;
-import com.example.duan1_catmusic.model.Music;
+import com.example.duan1_catmusic.model.Nhac;
 import com.example.duan1_catmusic.model.casi;
 
 import java.util.ArrayList;
 
 public class DanhSachBaiHat extends AppCompatActivity {
-    private ArrayList<Music> list;
+    private ArrayList<Nhac> list;
     private RecyclerView rcv_list_danh_sach_nhac;
     private nhacDAO nhac_DAO;
 

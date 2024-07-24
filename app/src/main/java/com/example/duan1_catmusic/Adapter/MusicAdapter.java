@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.media.Image;
+import android.media.MediaPlayer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,15 +17,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.duan1_catmusic.Activity.DanhSachBaiHat;
 import com.example.duan1_catmusic.Activity.Screen_nhacTheotheloai;
 import com.example.duan1_catmusic.R;
-import com.example.duan1_catmusic.model.Music;
+import com.example.duan1_catmusic.model.Nhac;
+import com.example.duan1_catmusic.model.Nhac;
 
 import java.util.List;
 
 public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder> {
-    private List<Music> list;
+    private List<Nhac> list;
     private Context context;
 
-    public MusicAdapter(List<Music> list, Context context) {
+    public MusicAdapter(List<Nhac> list, Context context) {
         this.list = list;
         this.context = context;
     }
@@ -43,8 +45,22 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder> 
         holder.tvNgheSi.setText(list.get(position).getMaCaSi());
         String imgNhac = String.valueOf(list.get(position).getHinhNhac());
         int resID = ((Activity)context).getResources().getIdentifier(imgNhac,"drawable",((Activity)context).getPackageName());
-        holder.imgNhac.setImageResource(resID);
+        String audioFileName = String.valueOf(list.get(position).getFileNhac());
+        int residnhac = ((Activity)context).getResources().getIdentifier(audioFileName, "raw", ((Activity)context).getPackageName());
 
+
+        holder.imgNhac.setImageResource(resID);
+        MediaPlayer mediaPlayer = MediaPlayer.create(context, residnhac);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mediaPlayer.isPlaying()) {
+                    mediaPlayer.pause();
+                } else {
+                    mediaPlayer.start();
+                }
+            }
+        });
 //        holder.itemView.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
