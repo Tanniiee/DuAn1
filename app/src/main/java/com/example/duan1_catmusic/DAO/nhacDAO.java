@@ -45,4 +45,28 @@ public class nhacDAO {
 
         return songArtistList;
     }
+    public List<Nhac> Allsong() {
+        List<Nhac> allsong = new ArrayList<>();
+        SQLiteDatabase db = this.dbHelper.getReadableDatabase();
+        String query = "SELECT * FROM Nhac";
+
+        Cursor cursor = db.rawQuery(query, null);
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                String maNhac = cursor.getString(0);
+                String hinhNhac = cursor.getString(1);
+                String tenNhac = cursor.getString(2);
+                String maLoai = cursor.getString(3);
+                String maTacGia = cursor.getString(4);
+                String maCaSi = cursor.getString(5);
+                String maLoi = cursor.getString(6);
+                String fileNhac = cursor.getString(7);
+                String tenCaSi = cursor.getString(8);
+                allsong.add(new Nhac(maNhac, hinhNhac, tenNhac, maLoai, maTacGia, maCaSi, maLoi, fileNhac,tenCaSi));
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+
+        return allsong;
+    }
 }

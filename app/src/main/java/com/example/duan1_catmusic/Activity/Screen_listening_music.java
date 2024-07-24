@@ -21,7 +21,11 @@ public class Screen_listening_music extends AppCompatActivity {
     private Handler handler = new Handler();
     private ImageView imgDia;
     private ObjectAnimator animator;
-    private TextView tvTimeStart, tvTimeEnd;
+    private TextView tvTimeStart, tvTimeEnd,tv_tieu_de,tv_ten_bai_hat,tv_ten_ca_si;
+    private ImageView img_dia,img_album_bai_hat,img_tron_bai,img_prev,img_play_pause,img_next,img_phat_1_bai;
+    private int currentTrackIndex = 0;
+    private boolean isPlaying = false;
+    private boolean isRepeating = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +36,36 @@ public class Screen_listening_music extends AppCompatActivity {
         imgDia = findViewById(R.id.img_dia);
         tvTimeStart = findViewById(R.id.tv_time_start);
         tvTimeEnd = findViewById(R.id.tv_time_end);
-        mediaPlayer = MediaPlayer.create(this, R.raw.gone);
+        tv_tieu_de = findViewById(R.id.tv_tieu_de);
+        tv_ten_bai_hat = findViewById(R.id.tv_ten_bai_hat);
+        tv_ten_ca_si = findViewById(R.id.tv_ten_ca_si);
+        img_album_bai_hat = findViewById(R.id.img_album_bai_hat);
+        img_tron_bai = findViewById(R.id.img_tron_bai);
+        img_prev = findViewById(R.id.img_prev);
+        img_play_pause = findViewById(R.id.img_play_pause);
+        img_next = findViewById(R.id.img_next);
+        img_phat_1_bai = findViewById(R.id.img_phat_1_bai);
+
+
+        // Nhận dữ liệu từ Intent
+        String tenNhac = getIntent().getStringExtra("tenNhac");
+        String tenCaSi = getIntent().getStringExtra("tenCaSi");
+        String hinhNhac = getIntent().getStringExtra("hinhNhac");
+        String fileNhac = getIntent().getStringExtra("fileNhac");
+
+        // Cập nhật giao diện
+        tv_tieu_de.setText(tenNhac);
+        tv_ten_bai_hat.setText(tenNhac);
+        tv_ten_ca_si.setText(tenCaSi);
+        int resID = getResources().getIdentifier(hinhNhac, "drawable", getPackageName());
+        imgDia.setImageResource(resID);
+        img_album_bai_hat.setImageResource(resID);
+
+
+        int residnhac = getResources().getIdentifier(fileNhac, "raw", getPackageName());
+        mediaPlayer = MediaPlayer.create(this, residnhac);
+
+
 
         mediaPlayer.setOnPreparedListener(mp -> {
             seekBar.setMax(mediaPlayer.getDuration());
@@ -109,10 +142,6 @@ public class Screen_listening_music extends AppCompatActivity {
         if (mediaPlayer != null) {
             mediaPlayer.release();
             mediaPlayer = null;
-        }
-        handler.removeCallbacks(runnable);
-        if (animator != null) {
-            animator.cancel();
         }
     }
 }
