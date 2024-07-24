@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duan1_catmusic.Activity.DanhSachBaiHat;
+import com.example.duan1_catmusic.Activity.Screen_listening_music;
 import com.example.duan1_catmusic.Activity.Screen_nhacTheotheloai;
 import com.example.duan1_catmusic.R;
 import com.example.duan1_catmusic.model.Nhac;
@@ -41,6 +42,7 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        Nhac nhac = list.get(position);
         holder.tvTenNhac.setText(list.get(position).getTenNhac());
         holder.tvNgheSi.setText(list.get(position).getTenCaSi());
         String imgNhac = String.valueOf(list.get(position).getHinhNhac());
@@ -54,20 +56,14 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder> 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mediaPlayer.isPlaying()) {
-                    mediaPlayer.pause();
-                } else {
-                    mediaPlayer.start();
-                }
+                Intent intent = new Intent(context, Screen_listening_music.class);
+                intent.putExtra("tenNhac",nhac.getTenNhac());
+                intent.putExtra("tenCaSi",nhac.getTenCaSi());
+                intent.putExtra("hinhNhac",nhac.getHinhNhac());
+                intent.putExtra("fileNhac", audioFileName);
+                context.startActivity(intent);
             }
         });
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(context, DanhSachBaiHat.class);
-//                context.startActivity(intent);
-//            }
-//        });
     }
 
     @Override
