@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.duan1_catmusic.DAO.NguoiDungDAO;
 import com.example.duan1_catmusic.R;
-import com.example.duan1_catmusic.fragment.Trangchu_fm;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class Screen_NhapTTDangnhap extends AppCompatActivity {
@@ -47,7 +46,7 @@ public class Screen_NhapTTDangnhap extends AppCompatActivity {
                             startActivity(intentUser);
                             break;
                         case 2:
-                            Intent intentAdmin = new Intent(Screen_NhapTTDangnhap.this, TrangchuAdmin.class);
+                            Intent intentAdmin = new Intent(Screen_NhapTTDangnhap.this, TrangChuAdmin.class);
                             startActivity(intentAdmin);
                             break;
                         default:
