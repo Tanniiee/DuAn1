@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class NghesiAdmin_fm extends Fragment {
 
 
-    private RecyclerView rvlistCasi;
+    private RecyclerView rvlistCasiadmin;
     private com.example.duan1_catmusic.DAO.casiDAO casiDAO;
 
 
@@ -31,16 +31,16 @@ public class NghesiAdmin_fm extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_nghesi_admin_fm, container, false);
 
-        rvlistCasi = view.findViewById(R.id.rvListCaSi);
+        rvlistCasiadmin = view.findViewById(R.id.rvListCaSiadmin);
         casiDAO  =new casiDAO(getContext());
 
         ArrayList<casi> list = casiDAO.getcasi();
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         manager.setOrientation(RecyclerView.VERTICAL);
-        rvlistCasi.setLayoutManager(manager);
+        rvlistCasiadmin.setLayoutManager(manager);
 
         thuvienAdapter adapter = new thuvienAdapter(getContext(), list);
-        rvlistCasi.setAdapter(adapter);
+        rvlistCasiadmin.setAdapter(adapter);
 
         return view;
     }

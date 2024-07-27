@@ -90,7 +90,7 @@ public class LoainhacAdmin_fm extends Fragment {
                         Toast.makeText(getContext(), "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
                     } else {
                         try {
-                            int maLoai = Integer.parseInt(maLoaiStr);
+                            String maLoai = maLoaiStr;
                             TheLoai newTheLoai = new TheLoai(maLoai, tenLoai, mauTheLoai);
 
                             boolean isAdded = theLoaiDAO.themTheLoai(newTheLoai);

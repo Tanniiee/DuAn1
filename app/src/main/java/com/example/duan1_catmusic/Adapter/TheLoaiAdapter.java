@@ -136,7 +136,7 @@ public class TheLoaiAdapter extends RecyclerView.Adapter<TheLoaiAdapter.ViewHode
                 String tenLoai = edtTenLoai.getText().toString();
                 String mauTheLoai = edtMauTheLoai.getText().toString();
 
-                TheLoai updatedTheLoai = new TheLoai(Integer.parseInt(maLoai), tenLoai, mauTheLoai);
+                TheLoai updatedTheLoai = new TheLoai(maLoai, tenLoai, mauTheLoai);
                 boolean isUpdated = theLoaiDAO.suaTheLoai(updatedTheLoai);
 
                 if (isUpdated) {
@@ -163,7 +163,8 @@ public class TheLoaiAdapter extends RecyclerView.Adapter<TheLoaiAdapter.ViewHode
 
     private void deleteItem(int position) {
         TheLoai theLoai = list.get(position);
-        boolean isDeleted = theLoaiDAO.xoaTheLoai(theLoai.getMaLoai());
+        boolean isDeleted = theLoaiDAO.xoaTheLoai(theLoai.getMaLoai()); // Đã sửa
+
 
         if (isDeleted) {
             list.remove(position);
