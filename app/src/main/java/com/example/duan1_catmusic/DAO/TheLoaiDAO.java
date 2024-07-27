@@ -25,7 +25,7 @@ public class TheLoaiDAO {
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();
             do {
-                list.add(new TheLoai(cursor.getInt(0),
+                list.add(new TheLoai(cursor.getString(0),
                         cursor.getString(1),
                         cursor.getString(2)));
             } while (cursor.moveToNext());
@@ -59,7 +59,7 @@ public class TheLoaiDAO {
     }
 
     // Phương thức xóa dữ liệu trong bảng TheLoai
-    public boolean xoaTheLoai(int maLoai) {
+    public boolean xoaTheLoai(String maLoai) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         int result = db.delete("TheLoai", "MaLoai = ?", new String[]{String.valueOf(maLoai)});
         db.close();

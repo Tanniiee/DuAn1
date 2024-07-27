@@ -25,7 +25,7 @@ public class casiDAO {
         if (cursor.getCount() > 0){
             cursor.moveToFirst();
             do{
-                list.add(new casi(cursor.getInt(0),
+                list.add(new casi(cursor.getString(0),
                         cursor.getString(1),
                         cursor.getString(2),
                         cursor.getString(3),

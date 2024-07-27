@@ -7,21 +7,21 @@
     android:padding="16dp">
 
     <EditText
-        android:textColor="@color/white"
+
         android:id="@+id/edtMaLoaihh"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Mã loại" />
 
     <EditText
-        android:textColor="@color/white"
+
         android:id="@+id/edtTenLoaihh"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Tên loại" />
 
     <EditText
-        android:textColor="@color/white"
+
         android:id="@+id/edtMauTheLoaihh"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

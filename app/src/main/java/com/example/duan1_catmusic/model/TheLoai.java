@@ -4,23 +4,23 @@ import java.io.Serializable;
 
 public class TheLoai implements Serializable {
 
-    private int MaLoai;
+    private String MaLoai;
 
     private String TenLoai;
 
     private String MauTheLoai;
 
-    public TheLoai(int maLoai, String tenLoai, String mauTheLoai) {
+    public TheLoai(String maLoai, String tenLoai, String mauTheLoai) {
         MaLoai = maLoai;
         TenLoai = tenLoai;
         MauTheLoai = mauTheLoai;
     }
 
-    public int getMaLoai() {
+    public String getMaLoai() {
         return MaLoai;
     }
 
-    public void setMaLoai(int maLoai) {
+    public void setMaLoai(String maLoai) {
         MaLoai = maLoai;
     }
 

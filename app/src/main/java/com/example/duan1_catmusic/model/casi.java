@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class casi implements Serializable {
 
-    private int MaCaSi;
+    private String MaCaSi;
 
     private String TenCaSi;
 
@@ -16,7 +16,7 @@ public class casi implements Serializable {
 
     private String Hinhalbum;
 
-    public casi(int maCaSi, String tenCaSi, String queQuan, String namSinh, String hinhCaSi, String hinhalbum) {
+    public casi(String maCaSi, String tenCaSi, String queQuan, String namSinh, String hinhCaSi, String hinhalbum) {
         MaCaSi = maCaSi;
         TenCaSi = tenCaSi;
         QueQuan = queQuan;
@@ -25,11 +25,11 @@ public class casi implements Serializable {
         Hinhalbum = hinhalbum;
     }
 
-    public int getMaCaSi() {
+    public String getMaCaSi() {
         return MaCaSi;
     }
 
-    public void setMaCaSi(int maCaSi) {
+    public void setMaCaSi(String maCaSi) {
         MaCaSi = maCaSi;
     }
 
