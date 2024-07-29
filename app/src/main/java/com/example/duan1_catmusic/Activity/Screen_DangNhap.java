@@ -3,6 +3,7 @@ package com.example.duan1_catmusic.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -23,6 +24,9 @@ public class Screen_DangNhap extends AppCompatActivity {
 
         TextView btn_dn = findViewById(R.id.btn_dn);
         Button btn_dk = findViewById(R.id.btn_dangky);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         btn_dk.setOnClickListener(new View.OnClickListener() {
             @Override

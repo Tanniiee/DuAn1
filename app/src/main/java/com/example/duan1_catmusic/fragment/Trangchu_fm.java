@@ -9,12 +9,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.SearchView;
 
 import com.example.duan1_catmusic.Adapter.casiAdapter;
 import com.example.duan1_catmusic.DAO.casiDAO;
 import com.example.duan1_catmusic.R;
-import com.example.duan1_catmusic.model.casi;
+import com.example.duan1_catmusic.model.Casi;
 
 import java.util.ArrayList;
 
@@ -34,7 +33,7 @@ public class Trangchu_fm extends Fragment {
 
         casiDAO  =new casiDAO(getContext());
 
-        ArrayList<casi> list = casiDAO.getcasi();
+        ArrayList<Casi> list = casiDAO.getcasi();
 
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         manager.setOrientation(RecyclerView.HORIZONTAL);

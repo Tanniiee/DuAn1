@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -33,6 +34,9 @@ public class Screen_mail extends AppCompatActivity {
         ImageView img_tro_ve = findViewById(R.id.img_tro_ve);
         Button btn_tiep1 = findViewById(R.id.btn_tiep1);
         EditText edt_nhap_email_dk = findViewById(R.id.edt_nhap_mai_dk);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         img_tro_ve.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -16,15 +16,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duan1_catmusic.Activity.DanhSachBaiHat;
 import com.example.duan1_catmusic.R;
-import com.example.duan1_catmusic.model.casi;
+import com.example.duan1_catmusic.model.Casi;
 
 import java.util.ArrayList;
 
 public class thuvienAdapter extends RecyclerView.Adapter<thuvienAdapter.ViewHoder>{
     private Context context;
-    private ArrayList<casi> list;
+    private ArrayList<Casi> list;
 
-    public thuvienAdapter(Context context, ArrayList<casi> list) {
+    public thuvienAdapter(Context context, ArrayList<Casi> list) {
         this.context = context;
         this.list = list;
     }

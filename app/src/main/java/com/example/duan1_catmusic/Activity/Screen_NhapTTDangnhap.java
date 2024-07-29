@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -25,6 +26,9 @@ public class Screen_NhapTTDangnhap extends AppCompatActivity {
         TextInputEditText edt_nhap_mai_dn = findViewById(R.id.edt_nhap_mai_dn);
         TextInputEditText edt_nhap_mk_dn = findViewById(R.id.edt_nhap_mk_dn);
         Button btn_tieptt = findViewById(R.id.btn_tieptt);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         nguoiDungDAO = new NguoiDungDAO(this);
 

@@ -1,6 +1,7 @@
 package com.example.duan1_catmusic.Activity;
 
 import android.os.Bundle;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,6 +24,9 @@ public class Screen_Next extends AppCompatActivity {
         ivHinhCasi3 = findViewById(R.id.ivHinhCasi3);
         ivHinhCasi4 = findViewById(R.id.ivHinhCasi4);
         ivHinhCasi5 = findViewById(R.id.ivHinhCasi5);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         ArrayList<String> selectedArtistIds = getIntent().getStringArrayListExtra("selectedArtistIds");
 
