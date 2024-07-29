@@ -1,10 +1,11 @@
+
 package com.example.duan1_catmusic.model;
 
 import java.io.Serializable;
 
 public class Casi implements Serializable {
 
-    private int MaCaSi;
+    private String MaCaSi;
 
     private String TenCaSi;
 
@@ -16,7 +17,7 @@ public class Casi implements Serializable {
 
     private String Hinhalbum;
 
-    public Casi(int maCaSi, String tenCaSi, String queQuan, String namSinh, String hinhCaSi, String hinhalbum) {
+    public Casi(String maCaSi, String tenCaSi, String queQuan, String namSinh, String hinhCaSi, String hinhalbum) {
         MaCaSi = maCaSi;
         TenCaSi = tenCaSi;
         QueQuan = queQuan;
@@ -25,11 +26,11 @@ public class Casi implements Serializable {
         Hinhalbum = hinhalbum;
     }
 
-    public int getMaCaSi() {
+    public String getMaCaSi() {
         return MaCaSi;
     }
 
-    public void setMaCaSi(int maCaSi) {
+    public void setMaCaSi(String maCaSi) {
         MaCaSi = maCaSi;
     }
 
