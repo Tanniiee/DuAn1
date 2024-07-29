@@ -2,7 +2,7 @@ package com.example.duan1_catmusic.model;
 
 import java.io.Serializable;
 
-public class casi implements Serializable {
+public class Casi implements Serializable {
 
     private int MaCaSi;
 
@@ -16,7 +16,7 @@ public class casi implements Serializable {
 
     private String Hinhalbum;
 
-    public casi(int maCaSi, String tenCaSi, String queQuan, String namSinh, String hinhCaSi, String hinhalbum) {
+    public Casi(int maCaSi, String tenCaSi, String queQuan, String namSinh, String hinhCaSi, String hinhalbum) {
         MaCaSi = maCaSi;
         TenCaSi = tenCaSi;
         QueQuan = queQuan;

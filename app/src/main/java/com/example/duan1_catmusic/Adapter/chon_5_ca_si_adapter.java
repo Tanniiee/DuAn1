@@ -14,17 +14,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duan1_catmusic.R;
-import com.example.duan1_catmusic.model.casi;
+import com.example.duan1_catmusic.model.Casi;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class chon_5_ca_si_adapter extends RecyclerView.Adapter<chon_5_ca_si_adapter.ViewHolder> {
-    private List<casi> list;
+    private List<Casi> list;
     private Context context;
-    private List<casi> selectedArtists = new ArrayList<>();
+    private List<Casi> selectedArtists = new ArrayList<>();
 
-    public chon_5_ca_si_adapter(List<casi> list, Context context) {
+    public chon_5_ca_si_adapter(List<Casi> list, Context context) {
         this.list = list;
         this.context = context;
     }
@@ -39,7 +39,7 @@ public class chon_5_ca_si_adapter extends RecyclerView.Adapter<chon_5_ca_si_adap
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        casi artist = list.get(position);
+        Casi artist = list.get(position);
         holder.ten_ca_si.setText(artist.getTenCaSi());
         String imgName = String.valueOf(list.get(position).getHinhCaSi());
         int resID = ((Activity)context).getResources().getIdentifier(imgName,"drawable",((Activity)context).getPackageName());
@@ -66,7 +66,7 @@ public class chon_5_ca_si_adapter extends RecyclerView.Adapter<chon_5_ca_si_adap
         return list.size();
     }
 
-    public List<casi> getSelectedArtists() {
+    public List<Casi> getSelectedArtists() {
         return selectedArtists;
     }
 

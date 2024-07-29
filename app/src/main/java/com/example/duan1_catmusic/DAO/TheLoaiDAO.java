@@ -6,7 +6,6 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.duan1_catmusic.database.Dbhelper;
 import com.example.duan1_catmusic.model.TheLoai;
-import com.example.duan1_catmusic.model.casi;
 
 import java.util.ArrayList;
 

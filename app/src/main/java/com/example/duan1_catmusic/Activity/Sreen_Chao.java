@@ -3,6 +3,7 @@ package com.example.duan1_catmusic.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.WindowManager;
 import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
@@ -28,6 +29,9 @@ public class Sreen_Chao extends AppCompatActivity {
         });
 
         ImageView Gif = findViewById(R.id.img_gif);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         int gifResource = R.mipmap.gif_chao;
         Glide.with(this)

@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,18 +14,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duan1_catmusic.Activity.DanhSachBaiHat;
 import com.example.duan1_catmusic.R;
-import com.example.duan1_catmusic.model.casi;
+import com.example.duan1_catmusic.model.Casi;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class casiAdapter extends RecyclerView.Adapter<casiAdapter.ViewHoder>{
 
 
     private Context context;
-    private ArrayList<casi> list;
+    private ArrayList<Casi> list;
 
-    public casiAdapter(ArrayList<casi> list, Context context) {
+    public casiAdapter(ArrayList<Casi> list, Context context) {
         this.list = list;
         this.context = context;
     }
@@ -42,6 +40,7 @@ public class casiAdapter extends RecyclerView.Adapter<casiAdapter.ViewHoder>{
 
     @Override
     public void onBindViewHolder(@NonNull casiAdapter.ViewHoder holder, int position) {
+        Casi casi = list.get(position);
         holder.name.setText(list.get(position).getTenCaSi());
         holder.ten.setText(list.get(position).getTenCaSi());
         String imgName = String.valueOf(list.get(position).getHinhalbum());
@@ -52,6 +51,7 @@ public class casiAdapter extends RecyclerView.Adapter<casiAdapter.ViewHoder>{
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, DanhSachBaiHat.class);
+                intent.putExtra("ten_nghe_si", casi.getTenCaSi());
                 context.startActivity(intent);
             }
         });

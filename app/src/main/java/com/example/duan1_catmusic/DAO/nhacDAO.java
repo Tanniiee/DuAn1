@@ -45,6 +45,16 @@ public class nhacDAO {
 
         return songArtistList;
     }
+    public List<Nhac> getSongsByArtist(String artistName) {
+        List<Nhac> allSongs = getSongArtistList(); // Giả sử đây là phương thức trả về danh sách tất cả các bài hát
+        List<Nhac> songsByArtist = new ArrayList<>();
+        for (Nhac song : allSongs) {
+            if (song.getTenCaSi().equals(artistName)) {
+                songsByArtist.add(song);
+            }
+        }
+        return songsByArtist;
+    }
     public List<Nhac> Allsong() {
         List<Nhac> allsong = new ArrayList<>();
         SQLiteDatabase db = this.dbHelper.getReadableDatabase();
