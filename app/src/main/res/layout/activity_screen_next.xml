@@ -7,8 +7,32 @@
     android:layout_height="match_parent"
     tools:context=".Activity.Screen_Next"
     android:orientation="vertical"
-    android:gravity="center"
     android:background="#40454E">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:src="@mipmap/icon_back" />
+
+
+
+    </LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+
+
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -71,4 +95,5 @@
         android:layout_marginTop="50dp"
         android:backgroundTint="@color/white"
         android:textColor="@color/black"/>
+</LinearLayout>
 </LinearLayout>

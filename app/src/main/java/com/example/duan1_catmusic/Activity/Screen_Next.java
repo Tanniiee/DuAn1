@@ -1,6 +1,7 @@
 package com.example.duan1_catmusic.Activity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -25,6 +26,13 @@ public class Screen_Next extends AppCompatActivity {
         ivHinhCasi4 = findViewById(R.id.ivHinhCasi4);
         ivHinhCasi5 = findViewById(R.id.ivHinhCasi5);
 
+        ImageView back = findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
