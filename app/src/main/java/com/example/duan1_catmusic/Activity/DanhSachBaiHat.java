@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -26,9 +27,15 @@ public class DanhSachBaiHat extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gd_danh_sach_bai_hat);
-
+        ImageView back = findViewById(R.id.back);
         rcv_list_danh_sach_nhac = findViewById(R.id.rcvlistDanhsachnhac);
 
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -39,6 +46,7 @@ public class DanhSachBaiHat extends AppCompatActivity {
 
         loaddata(artistName);
     }
+
 
     private void loaddata(String artistName) {
         // Lọc danh sách bài hát theo tên nghệ sĩ
