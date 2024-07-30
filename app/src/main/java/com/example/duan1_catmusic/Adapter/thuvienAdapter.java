@@ -50,7 +50,7 @@ public class thuvienAdapter extends RecyclerView.Adapter<thuvienAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        casi currentCasi = list.get(position);
+        Casi currentCasi = list.get(position);
         holder.tvTencasi.setText(currentCasi.getTenCaSi());
         int resID = context.getResources().getIdentifier(currentCasi.getHinhalbum(), "drawable", context.getPackageName());
         holder.iv_hinhCasi.setImageResource(resID);
@@ -85,7 +85,7 @@ public class thuvienAdapter extends RecyclerView.Adapter<thuvienAdapter.ViewHold
         return list.size();
     }
 
-    private void showDeleteConfirmationDialog(casi casi, int position) {
+    private void showDeleteConfirmationDialog(Casi casi, int position) {
         new AlertDialog.Builder(context)
                 .setTitle("Xóa nghệ sĩ")
                 .setMessage("Bạn có chắc chắn muốn xóa nghệ sĩ này không?")
@@ -101,7 +101,7 @@ public class thuvienAdapter extends RecyclerView.Adapter<thuvienAdapter.ViewHold
                 .setNegativeButton("Hủy", null)
                 .show();
     }
-    private void showEditDialog(casi currentCasi) {
+    private void showEditDialog(Casi currentCasi) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         LayoutInflater inflater = LayoutInflater.from(context);
         View dialogView = inflater.inflate(R.layout.dialog_sua_nghe_si, null);

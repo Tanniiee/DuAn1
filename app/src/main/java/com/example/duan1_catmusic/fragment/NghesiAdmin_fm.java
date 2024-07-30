@@ -36,7 +36,7 @@ public class NghesiAdmin_fm extends Fragment {
     private RecyclerView rvlistCasiadmin;
     private casiDAO casiDAO;
     private Uri imageUri;
-    private ArrayList<casi> list;
+    private ArrayList<Casi> list;
     private thuvienAdapter adapter;
 
     @Override
@@ -111,7 +111,7 @@ public class NghesiAdmin_fm extends Fragment {
                     return;
                 }
 
-                casi newCasi = new casi(imageUri.toString() ,maNgheSi, tenNgheSi, queNgheSi, namNgheSi, imageUri.toString());
+                Casi newCasi = new Casi(imageUri.toString() ,maNgheSi, tenNgheSi, queNgheSi, namNgheSi, imageUri.toString());
                 long result = casiDAO.themCasi(newCasi);
 
                 if (result != -1) {
