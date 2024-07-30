@@ -58,6 +58,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_centerVertical="true"/>
             <ImageButton
+                android:id="@+id/btnthemnsadmin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/addition"

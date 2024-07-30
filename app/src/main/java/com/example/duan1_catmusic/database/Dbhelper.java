@@ -23,7 +23,7 @@ public class Dbhelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(QuanLyTacGia);
 
         // CaSi
-        String QuanLyCaSi = "CREATE TABLE CaSi(MaCaSi TEXT PRIMARY KEY, TenCaSi TEXT, QueQuan TEXT, NamSinh TEXT, HinhCaSi TEXT,Hinhalbum TEXT)";
+        String QuanLyCaSi = "CREATE TABLE CaSi(MaCaSi TEXT PRIMARY KEY, TenCaSi TEXT, QueQuan TEXT, NamSinh TEXT, HinhCaSi TEXT, Hinhalbum TEXT)";
         sqLiteDatabase.execSQL(QuanLyCaSi);
 
         // LoiNhac
