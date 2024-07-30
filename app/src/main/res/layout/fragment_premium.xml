@@ -80,10 +80,10 @@
                 android:background="@drawable/premium_button" />
 
             <LinearLayout
-                android:layout_width="350dp"
+                android:layout_width="match_parent"
                 android:layout_height="270dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
+                android:layout_margin="10dp"
                 android:background="@drawable/premium_action"
                 android:orientation="vertical">
 
@@ -183,18 +183,18 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 android:background="@drawable/premium_action"
-                android:orientation="vertical"
-                android:layout_margin="10dp">
+                android:orientation="vertical">
 
                 <Button
                     android:id="@+id/btnPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/btn_price"
                     android:text="@string/_29_500_3_th_ng"
                     android:textColor="@color/black"
-                    app:backgroundTint="@null"
-                    android:background="@drawable/btn_price" />
+                    app:backgroundTint="@null" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -210,41 +210,41 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Premium"
                         android:layout_gravity="center"
-                        android:textStyle="bold"
+                        android:text="Premium"
+                        android:textColor="@color/white"
                         android:textSize="20sp"
-                        android:textColor="@color/white" />
+                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <TextView
                     android:id="@+id/tvgoi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:text="Individual"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
                     android:textColor="#4B0082"
-                    android:layout_marginLeft="10dp" />
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvprice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:text="@string/_29_500_cho_3_th_ng"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
                     android:textColor="@color/white"
-                    android:layout_marginLeft="10dp" />
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvlate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:text="@string/sau_l_59_000_th_ng"
-                    android:textSize="15sp"
                     android:textColor="@color/white"
-                    android:layout_marginLeft="10dp" />
+                    android:textSize="15sp" />
 
                 <View
                     android:layout_width="match_parent"
@@ -266,11 +266,11 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:text="1 tài khoản Premium"
-                        android:layout_gravity="center"
-                        android:textStyle="bold"
+                        android:textColor="@color/white"
                         android:textSize="15sp"
-                        android:textColor="@color/white" />
+                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -286,11 +286,11 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:text="Hủy bất cứ lúc nào"
-                        android:layout_gravity="center"
-                        android:textStyle="bold"
+                        android:textColor="@color/white"
                         android:textSize="15sp"
-                        android:textColor="@color/white" />
+                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -306,48 +306,49 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Đăng ký hoặc thanh toán 1 lần"
                         android:layout_gravity="center"
-                        android:textStyle="bold"
+                        android:text="Đăng ký hoặc thanh toán 1 lần"
+                        android:textColor="@color/white"
                         android:textSize="15sp"
-                        android:textColor="@color/white" />
+                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <Button
                     android:id="@+id/btnbuypremium"
                     android:layout_width="350dp"
                     android:layout_height="wrap_content"
-                    android:text="Mua Premium Indivual"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:textStyle="bold"
+                    android:background="@drawable/btn_buy_premium"
+                    android:text="Mua Premium Indivual"
                     android:textColor="@color/black"
-                    app:backgroundTint="@null"
-                    android:background="@drawable/btn_buy_premium" />
+                    android:textStyle="bold"
+                    app:backgroundTint="@null" />
 
                 <Button
                     android:layout_width="350dp"
                     android:layout_height="wrap_content"
-                    android:text="Thanh toán 1 lần"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:textStyle="bold"
+                    android:background="@drawable/btnlognopass"
+                    android:text="Thanh toán 1 lần"
                     android:textColor="@color/white"
-                    app:backgroundTint="@null"
-                    android:background="@drawable/btnlognopass" />
+                    android:textStyle="bold"
+                    app:backgroundTint="@null" />
 
                 <TextView
                     android:id="@+id/tvTitle"
                     android:layout_width="350dp"
                     android:layout_height="wrap_content"
-                    android:text="Chỉ áp dụng gói Premium Individual 29,500đ cho 3 tháng đầu tiên, sau đó là 59,000/tháng. Chỉ áp dụng ưu đãi nếu bạn chưa từng dùng gói Premium."
                     android:layout_gravity="center"
-                    android:gravity="center"
                     android:layout_marginTop="10dp"
-                    android:textColor="@color/white"
-                    android:layout_marginBottom="20dp" />
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center"
+                    android:text="Chỉ áp dụng gói Premium Individual 29,500đ cho 3 tháng đầu tiên, sau đó là 59,000/tháng. Chỉ áp dụng ưu đãi nếu bạn chưa từng dùng gói Premium."
+                    android:textColor="@color/white" />
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
