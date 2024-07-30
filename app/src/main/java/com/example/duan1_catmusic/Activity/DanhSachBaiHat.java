@@ -1,27 +1,19 @@
 package com.example.duan1_catmusic.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.ImageView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
-import com.example.duan1_catmusic.Adapter.DSplaylistAdapter;
 import com.example.duan1_catmusic.Adapter.MusicAdapter;
-import com.example.duan1_catmusic.Adapter.TheLoaiAdapter;
-import com.example.duan1_catmusic.DAO.DSplaylistDAO;
-import com.example.duan1_catmusic.DAO.TheLoaiDAO;
-import com.example.duan1_catmusic.DAO.casiDAO;
 import com.example.duan1_catmusic.DAO.nhacDAO;
 import com.example.duan1_catmusic.R;
 import com.example.duan1_catmusic.model.Nhac;
-import com.example.duan1_catmusic.model.casi;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,20 +27,30 @@ public class DanhSachBaiHat extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gd_danh_sach_bai_hat);
-
+        ImageView back = findViewById(R.id.back);
         rcv_list_danh_sach_nhac = findViewById(R.id.rcvlistDanhsachnhac);
 
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        String artistName = getIntent().getStringExtra("ten_nghe_si");
 
         list = new ArrayList<>();
         nhac_DAO = new nhacDAO(this);
 
-        loaddata();
-
-
+        loaddata(artistName);
     }
 
-    private void loaddata(){
-        list = nhac_DAO.getSongArtistList();
+
+    private void loaddata(String artistName) {
+        // Lọc danh sách bài hát theo tên nghệ sĩ
+        list = nhac_DAO.getSongsByArtist(artistName);
 
         LinearLayoutManager manager = new LinearLayoutManager(this);
         manager.setOrientation(RecyclerView.VERTICAL);
@@ -57,5 +59,15 @@ public class DanhSachBaiHat extends AppCompatActivity {
         MusicAdapter adapter = new MusicAdapter(list, this);
         rcv_list_danh_sach_nhac.setAdapter(adapter);
 
+        // Set item click listener to open Screen_listening_music
+        adapter.setOnItemClickListener(new MusicAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Intent intent = new Intent(DanhSachBaiHat.this, Screen_listening_music.class);
+                intent.putExtra("playlist", (ArrayList<Nhac>) list); // Truyền danh sách phát
+                intent.putExtra("currentTrackIndex", position); // Truyền vị trí bài hát hiện tại
+                startActivity(intent);
+            }
+        });
     }
 }

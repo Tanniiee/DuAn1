@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -24,6 +25,9 @@ public class Screen_DnKMK extends AppCompatActivity {
         setContentView(R.layout.activity_screen_dn_kmk);
 
         ImageView img_trove_dn = findViewById(R.id.img_tro_ve_dn);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         img_trove_dn.setOnClickListener(new View.OnClickListener() {
             @Override

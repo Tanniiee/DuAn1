@@ -3,6 +3,7 @@ package com.example.duan1_catmusic.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
@@ -27,6 +28,9 @@ public class Screen_TaoMatKhau extends AppCompatActivity {
         });
 
         Button btn_tiep1 = findViewById(R.id.btn_tiep1);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         btn_tiep1.setOnClickListener(new View.OnClickListener() {
             @Override

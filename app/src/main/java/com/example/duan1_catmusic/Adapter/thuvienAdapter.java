@@ -21,18 +21,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.duan1_catmusic.Activity.DanhSachBaiHat;
 import com.example.duan1_catmusic.DAO.casiDAO;
 import com.example.duan1_catmusic.R;
-import com.example.duan1_catmusic.model.casi;
+import com.example.duan1_catmusic.model.Casi;
 
 import java.util.ArrayList;
 
 public class thuvienAdapter extends RecyclerView.Adapter<thuvienAdapter.ViewHolder> {
     private Context context;
-    private ArrayList<casi> list;
+
+     private ArrayList<Casi> list;
     private casiDAO casiDAO;
     private Uri imageUri; // Khai báo biến imageUri
     private static final int PICK_IMAGE_REQUEST = 1;
 
-    public thuvienAdapter(Context context, ArrayList<casi> list) {
+
+    public thuvienAdapter(Context context, ArrayList<Casi> list) {
         this.context = context;
         this.list = list;
         this.casiDAO = new casiDAO(context);

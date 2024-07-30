@@ -3,6 +3,7 @@ package com.example.duan1_catmusic.Activity;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -40,6 +41,9 @@ public class Screen_QuangCao extends AppCompatActivity {
 
         imageView = findViewById(R.id.imageView);
         tvCountdown = findViewById(R.id.tvCountdown);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override

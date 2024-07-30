@@ -10,11 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.duan1_catmusic.Adapter.casiAdapter;
 import com.example.duan1_catmusic.Adapter.thuvienAdapter;
 import com.example.duan1_catmusic.DAO.casiDAO;
 import com.example.duan1_catmusic.R;
-import com.example.duan1_catmusic.model.casi;
+import com.example.duan1_catmusic.model.Casi;
 
 import java.util.ArrayList;
 
@@ -32,7 +31,7 @@ public class Thuvien_fm extends Fragment {
         rvlistCasi = view.findViewById(R.id.rvListCaSi);
         casiDAO  =new casiDAO(getContext());
 
-        ArrayList<casi> list = casiDAO.getcasi();
+        ArrayList<Casi> list = casiDAO.getcasi();
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         manager.setOrientation(RecyclerView.VERTICAL);
         rvlistCasi.setLayoutManager(manager);

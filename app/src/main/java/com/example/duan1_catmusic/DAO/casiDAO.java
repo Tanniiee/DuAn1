@@ -6,7 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.duan1_catmusic.database.Dbhelper;
-import com.example.duan1_catmusic.model.casi;
+import com.example.duan1_catmusic.model.Casi;
+import com.example.duan1_catmusic.model.Casi;
 
 import java.util.ArrayList;
 
@@ -18,14 +19,16 @@ public class casiDAO {
         dbHelper = new Dbhelper(context);
     }
 
-    public ArrayList<casi> getcasi() {
-        ArrayList<casi> list = new ArrayList<>();
+
+
+    public ArrayList<Casi> getcasi(){
+        ArrayList<Casi> list = new ArrayList<>();
         SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM CaSi", null);
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();
-            do {
-                list.add(new casi(cursor.getString(0),
+            do{
+                list.add(new Casi(cursor.getString(0),
                         cursor.getString(1),
                         cursor.getString(2),
                         cursor.getString(3),
@@ -38,7 +41,7 @@ public class casiDAO {
         return list;
     }
 
-    public long themCasi(casi casi) {
+    public long themCasi(Casi casi) {
         SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("Hinhalbum", casi.getHinhalbum());
@@ -52,7 +55,7 @@ public class casiDAO {
         return result;
     }
 
-    public int capNhatCasi(casi casi) {
+    public int capNhatCasi(Casi casi) {
         SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("Hinhalbum", casi.getHinhalbum());
@@ -71,3 +74,6 @@ public class casiDAO {
         return result > 0;
     }
 }
+
+}
+

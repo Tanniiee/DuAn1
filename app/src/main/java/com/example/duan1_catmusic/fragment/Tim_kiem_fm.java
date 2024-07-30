@@ -13,10 +13,8 @@ import android.widget.SearchView;
 
 import com.example.duan1_catmusic.Adapter.TheLoaiAdapter;
 import com.example.duan1_catmusic.DAO.TheLoaiDAO;
-import com.example.duan1_catmusic.DAO.casiDAO;
 import com.example.duan1_catmusic.R;
 import com.example.duan1_catmusic.model.TheLoai;
-import com.example.duan1_catmusic.model.casi;
 
 import java.util.ArrayList;
 
