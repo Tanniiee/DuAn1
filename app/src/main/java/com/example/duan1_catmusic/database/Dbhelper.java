@@ -1,8 +1,11 @@
 package com.example.duan1_catmusic.database;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
 
 public class Dbhelper extends SQLiteOpenHelper {
 
@@ -188,6 +191,21 @@ public class Dbhelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(insertDanhSachPlaylist3);
         sqLiteDatabase.execSQL(insertDanhSachPlaylist4);
         sqLiteDatabase.execSQL(insertDanhSachPlaylist5);
+    }
+    public ArrayList<String> getArtistIds(){
+        ArrayList<String> artistIds = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM CaSi", null);
+        if (cursor.moveToFirst()){
+            do{
+                artistIds.add(cursor.getString(0));
+
+            }while (cursor.moveToNext());
+
+        }
+        cursor.close();
+        db.close();
+    return artistIds;
     }
 
 }
