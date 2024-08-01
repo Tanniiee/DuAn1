@@ -1,9 +1,12 @@
 package com.example.duan1_catmusic.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +26,7 @@ import com.example.duan1_catmusic.model.DSplaylist;
 import com.example.duan1_catmusic.model.TheLoai;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Screen_nhacTheotheloai extends AppCompatActivity {
 
@@ -34,6 +38,10 @@ public class Screen_nhacTheotheloai extends AppCompatActivity {
     private ArrayList<TheLoai> list2;
 
     private ImageView back;
+
+    private TextView tentheloai;
+
+    private TheLoaiAdapter theLoaiAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +62,7 @@ public class Screen_nhacTheotheloai extends AppCompatActivity {
         rcvlist = findViewById(R.id.rcvlist);
         rcvtheloai = findViewById(R.id.rcvtheloai);
         back = findViewById(R.id.back);
+        tentheloai = findViewById(R.id.tentheloai);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -75,11 +84,27 @@ public class Screen_nhacTheotheloai extends AppCompatActivity {
         dSplaylistDAO = new DSplaylistDAO(this);
         theLoaiDAO = new TheLoaiDAO(this);
 
-        loadData();
+        Intent intent = getIntent();
+
+        String tenLoai = intent.getStringExtra("ten_loai");
+
+        if (tenLoai != null) {
+            tentheloai.setText(tenLoai);
+        } else {
+            tentheloai.setText("Không tìm thấy thể loại");
+        }
+
+
+
+        String artistName = getIntent().getStringExtra("ten_loai");
+
+        loadData(artistName);
     }
 
-    private void loadData(){
-        list = dSplaylistDAO.getDSplaylist();
+    private void loadData(String artistName){
+        list = (ArrayList<DSplaylist>) dSplaylistDAO.getss(artistName);
+
+
         list2 = theLoaiDAO.getTheLoai();
 
 
