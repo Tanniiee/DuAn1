@@ -9,6 +9,7 @@ import com.example.duan1_catmusic.database.Dbhelper;
 import com.example.duan1_catmusic.model.TheLoai;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TheLoaiDAO {
 
@@ -65,6 +66,9 @@ public class TheLoaiDAO {
         db.close();
         return result > 0;
     }
+
+
+
 
 
 }
