@@ -39,18 +39,46 @@ public class DanhSachBaiHat extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        String artistName = getIntent().getStringExtra("ten_nghe_si");
+        Intent intent = getIntent();
+        boolean showAllSongs = intent.getBooleanExtra("all_songs", false);
 
         list = new ArrayList<>();
         nhac_DAO = new nhacDAO(this);
 
-        loaddata(artistName);
+        if (showAllSongs) {
+            loadAllData();
+        } else {
+            String artistName = intent.getStringExtra("ten_nghe_si");
+            loaddata(artistName);
+        }
     }
-
 
     private void loaddata(String artistName) {
         // Lọc danh sách bài hát theo tên nghệ sĩ
         list = nhac_DAO.getSongsByArtist(artistName);
+
+        LinearLayoutManager manager = new LinearLayoutManager(this);
+        manager.setOrientation(RecyclerView.VERTICAL);
+        rcv_list_danh_sach_nhac.setLayoutManager(manager);
+
+        MusicAdapter adapter = new MusicAdapter(list, this);
+        rcv_list_danh_sach_nhac.setAdapter(adapter);
+
+        // Set item click listener to open Screen_listening_music
+        adapter.setOnItemClickListener(new MusicAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Intent intent = new Intent(DanhSachBaiHat.this, Screen_listening_music.class);
+                intent.putExtra("playlist", (ArrayList<Nhac>) list); // Truyền danh sách phát
+                intent.putExtra("currentTrackIndex", position); // Truyền vị trí bài hát hiện tại
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void loadAllData() {
+        // Load all songs
+        list = nhac_DAO.getSongArtistList();
 
         LinearLayoutManager manager = new LinearLayoutManager(this);
         manager.setOrientation(RecyclerView.VERTICAL);
