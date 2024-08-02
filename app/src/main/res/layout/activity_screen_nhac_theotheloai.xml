@@ -32,7 +32,7 @@
                     android:src="@mipmap/icon_back" />
 
                 <TextView
-
+                    android:id="@+id/tentheloai"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"

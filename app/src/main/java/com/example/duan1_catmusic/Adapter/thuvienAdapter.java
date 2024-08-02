@@ -1,9 +1,12 @@
 package com.example.duan1_catmusic.Adapter;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,30 +57,42 @@ public class thuvienAdapter extends RecyclerView.Adapter<thuvienAdapter.ViewHold
         holder.tvTencasi.setText(currentCasi.getTenCaSi());
         int resID = context.getResources().getIdentifier(currentCasi.getHinhalbum(), "drawable", context.getPackageName());
         holder.iv_hinhCasi.setImageResource(resID);
+        SharedPreferences sharedPreferences = context.getSharedPreferences("dataUser", MODE_PRIVATE);
+        int role = sharedPreferences.getInt("role", -1);
 
-        holder.itemView.setOnLongClickListener(v -> {
-            PopupMenu popupMenu = new PopupMenu(context, v);
-            popupMenu.getMenuInflater().inflate(R.menu.menu_admin_nghesi, popupMenu.getMenu());
-
-            popupMenu.setOnMenuItemClickListener(item -> {
-                if (item.getItemId() == R.id.action_editns) {
-                    showEditDialog(currentCasi);
-                    return true;
-                } else if (item.getItemId() == R.id.action_deletens) {
-                    showDeleteConfirmationDialog(currentCasi, position);
-                    return true;
-                }
-                return false;
-            });
-
-            popupMenu.show();
-            return true;
-        });
-
+        // Chỉ xử lý sự kiện click
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, DanhSachBaiHat.class);
             context.startActivity(intent);
         });
+
+
+
+        if (role == 2) {
+            holder.itemView.setOnLongClickListener(v -> {
+                PopupMenu popupMenu = new PopupMenu(context, v);
+                popupMenu.getMenuInflater().inflate(R.menu.menu_admin_nghesi, popupMenu.getMenu());
+
+
+                popupMenu.setOnMenuItemClickListener(item -> {
+                    if (item.getItemId() == R.id.action_editns) {
+                        showEditDialog(currentCasi);
+                        return true;
+                    } else if (item.getItemId() == R.id.action_deletens) {
+                        showDeleteConfirmationDialog(currentCasi, position);
+                        return true;
+                    }
+                    return false;
+                });
+
+                popupMenu.show();
+                return true;
+            });
+        } else {
+            // Nếu role không phải là 2, không có hành động gì khi long click
+            holder.itemView.setOnLongClickListener(null);
+        }
+
     }
 
     @Override

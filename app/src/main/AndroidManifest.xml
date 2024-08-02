@@ -21,7 +21,7 @@
             android:name=".Activity.DanhSachBaiHat"
             android:exported="false" />
         <activity
-            android:name=".Activity.Screen_Chon5NgheSi"
+            android:name=".Activity.Screen_NhapTTDangnhap"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,6 +37,9 @@
         <activity
             android:name=".Activity.Screen_QuangCao"
             android:exported="false" />
+  <activity
+            android:name=".Activity.Screen_Chon5NgheSi"
+            android:exported="false" />
         <activity
             android:name=".Activity.Screen_nhacTheotheloai"
             android:exported="false" />
@@ -47,13 +50,13 @@
             android:name=".Activity.Screen_Next"
             android:exported="false" />
         <activity
-            android:name=".Activity.TrangChuAdmin"
+            android:name=".Activity.TRANGCHU"
             android:exported="false" />
         <activity
             android:name=".Activity.Screen_DnKMK"
             android:exported="false" />
         <activity
-            android:name=".Activity.Screen_NhapTTDangnhap"
+            android:name=".Activity.TrangChuAdmin"
             android:exported="false" />
         <activity
             android:name=".Activity.TRANGCHU"
