@@ -11,7 +11,7 @@ public class Dbhelper extends SQLiteOpenHelper {
 
     public Dbhelper(Context context){
 
-        super(context,"music",null,22);
+        super(context,"music",null,23);
     }
 
     @Override
@@ -155,11 +155,20 @@ public class Dbhelper extends SQLiteOpenHelper {
                 "VALUES ('N4', 'lovesick' , 'Lovesick Girl', 'L4', 'TG4', 'CS1', 'Loi4', 'love_sick_girl')";
         String insertNhac5 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
                 "VALUES ('N5', 'stayloralbum' , 'Love Story', 'L5', 'TG5', 'CS9', 'Loi5', 'love_story')";
+        String insertNhac6 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
+                "VALUES ('N6', 'sio' , 'Shake it off', 'L1', 'TG5', 'CS9', 'Loi5', 'shake_it_off')";
+        String insertNhac7 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
+                "VALUES ('N7', 'blank_space' , 'Blank Space', 'L1', 'TG5', 'CS9', 'Loi5', 'blank_space')";
+        String insertNhac8 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
+                "VALUES ('N8', 'you_belong_with_me' , 'You Belong With Me', 'L1', 'TG5', 'CS9', 'Loi5', 'you_belong_with_me')";
         sqLiteDatabase.execSQL(insertNhac1);
         sqLiteDatabase.execSQL(insertNhac2);
         sqLiteDatabase.execSQL(insertNhac3);
         sqLiteDatabase.execSQL(insertNhac4);
         sqLiteDatabase.execSQL(insertNhac5);
+        sqLiteDatabase.execSQL(insertNhac6);
+        sqLiteDatabase.execSQL(insertNhac7);
+        sqLiteDatabase.execSQL(insertNhac8);
 
         // Insert sample data into User
         String insertUser1 = "INSERT INTO User (MaUser, TenUser, Gmail, MatKhau, GioiTinh, NamSinh, DiaChi, role) " +

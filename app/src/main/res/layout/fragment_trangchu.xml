@@ -14,21 +14,14 @@
         android:layout_marginLeft="10dp">
 
         <Button
-            android:layout_width="120dp"
+            android:id="@+id/btn_allSong"
+            android:layout_width="wrap_content"
             android:layout_height="60dp"
-            android:text="Nhạc"
+            android:text="Tất cả nhạc"
             android:textSize="20sp"
             android:textStyle="bold"
             android:backgroundTint="#4CAF50"/>
 
-        <Button
-            android:layout_width="140dp"
-            android:layout_height="60dp"
-            android:text="Podcasts"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:backgroundTint="#080809"
-            android:layout_marginLeft="10dp"/>
 
     </LinearLayout>
 
