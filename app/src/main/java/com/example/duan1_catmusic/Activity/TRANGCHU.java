@@ -1,14 +1,14 @@
 package com.example.duan1_catmusic.Activity;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -31,6 +31,10 @@ import java.util.List;
 public class TRANGCHU extends AppCompatActivity {
 
     private static final int REQUEST_CODE = 1;
+    private static final String PREFS_NAME = "MusicPrefs";
+    private static final String KEY_TRACK_INDEX = "currentTrackIndex";
+    private static final String KEY_POSITION = "currentPosition";
+    private static final String KEY_IS_PLAYING = "isPlaying";
 
     BottomNavigationView bottomNavigationView;
     private List<Nhac> audioFiles;
@@ -42,6 +46,7 @@ public class TRANGCHU extends AppCompatActivity {
     private android.media.MediaPlayer mediaPlayer;
     private Handler handler;
     private Runnable updateSeekBarRunnable;
+    private RelativeLayout choi_nhac;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +61,7 @@ public class TRANGCHU extends AppCompatActivity {
         tv_ten_ca_si = findViewById(R.id.tv_ten_ca_si);
         seebar_choi_nhac = findViewById(R.id.seebar_choi_nhac);
         bottomNavigationView = findViewById(R.id.bottom_nav_view);
+        choi_nhac = findViewById(R.id.choi_nhac);
 
         handler = new Handler();
 
@@ -68,16 +74,35 @@ public class TRANGCHU extends AppCompatActivity {
         audioFiles = (ArrayList<Nhac>) intent.getSerializableExtra("playlist");
         currentTrackIndex = intent.getIntExtra("currentTrackIndex", 0);
 
-        // Ẩn hoặc hiện các thành phần choi_nhac tùy thuộc vào dữ liệu
-        if (audioFiles != null && !audioFiles.isEmpty()) {
-            updateUI(currentTrackIndex);
-            showMusicControls(true);
-            playTrack();
+        // Khôi phục trạng thái từ SharedPreferences
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        if (prefs.contains(KEY_TRACK_INDEX)) {
+            currentTrackIndex = prefs.getInt(KEY_TRACK_INDEX, 0);
+            int savedPosition = prefs.getInt(KEY_POSITION, 0);
+            boolean wasPlaying = prefs.getBoolean(KEY_IS_PLAYING, false);
+
+            if (audioFiles != null && !audioFiles.isEmpty()) {
+                updateUI(currentTrackIndex);
+                showMusicControls(true);
+
+                if (wasPlaying) {
+                    playTrack();
+                    mediaPlayer.seekTo(savedPosition);
+                } else {
+                    showMusicControls(false);
+                }
+            }
         } else {
-            showMusicControls(false);
+            if (audioFiles != null && !audioFiles.isEmpty()) {
+                updateUI(currentTrackIndex);
+                showMusicControls(true);
+                playTrack();
+            } else {
+                showMusicControls(false);
+            }
         }
 
-        img_choi_nhac.setOnClickListener(v -> {
+        choi_nhac.setOnClickListener(v -> {
             Intent newIntent = new Intent(TRANGCHU.this, Screen_listening_music.class);
             newIntent.putExtra("playlist", new ArrayList<>(audioFiles));
             newIntent.putExtra("currentTrackIndex", currentTrackIndex);
@@ -98,17 +123,13 @@ public class TRANGCHU extends AppCompatActivity {
         seebar_choi_nhac.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if (fromUser && isPlaying) {
-                    // Seek to the new position in the track
-                    if (mediaPlayer != null) {
-                        mediaPlayer.seekTo(progress);
-                    }
+                if (fromUser && mediaPlayer != null && isPlaying) {
+                    mediaPlayer.seekTo(progress);
                 }
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-                // Handle start tracking touch
                 if (isPlaying) {
                     pauseTrack();
                 }
@@ -116,7 +137,6 @@ public class TRANGCHU extends AppCompatActivity {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                // Handle stop tracking touch
                 if (!isPlaying) {
                     playTrack();
                 }
@@ -151,6 +171,38 @@ public class TRANGCHU extends AppCompatActivity {
             mediaPlayer = null;
         }
         handler.removeCallbacks(updateSeekBarRunnable);
+
+        // Lưu trạng thái vào SharedPreferences
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        if (mediaPlayer != null) {
+            editor.putInt(KEY_TRACK_INDEX, currentTrackIndex);
+            editor.putInt(KEY_POSITION, mediaPlayer.getCurrentPosition());
+            editor.putBoolean(KEY_IS_PLAYING, mediaPlayer.isPlaying());
+        } else {
+            editor.putInt(KEY_TRACK_INDEX, currentTrackIndex);
+            editor.putInt(KEY_POSITION, 0);
+            editor.putBoolean(KEY_IS_PLAYING, false);
+        }
+        editor.apply();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+            mediaPlayer.pause();
+            isPlaying = false;
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (mediaPlayer != null && !isPlaying) {
+            mediaPlayer.start();
+            isPlaying = true;
+        }
     }
 
     private void loadFragment(Fragment fragment, boolean addToBackStack) {
@@ -197,17 +249,10 @@ public class TRANGCHU extends AppCompatActivity {
     }
 
     private void playTrack() {
-        // Dừng và giải phóng MediaPlayer hiện tại nếu nó đang phát
         if (mediaPlayer != null) {
-            if (mediaPlayer.isPlaying()) {
-                mediaPlayer.stop();
-            }
-            mediaPlayer.reset();
             mediaPlayer.release();
-            mediaPlayer = null;
         }
 
-        // Tạo MediaPlayer mới và phát bài hát
         Nhac track = audioFiles.get(currentTrackIndex);
         int residnhac = getResources().getIdentifier(track.getFileNhac(), "raw", getPackageName());
         mediaPlayer = android.media.MediaPlayer.create(this, residnhac);
@@ -215,10 +260,8 @@ public class TRANGCHU extends AppCompatActivity {
         isPlaying = true;
         img_play_choi_nhac.setImageResource(R.drawable.ic_pause);
 
-        // Thiết lập listener khi bài hát phát xong
         mediaPlayer.setOnCompletionListener(mp -> nextTrack());
 
-        // Cập nhật SeekBar
         seebar_choi_nhac.setMax(mediaPlayer.getDuration());
 
         updateSeekBarRunnable = new Runnable() {
