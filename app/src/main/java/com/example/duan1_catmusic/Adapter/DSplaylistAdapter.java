@@ -37,7 +37,7 @@ public class DSplaylistAdapter extends RecyclerView.Adapter<DSplaylistAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull DSplaylistAdapter.ViewHoder holder, int position) {
-        holder.name.setText(list.get(position).getTenDSPlaylist());
+        holder.name.setText(list.get(position).getTenNhac());
         String imgName = String.valueOf(list.get(position).getHINH());
         int resID = ((Activity)context).getResources().getIdentifier(imgName,"drawable",((Activity)context).getPackageName());
         holder.img.setImageResource(resID);

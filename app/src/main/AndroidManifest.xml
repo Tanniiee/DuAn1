@@ -37,6 +37,9 @@
         <activity
             android:name=".Activity.Screen_QuangCao"
             android:exported="false" />
+  <activity
+            android:name=".Activity.Screen_Chon5NgheSi"
+            android:exported="false" />
         <activity
             android:name=".Activity.Screen_nhacTheotheloai"
             android:exported="false" />
@@ -56,7 +59,7 @@
             android:name=".Activity.TrangChuAdmin"
             android:exported="false" />
         <activity
-            android:name=".Activity.Screen_Chon5NgheSi"
+            android:name=".Activity.TRANGCHU"
             android:exported="false" />
         <activity
             android:name=".Activity.Screen_TaoMatKhau"
