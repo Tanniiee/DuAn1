@@ -49,14 +49,33 @@
                     android:clipToPadding="false"
                     tools:listitem="@layout/item_bai_nhac" />
             </LinearLayout>
-            <Button
-                android:id="@+id/btnaddnewmusic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Thêm bài hát mới"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:backgroundTint="#65719B"/>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/btnaddnewmusic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Thêm bài hát"
+                    android:layout_gravity="start|center"
+                    android:backgroundTint="#65719B"/>
+                <Button
+                    android:id="@+id/btnedtnewmusic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sửa bài hát"
+                    android:layout_marginLeft="5dp"
+                    android:layout_gravity="center"
+                    android:backgroundTint="#65719B"/>
+                <Button
+                    android:id="@+id/btndltnewmusic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Xóa bài hát"
+                    android:layout_gravity="end|center"
+                    android:backgroundTint="#65719B"/>
+            </FrameLayout>
+
 
         </LinearLayout>
 
