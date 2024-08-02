@@ -53,6 +53,7 @@ public class TrangChuAdmin extends AppCompatActivity {
                 return true;
             }
         });
+        loadFragment(new TrangchuAdmin_fm(), true);
     }
     private void loadFragment(Fragment fragment, boolean isAppInitialized) {
         FragmentManager fragmentManager = getSupportFragmentManager();
