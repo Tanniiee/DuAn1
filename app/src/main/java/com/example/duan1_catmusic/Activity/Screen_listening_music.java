@@ -65,7 +65,13 @@ public class Screen_listening_music extends AppCompatActivity {
         img_down.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                    Intent intent = new Intent(Screen_listening_music.this, TRANGCHU.class); // Thay đổi thành Activity chính của bạn nếu cần
+                intent.putExtra("playlist", new ArrayList<>(audioFiles)); // Gửi playlist
+                intent.putExtra("currentTrackIndex", currentTrackIndex); // Gửi chỉ số bài hát hiện tại
+                setResult(RESULT_OK, intent);
                 finish();
+                    startActivity(intent);
+
             }
         });
 
