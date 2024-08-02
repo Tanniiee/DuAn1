@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="10dp"
     android:background="@color/bg"
     tools:context=".Activity.DanhSachBaiHat">
 
@@ -33,15 +34,6 @@
 
     </LinearLayout>
 
-    <Button
-        android:layout_width="270dp"
-        android:layout_height="50dp"
-        android:text="Phát ngẫu nhiên"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        android:backgroundTint="#E34DCB"
-        android:textSize="18dp"
-        android:textStyle="bold"/>
 
 
     <androidx.recyclerview.widget.RecyclerView

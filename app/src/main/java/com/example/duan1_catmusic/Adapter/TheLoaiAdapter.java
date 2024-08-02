@@ -29,6 +29,7 @@ import com.example.duan1_catmusic.Activity.Screen_nhacTheotheloai;
 import com.example.duan1_catmusic.DAO.NguoiDungDAO;
 import com.example.duan1_catmusic.DAO.TheLoaiDAO;
 import com.example.duan1_catmusic.R;
+import com.example.duan1_catmusic.model.DSplaylist;
 import com.example.duan1_catmusic.model.TheLoai;
 
 import java.util.ArrayList;
@@ -60,6 +61,7 @@ public class TheLoaiAdapter extends RecyclerView.Adapter<TheLoaiAdapter.ViewHode
     @SuppressLint({"RecyclerView", "NewApi"})
     @Override
     public void onBindViewHolder(@NonNull TheLoaiAdapter.ViewHoder holder, int position) {
+        TheLoai theloai = list.get(position);
         holder.name.setText(list.get(position).getTenLoai());
         holder.card.setCardBackgroundColor(holder.itemView.getResources().getColor(getRandomColor(), null));
         SharedPreferences sharedPreferences = context.getSharedPreferences("dataUser", MODE_PRIVATE);
@@ -70,6 +72,7 @@ public class TheLoaiAdapter extends RecyclerView.Adapter<TheLoaiAdapter.ViewHode
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, Screen_nhacTheotheloai.class);
+                intent.putExtra("ten_loai",theloai.getTenLoai());
                 context.startActivity(intent);
             }
         });
