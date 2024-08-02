@@ -5,6 +5,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
 
 
     <application
@@ -57,9 +59,6 @@
             android:exported="false" />
         <activity
             android:name=".Activity.TrangChuAdmin"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.TRANGCHU"
             android:exported="false" />
         <activity
             android:name=".Activity.Screen_TaoMatKhau"
