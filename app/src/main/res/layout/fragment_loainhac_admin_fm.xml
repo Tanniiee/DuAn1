@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:hint="Tên Thành Viên">
+            android:hint="">
 
             <SearchView
                 android:id="@+id/edt_timkiem"
