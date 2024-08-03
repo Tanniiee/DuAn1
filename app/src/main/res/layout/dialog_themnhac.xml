@@ -72,13 +72,12 @@
             android:hint="Mã lời"
             android:textColorHint="@color/white"
             android:textColor="@color/white"/>
-        <EditText
-            android:id="@+id/edtfilenhac"
+        <TextView
+            android:id="@+id/tvfilenhac"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="File nhạc"
+            android:text="Filenhac"
             android:textSize="15sp"
-            android:textColorHint="@color/white"
             android:textColor="@color/white"
             android:layout_marginTop="10dp"/>
         <ImageButton

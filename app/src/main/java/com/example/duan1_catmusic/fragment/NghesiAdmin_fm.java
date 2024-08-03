@@ -31,7 +31,7 @@ import static android.app.Activity.RESULT_OK;
 
 public class NghesiAdmin_fm extends Fragment {
 
-    private static final int PICK_IMAGE_REQUEST = 1;
+    static final int PICK_IMAGE_REQUEST = 1;
 
     private RecyclerView rvlistCasiadmin;
     private casiDAO casiDAO;
@@ -148,8 +148,8 @@ public class NghesiAdmin_fm extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
             imageUri = data.getData();
-            ImageView imghinhcasi = getView().findViewById(R.id.imghinhcasi);
-            imghinhcasi.setImageURI(imageUri);
+            ImageView imageView = getView().findViewById(R.id.iv_nghesi_thuvien);
+            imageView.setImageURI(imageUri);
         }
     }
 }
