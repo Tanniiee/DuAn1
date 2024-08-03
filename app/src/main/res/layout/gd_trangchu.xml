@@ -45,6 +45,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/tv_ten_bai_hat"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -54,6 +55,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/tv_ten_ca_si"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -92,7 +94,8 @@
                 <SeekBar
                     android:id="@+id/seebar_choi_nhac"
                     android:layout_width="match_parent"
-                    android:layout_height="4dp"
+                    android:layout_height="6dp"
+                    android:thumbTint="@android:color/white"
                     android:layout_below="@id/img_choi_nhac"/>
 
             </RelativeLayout>
