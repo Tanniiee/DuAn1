@@ -6,12 +6,14 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,7 +29,7 @@ public class Screen_listening_music extends AppCompatActivity {
     private SeekBar seekBar;
     private MediaPlayer mediaPlayer;
     private Handler handler = new Handler();
-    private ImageView imgDia;
+    private ImageView imgDia, tym;
     private ObjectAnimator animator;
     private TextView tvTimeStart, tvTimeEnd, tv_tieu_de, tv_ten_bai_hat, tv_ten_ca_si;
     private ImageView img_album_bai_hat, img_tron_bai, img_prev, img_play_pause, img_next, img_phat_1_bai, img_down;
@@ -37,7 +39,7 @@ public class Screen_listening_music extends AppCompatActivity {
     private boolean isShuffling = false;
     private List<Nhac> audioFiles;
     private nhacDAO audioFileDAO;
-
+    private boolean isImageOne = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,10 +60,33 @@ public class Screen_listening_music extends AppCompatActivity {
         img_play_pause = findViewById(R.id.img_play_pause);
         img_next = findViewById(R.id.img_next);
         img_phat_1_bai = findViewById(R.id.img_phat_1_bai);
+        tym = findViewById(R.id.tym);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        tym.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (isImageOne){
+                    tym.setImageResource(R.drawable.love);
+                    Toast toast = Toast.makeText(Screen_listening_music.this,"Bạn Đã thêm bài hát vào Danh Sách Yêu Thích",Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.LEFT | Gravity.TOP, 20, 30);
+                    toast.show();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("tym",getPackageName());
+
+
+                }else {
+                    tym.setImageResource(R.drawable.love1);
+                    Toast toast = Toast.makeText(Screen_listening_music.this,"Bạn đã bỏ bài hát ra khỏi Danh Sách Yêu Thích",Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.LEFT | Gravity.TOP, 20, 30);
+                    toast.show();
+
+                }
+                isImageOne = !isImageOne;
+            }
+        });
         img_down.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -1,5 +1,6 @@
 package com.example.duan1_catmusic.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,7 +10,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.example.duan1_catmusic.Activity.Screen_ListSong_YeuThich;
+import com.example.duan1_catmusic.Activity.TRANGCHU;
 import com.example.duan1_catmusic.Adapter.thuvienAdapter;
 import com.example.duan1_catmusic.DAO.casiDAO;
 import com.example.duan1_catmusic.R;
@@ -28,6 +33,8 @@ public class Thuvien_fm extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_thuvien, container, false);
 
+        TextView tvSoLuongSong = view.findViewById(R.id.SoluongBaiHat);
+        ImageView img_list_yeuthich= view.findViewById(R.id.img_list_yeuthich);
         rvlistCasi = view.findViewById(R.id.rvListCaSi);
         casiDAO  =new casiDAO(getContext());
 
@@ -39,6 +46,13 @@ public class Thuvien_fm extends Fragment {
         thuvienAdapter adapter = new thuvienAdapter(getContext(), list);
         rvlistCasi.setAdapter(adapter);
 
+        img_list_yeuthich.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), Screen_ListSong_YeuThich.class);
+                startActivity(intent);
+            }
+        });
         return view;
 
     }
