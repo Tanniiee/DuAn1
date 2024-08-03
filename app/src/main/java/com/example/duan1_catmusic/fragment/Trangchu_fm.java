@@ -13,18 +13,24 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.duan1_catmusic.Activity.DanhSachBaiHat;
+import com.example.duan1_catmusic.Adapter.MusicAdapter;
 import com.example.duan1_catmusic.Adapter.casiAdapter;
 import com.example.duan1_catmusic.DAO.casiDAO;
+import com.example.duan1_catmusic.DAO.nhacDAO;
 import com.example.duan1_catmusic.R;
 import com.example.duan1_catmusic.model.Casi;
+import com.example.duan1_catmusic.model.Nhac;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Trangchu_fm extends Fragment {
 
-    private RecyclerView rcvnghesi;
+    private RecyclerView rcvnghesi, rcvtop;
     private casiDAO casiDAO;
     private Button btn_allSong;
+    private nhacDAO nhacDAO;
+    private MusicAdapter adapternhac;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,6 +50,19 @@ public class Trangchu_fm extends Fragment {
 
         casiAdapter adapter = new casiAdapter(list, getContext());
         rcvnghesi.setAdapter(adapter);
+
+
+
+        rcvtop = view.findViewById(R.id.rcvtop);
+
+        //data
+        nhacDAO = new nhacDAO(getContext());
+        List<Nhac> listnhac = nhacDAO.getSongArtistList();
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        rcvtop.setLayoutManager(linearLayoutManager);
+        adapternhac = new MusicAdapter(listnhac, getContext()); // Khởi tạo MusicAdapter
+        rcvtop.setAdapter(adapternhac);
 
         btn_allSong.setOnClickListener(new View.OnClickListener() {
             @Override
