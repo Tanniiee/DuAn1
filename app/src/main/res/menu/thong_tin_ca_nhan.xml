@@ -2,22 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/themtk"
-        android:icon="@mipmap/them"
-        android:title="Thêm tài khoản"
+        android:id="@+id/thongtintaikhoan"
+        android:icon="@mipmap/user"
+        android:title="Thông tin tài khoản"
         android:checked="true" />
+
     <item
-        android:id="@+id/thong_tin_moi"
-        android:icon="@mipmap/thong_tin_moi"
-        android:title="Thông tin mới" />
-    <item
-        android:id="@+id/Noi_dung_da_nghe"
-        android:icon="@mipmap/noi_dung_da_nghe"
-        android:title="Nội dung đã nghe" />
-    <item
-        android:id="@+id/cai_dat"
+        android:id="@+id/Dang_xuat"
         android:icon="@mipmap/cai_dat"
-        android:title="Cài đặt và quyền riêng tư" />
+        android:title="Đăng xuất" />
 
 
 </menu>

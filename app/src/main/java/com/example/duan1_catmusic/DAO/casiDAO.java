@@ -40,6 +40,22 @@ public class casiDAO {
         sqLiteDatabase.close();
         return list;
     }
+    public Casi getArtistById(String id) {
+        SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM CaSi WHERE MaCaSi = ?", new String[]{id});
+        if (cursor != null && cursor.moveToFirst()) {
+            Casi artist = new Casi(cursor.getString(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getString(4),
+                    cursor.getString(5));
+            cursor.close();
+            return artist;
+        }
+        return null;
+    }
+
 
     public long themCasi(Casi casi) {
         SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();

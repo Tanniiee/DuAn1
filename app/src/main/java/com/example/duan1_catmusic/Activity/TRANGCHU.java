@@ -2,15 +2,16 @@ package com.example.duan1_catmusic.Activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -36,14 +37,14 @@ public class TRANGCHU extends AppCompatActivity {
     private static final String KEY_POSITION = "currentPosition";
     private static final String KEY_IS_PLAYING = "isPlaying";
 
-    BottomNavigationView bottomNavigationView;
+    private BottomNavigationView bottomNavigationView;
     private List<Nhac> audioFiles;
     private int currentTrackIndex;
     private ImageView img_choi_nhac, img_next_choi_nhac, img_play_choi_nhac, img_prev_choi_nhac;
     private TextView tv_ten_bai_hat, tv_ten_ca_si;
     private SeekBar seebar_choi_nhac;
     private boolean isPlaying = false;
-    private android.media.MediaPlayer mediaPlayer;
+    private MediaPlayer mediaPlayer;
     private Handler handler;
     private Runnable updateSeekBarRunnable;
     private RelativeLayout choi_nhac;
@@ -65,11 +66,10 @@ public class TRANGCHU extends AppCompatActivity {
 
         handler = new Handler();
 
-        // Fullscreen mode
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        // Chế độ toàn màn hình
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        // Nhận dữ liệu từ Intent
+        // Khôi phục dữ liệu từ Intent
         Intent intent = getIntent();
         audioFiles = (ArrayList<Nhac>) intent.getSerializableExtra("playlist");
         currentTrackIndex = intent.getIntExtra("currentTrackIndex", 0);
@@ -83,13 +83,26 @@ public class TRANGCHU extends AppCompatActivity {
 
             if (audioFiles != null && !audioFiles.isEmpty()) {
                 updateUI(currentTrackIndex);
-                showMusicControls(true);
+
+                // Initialize MediaPlayer only if it's null or if the track index has changed
+                if (mediaPlayer == null || currentTrackIndex != prefs.getInt(KEY_TRACK_INDEX, 0)) {
+                    releaseMediaPlayer(); // Release any existing MediaPlayer before creating a new one
+                    int residnhac = getResources().getIdentifier(audioFiles.get(currentTrackIndex).getFileNhac(), "raw", getPackageName());
+                    mediaPlayer = MediaPlayer.create(this, residnhac);
+                    seebar_choi_nhac.setMax(mediaPlayer.getDuration());
+                }
 
                 if (wasPlaying) {
-                    playTrack();
                     mediaPlayer.seekTo(savedPosition);
+                    mediaPlayer.start();
+                    isPlaying = true;
+                    img_play_choi_nhac.setImageResource(R.drawable.ic_pause);
+                    updateSeekBar();
+                    showMusicControls(true);
                 } else {
-                    showMusicControls(false);
+                    showMusicControls(true);
+                    // Ensure that SeekBar updates correctly even if the track is not playing
+                    seebar_choi_nhac.setProgress(savedPosition);
                 }
             }
         } else {
@@ -120,28 +133,7 @@ public class TRANGCHU extends AppCompatActivity {
         img_next_choi_nhac.setOnClickListener(v -> nextTrack());
         img_prev_choi_nhac.setOnClickListener(v -> prevTrack());
 
-        seebar_choi_nhac.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if (fromUser && mediaPlayer != null && isPlaying) {
-                    mediaPlayer.seekTo(progress);
-                }
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                if (isPlaying) {
-                    pauseTrack();
-                }
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                if (!isPlaying) {
-                    playTrack();
-                }
-            }
-        });
+        setupSeekBar(); // Gọi hàm thiết lập SeekBar
 
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             int itemId = item.getItemId();
@@ -163,24 +155,17 @@ public class TRANGCHU extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (mediaPlayer != null) {
-            if (mediaPlayer.isPlaying()) {
-                mediaPlayer.stop();
-            }
-            mediaPlayer.release();
-            mediaPlayer = null;
-        }
+        releaseMediaPlayer(); // Release MediaPlayer when destroying the activity
         handler.removeCallbacks(updateSeekBarRunnable);
 
         // Lưu trạng thái vào SharedPreferences
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt(KEY_TRACK_INDEX, currentTrackIndex);
         if (mediaPlayer != null) {
-            editor.putInt(KEY_TRACK_INDEX, currentTrackIndex);
             editor.putInt(KEY_POSITION, mediaPlayer.getCurrentPosition());
             editor.putBoolean(KEY_IS_PLAYING, mediaPlayer.isPlaying());
         } else {
-            editor.putInt(KEY_TRACK_INDEX, currentTrackIndex);
             editor.putInt(KEY_POSITION, 0);
             editor.putBoolean(KEY_IS_PLAYING, false);
         }
@@ -202,7 +187,97 @@ public class TRANGCHU extends AppCompatActivity {
         if (mediaPlayer != null && !isPlaying) {
             mediaPlayer.start();
             isPlaying = true;
+            img_play_choi_nhac.setImageResource(R.drawable.ic_pause);
+            updateSeekBar(); // Resume SeekBar updates
         }
+    }
+
+    private void releaseMediaPlayer() {
+        if (mediaPlayer != null) {
+            if (mediaPlayer.isPlaying()) {
+                mediaPlayer.stop();
+            }
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
+    }
+
+    private void playTrack() {
+        if (audioFiles == null || audioFiles.isEmpty()) return;
+
+        if (mediaPlayer != null) {
+            releaseMediaPlayer();
+        }
+
+        Nhac track = audioFiles.get(currentTrackIndex);
+        int residnhac = getResources().getIdentifier(track.getFileNhac(), "raw", getPackageName());
+        mediaPlayer = MediaPlayer.create(this, residnhac);
+        seebar_choi_nhac.setMax(mediaPlayer.getDuration());
+        mediaPlayer.setOnCompletionListener(mp -> {
+            Log.d("MusicPlayer", "Track completed. Moving to next track.");
+            nextTrack();
+        });
+
+        if (mediaPlayer != null) {
+            mediaPlayer.start();
+            isPlaying = true;
+            img_play_choi_nhac.setImageResource(R.drawable.ic_pause);
+            updateSeekBar();
+            Log.d("MusicPlayer", "Playing track index: " + currentTrackIndex);
+        }
+    }
+
+    private void pauseTrack() {
+        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+            mediaPlayer.pause();
+            isPlaying = false;
+            img_play_choi_nhac.setImageResource(R.drawable.ic_play);
+            handler.removeCallbacks(updateSeekBarRunnable); // Dừng cập nhật SeekBar khi tạm dừng nhạc
+        }
+    }
+
+    private void nextTrack() {
+        if (audioFiles != null && !audioFiles.isEmpty()) {
+            currentTrackIndex = (currentTrackIndex + 1) % audioFiles.size();
+            updateUI(currentTrackIndex);
+            playTrack();
+            Log.d("MusicPlayer", "Next track index: " + currentTrackIndex);
+        }
+    }
+
+    private void prevTrack() {
+        if (audioFiles != null && !audioFiles.isEmpty()) {
+            currentTrackIndex = (currentTrackIndex - 1 + audioFiles.size()) % audioFiles.size();
+            updateUI(currentTrackIndex);
+            playTrack();
+            Log.d("MusicPlayer", "Previous track index: " + currentTrackIndex);
+        }
+    }
+
+    private void setupSeekBar() {
+        seebar_choi_nhac.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if (fromUser && mediaPlayer != null) {
+                    Log.d("SeekBar", "Progress changed: " + progress);
+                    mediaPlayer.seekTo(progress);
+                }
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+                    pauseTrack(); // Tạm dừng khi bắt đầu kéo thanh seekbar
+                }
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                if (mediaPlayer != null && !isPlaying) {
+                    playTrack(); // Tiếp tục phát khi dừng kéo thanh seekbar
+                }
+            }
+        });
     }
 
     private void loadFragment(Fragment fragment, boolean addToBackStack) {
@@ -216,54 +291,31 @@ public class TRANGCHU extends AppCompatActivity {
     }
 
     private void showMusicControls(boolean show) {
-        if (show) {
-            img_choi_nhac.setVisibility(View.VISIBLE);
-            img_next_choi_nhac.setVisibility(View.VISIBLE);
-            img_play_choi_nhac.setVisibility(View.VISIBLE);
-            img_prev_choi_nhac.setVisibility(View.VISIBLE);
-            tv_ten_bai_hat.setVisibility(View.VISIBLE);
-            tv_ten_ca_si.setVisibility(View.VISIBLE);
-            seebar_choi_nhac.setVisibility(View.VISIBLE);
-        } else {
-            img_choi_nhac.setVisibility(View.GONE);
-            img_next_choi_nhac.setVisibility(View.GONE);
-            img_play_choi_nhac.setVisibility(View.GONE);
-            img_prev_choi_nhac.setVisibility(View.GONE);
-            tv_ten_bai_hat.setVisibility(View.GONE);
-            tv_ten_ca_si.setVisibility(View.GONE);
-            seebar_choi_nhac.setVisibility(View.GONE);
-        }
+        img_choi_nhac.setVisibility(show ? View.VISIBLE : View.GONE);
+        img_next_choi_nhac.setVisibility(show ? View.VISIBLE : View.GONE);
+        img_play_choi_nhac.setVisibility(show ? View.VISIBLE : View.GONE);
+        img_prev_choi_nhac.setVisibility(show ? View.VISIBLE : View.GONE);
+        tv_ten_bai_hat.setVisibility(show ? View.VISIBLE : View.GONE);
+        tv_ten_ca_si.setVisibility(show ? View.VISIBLE : View.GONE);
+        seebar_choi_nhac.setVisibility(show ? View.VISIBLE : View.GONE);
+
+        // Hiển thị RelativeLayout sau khi dữ liệu đã được xử lý
+        choi_nhac.setVisibility(View.VISIBLE);
     }
 
     private void updateUI(int trackIndex) {
+        if (audioFiles == null || audioFiles.isEmpty()) return;
+
         Nhac track = audioFiles.get(trackIndex);
         tv_ten_bai_hat.setText(track.getTenNhac());
         tv_ten_ca_si.setText(track.getTenCaSi());
         String hinhNhac = track.getHinhNhac();
         int resID = getResources().getIdentifier(hinhNhac, "drawable", getPackageName());
-        if (resID != 0) {
-            img_choi_nhac.setImageResource(resID);
-        } else {
-            img_choi_nhac.setImageResource(R.drawable.rosealbum); // Default image
-        }
+        img_choi_nhac.setImageResource(resID != 0 ? resID : R.drawable.rosealbum);
     }
 
-    private void playTrack() {
-        if (mediaPlayer != null) {
-            mediaPlayer.release();
-        }
-
-        Nhac track = audioFiles.get(currentTrackIndex);
-        int residnhac = getResources().getIdentifier(track.getFileNhac(), "raw", getPackageName());
-        mediaPlayer = android.media.MediaPlayer.create(this, residnhac);
-        mediaPlayer.start();
-        isPlaying = true;
-        img_play_choi_nhac.setImageResource(R.drawable.ic_pause);
-
-        mediaPlayer.setOnCompletionListener(mp -> nextTrack());
-
-        seebar_choi_nhac.setMax(mediaPlayer.getDuration());
-
+    private void updateSeekBar() {
+        // Cập nhật SeekBar liên tục
         updateSeekBarRunnable = new Runnable() {
             @Override
             public void run() {
@@ -274,29 +326,5 @@ public class TRANGCHU extends AppCompatActivity {
             }
         };
         handler.post(updateSeekBarRunnable);
-    }
-
-    private void pauseTrack() {
-        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
-            mediaPlayer.pause();
-            isPlaying = false;
-            img_play_choi_nhac.setImageResource(R.drawable.ic_play);
-        }
-    }
-
-    private void nextTrack() {
-        if (audioFiles != null && !audioFiles.isEmpty()) {
-            currentTrackIndex = (currentTrackIndex + 1) % audioFiles.size();
-            updateUI(currentTrackIndex);
-            playTrack();
-        }
-    }
-
-    private void prevTrack() {
-        if (audioFiles != null && !audioFiles.isEmpty()) {
-            currentTrackIndex = (currentTrackIndex - 1 + audioFiles.size()) % audioFiles.size();
-            updateUI(currentTrackIndex);
-            playTrack();
-        }
     }
 }
