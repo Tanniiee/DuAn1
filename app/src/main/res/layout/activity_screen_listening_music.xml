@@ -82,8 +82,8 @@
             <TextView
                 android:id="@+id/tv_ten_bai_hat"
                 android:layout_width="220dp"
-                android:layout_height="wrap_content"
-                android:textSize="22sp"
+                android:layout_height="50dp"
+                android:textSize="18sp"
                 android:text="Gone"
                 android:textStyle="bold"
                 android:textColor="@color/white"/>

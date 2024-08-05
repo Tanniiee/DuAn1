@@ -37,7 +37,7 @@ public class Screen_Chon5NgheSi extends AppCompatActivity {
 
         list = casiDAO.getcasi();
 
-        rcv_chon_ca_si.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        rcv_chon_ca_si.setLayoutManager(new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL));
 
         chon_5_ca_si_adapter adapter = new chon_5_ca_si_adapter(list, Screen_Chon5NgheSi.this);
         rcv_chon_ca_si.setAdapter(adapter);
