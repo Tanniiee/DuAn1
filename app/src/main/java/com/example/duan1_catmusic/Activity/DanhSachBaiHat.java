@@ -17,6 +17,8 @@ import com.example.duan1_catmusic.model.Nhac;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Collections;
+import java.util.List;
 
 public class DanhSachBaiHat extends AppCompatActivity {
     private List<Nhac> list;
@@ -74,9 +76,13 @@ public class DanhSachBaiHat extends AppCompatActivity {
         });
     }
 
-    private void loadAllData() {
-        // Load all songs
+    private void loadAllData(boolean shuffle) {
+        // Tải tất cả bài hát
         list = nhac_DAO.getSongArtistList();
+
+        if (shuffle) {
+            Collections.shuffle(list); // Trộn danh sách
+        }
 
         LinearLayoutManager manager = new LinearLayoutManager(this);
         manager.setOrientation(RecyclerView.VERTICAL);
@@ -85,7 +91,7 @@ public class DanhSachBaiHat extends AppCompatActivity {
         MusicAdapter adapter = new MusicAdapter(list, this);
         rcv_list_danh_sach_nhac.setAdapter(adapter);
 
-        // Set item click listener to open Screen_listening_music
+        // Đặt trình nghe sự kiện khi bấm vào item để mở Screen_listening_music
         adapter.setOnItemClickListener(new MusicAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
@@ -96,4 +102,14 @@ public class DanhSachBaiHat extends AppCompatActivity {
             }
         });
     }
-}
+
+    // Phương thức gọi loadAllData với shuffle
+    private void loadAllData() {
+        loadAllData(true); // Mặc định không trộn
+    }
+
+    // Phương thức gọi loadAllData với shuffle được kích hoạt
+    private void loadAllDataShuffled() {
+        loadAllData(true); // Kích hoạt trộn danh sách
+    }
+    }
