@@ -1,5 +1,6 @@
 package com.example.duan1_catmusic.DAO;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -15,6 +16,25 @@ public class NguoiDungDAO {
         dbhelper = new Dbhelper(context);
         sharedPreferences = context.getSharedPreferences("dataUser", Context.MODE_PRIVATE);
     }
+    // đăng kys
+    public int Dangky(String Gmail, String MatKhaudk ,String NamSinh,String GioiTinh, String TenUserdk ){
+        SQLiteDatabase sqLiteDatabase = dbhelper.getWritableDatabase();
+        // kiêểm tra
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM User WHERE Gmail = ? OR TenUser = ?", new String[]{Gmail,TenUserdk});
+        if (cursor.getCount()>0){
+            return 0;
+        }else {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("Gmail", Gmail);
+            contentValues.put("MatKhau", MatKhaudk);
+            contentValues.put("NamSinh", NamSinh);
+            contentValues.put("GioiTinh", GioiTinh);
+            contentValues.put("TenUser",TenUserdk);
+            long check = sqLiteDatabase.insert("User", null, contentValues);
+            return (check == -1) ? -1 : 1;
+        }
+    }
+
 
     // kiểm tra thông tin đăng nhập
     public boolean KiemTraDangNhap(String TenUserOrGmail, String MatKhau) {

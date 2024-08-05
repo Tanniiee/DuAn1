@@ -23,14 +23,7 @@ public class Screen_mail extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.gd_mail);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-
         ImageView img_tro_ve = findViewById(R.id.img_tro_ve);
         Button btn_tiep1 = findViewById(R.id.btn_tiep1);
         EditText edt_nhap_email_dk = findViewById(R.id.edt_nhap_mai_dk);
@@ -53,10 +46,10 @@ public class Screen_mail extends AppCompatActivity {
                 if (TextUtils.isEmpty(email)) {
                     Toast.makeText(Screen_mail.this, "Vui lòng nhập email", Toast.LENGTH_SHORT).show();
                 } else {
-                    Intent intent = new Intent(Screen_mail.this,Screen_TaoMatKhau.class);
+                    Intent intent = new Intent(Screen_mail.this, Screen_TaoMatKhau.class);
+                    intent.putExtra("email", email); // Thêm dòng này để truyền email
                     startActivity(intent);
                 }
-
             }
         });
     }
