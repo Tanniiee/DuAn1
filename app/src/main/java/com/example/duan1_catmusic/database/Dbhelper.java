@@ -11,7 +11,7 @@ public class Dbhelper extends SQLiteOpenHelper {
 
     public Dbhelper(Context context){
 
-        super(context,"music",null,25);
+        super(context,"music",null,26);
     }
 
     @Override
