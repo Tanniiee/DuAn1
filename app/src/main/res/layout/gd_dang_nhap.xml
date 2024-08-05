@@ -62,7 +62,7 @@
             android:drawableLeft="@mipmap/dien_thoai"
             android:text="Tiếp tục bằng sđt"
             android:textColor="@color/white"
-            android:textSize="22sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:backgroundTint="@null" />
 
@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:drawableLeft="@mipmap/gg"
             android:text="Tiếp tục bằng google"
-            android:textSize="22sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@color/white"
             android:background="@drawable/btn_dk"
@@ -85,7 +85,7 @@
             android:layout_height="wrap_content"
             android:drawableLeft="@mipmap/fb"
             android:text="Tiếp tục bằng facebook"
-            android:textSize="22sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@color/white"
             android:background="@drawable/btn_dk"

@@ -35,7 +35,7 @@ public class Screen_TaoMatKhau extends AppCompatActivity {
         btn_tiep1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Screen_TaoMatKhau.this, TRANGCHU.class);
+                Intent intent = new Intent(Screen_TaoMatKhau.this, Screen_Chon5NgheSi.class);
                 startActivity(intent);
             }
         });
