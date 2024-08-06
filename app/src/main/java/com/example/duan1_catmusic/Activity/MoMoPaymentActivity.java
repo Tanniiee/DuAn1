@@ -54,7 +54,7 @@ public class MoMoPaymentActivity extends AppCompatActivity {
         try {
             JSONObject data = orderApi.createOrder("23000");
             String code = data.getString("return_code");
-            Toast.makeText(getApplicationContext(), "return_code: " + code, Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "return_code:" + code, Toast.LENGTH_LONG).show();
 
             if (code.equals("1")) {
 
