@@ -73,16 +73,12 @@ public class Screen_listening_music extends AppCompatActivity {
                     Toast toast = Toast.makeText(Screen_listening_music.this,"Bạn Đã thêm bài hát vào Danh Sách Yêu Thích",Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.LEFT | Gravity.TOP, 20, 30);
                     toast.show();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("tym",getPackageName());
-
 
                 }else {
                     tym.setImageResource(R.drawable.love1);
                     Toast toast = Toast.makeText(Screen_listening_music.this,"Bạn đã bỏ bài hát ra khỏi Danh Sách Yêu Thích",Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.LEFT | Gravity.TOP, 20, 30);
                     toast.show();
-
                 }
                 isImageOne = !isImageOne;
             }

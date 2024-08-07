@@ -1,6 +1,7 @@
 package com.example.duan1_catmusic.fragment;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -33,24 +34,29 @@ public class Thuvien_fm extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_thuvien, container, false);
 
+        TextView tvListyeuThich = view.findViewById(R.id.tvListYeuThich);
         TextView tvSoLuongSong = view.findViewById(R.id.SoluongBaiHat);
         ImageView img_list_yeuthich= view.findViewById(R.id.img_list_yeuthich);
         rvlistCasi = view.findViewById(R.id.rvListCaSi);
         casiDAO  =new casiDAO(getContext());
 
+
         ArrayList<Casi> list = casiDAO.getcasi();
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
-        manager.setOrientation(RecyclerView.VERTICAL);
+        Casi casi;
+                manager.setOrientation(RecyclerView.VERTICAL);
         rvlistCasi.setLayoutManager(manager);
 
         thuvienAdapter adapter = new thuvienAdapter(getContext(), list);
         rvlistCasi.setAdapter(adapter);
 
-        img_list_yeuthich.setOnClickListener(new View.OnClickListener() {
+        tvListyeuThich.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(getActivity(), Screen_ListSong_YeuThich.class);
                 startActivity(intent);
+
             }
         });
         return view;

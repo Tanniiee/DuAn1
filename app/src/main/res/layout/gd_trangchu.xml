@@ -107,11 +107,7 @@
             android:layout_width="match_parent"
             android:layout_height="65dp"
             android:layout_alignParentBottom="true"
-            android:layout_margin="20dp"
-            android:layout_marginHorizontal="10dp"
-            android:elevation="5dp"
-            android:translationZ="10px"
-            app:cardCornerRadius="10dp">
+            >
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
