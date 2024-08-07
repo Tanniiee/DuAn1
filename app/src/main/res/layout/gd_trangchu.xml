@@ -24,9 +24,8 @@
                 android:id="@+id/choi_nhac"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                android:layout_above="@id/card"
+                android:layout_marginBottom="2dp"
                 android:background="@drawable/media_play">
 
 
