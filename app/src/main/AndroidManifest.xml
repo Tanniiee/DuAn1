@@ -1,14 +1,12 @@
-
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
-
-
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:allowBackup="true"
@@ -20,9 +18,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DuAn1_CatMusic"
         tools:targetApi="31">
-       <activity
+        <activity
             android:name=".Activity.Profile_View"
             android:exported="false" />
+        <activity
+            android:name=".Activity.MoMoPaymentActivity"
+            android:exported="true"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="demozpdk"
+                    android:host="app" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Activity.DanhSachBaiHat"
             android:exported="false" />
@@ -71,23 +81,14 @@
         <activity
             android:name=".Activity.TRANGCHU"
             android:exported="false" />
-
         <activity
             android:name=".Activity.TrangChuAdmin"
             android:exported="false" />
-
-
-
-
-
-
-
         <activity
             android:name=".Activity.Sreen_Chao"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -95,8 +96,6 @@
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3940256099942544~3347511713" />
-
-
     </application>
 
 </manifest>
