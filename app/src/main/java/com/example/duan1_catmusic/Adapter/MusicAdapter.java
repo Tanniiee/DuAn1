@@ -2,9 +2,11 @@ package com.example.duan1_catmusic.Adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.duan1_catmusic.Activity.Screen_listening_music;
 import com.example.duan1_catmusic.R;
 import com.example.duan1_catmusic.model.Nhac;
 
@@ -36,7 +39,7 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder> 
     private Map<Integer, Integer> clickCountMap = new HashMap<>(); // Đếm số lần click cho từng item
     private Handler handler = new Handler(Looper.getMainLooper());
     private Runnable sortRunnable;
-
+    private   boolean isImageOne = true;
     public MusicAdapter(List<Nhac> list, Context context) {
         this.list = list;
         this.context = context;
@@ -74,6 +77,25 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder> 
         int resID = context.getResources().getIdentifier(imgNhac, "drawable", context.getPackageName());
         holder.imgNhac.setImageResource(resID);
 
+        holder.imLove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (isImageOne){
+                    holder.imLove.setImageResource(R.drawable.love);
+                    SharedPreferences sharedPreferences ;
+                    Toast toast = Toast.makeText(context,"Bạn Đã thêm bài hát vào Danh Sách Yêu Thích",Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.LEFT | Gravity.TOP, 20, 30);
+                    toast.show();
+
+                }else {
+                    holder.imLove.setImageResource(R.drawable.love1);
+                    Toast toast = Toast.makeText(context,"Bạn đã bỏ bài hát ra khỏi Danh Sách Yêu Thích",Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.LEFT | Gravity.TOP, 20, 30);
+                    toast.show();
+                }
+                isImageOne = !isImageOne;
+            }
+        });
         // Set click listener for the item
         holder.itemView.setOnClickListener(v -> {
             if (onItemClickListener != null) {
@@ -123,7 +145,7 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder> 
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView imgNhac;
+        ImageView imgNhac, imLove;
         TextView tvTenNhac;
         TextView tvNgheSi;
 
@@ -132,6 +154,12 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder> 
             imgNhac = itemView.findViewById(R.id.img_item_listnhac);
             tvTenNhac = itemView.findViewById(R.id.tvTenNhac);
             tvNgheSi = itemView.findViewById(R.id.tvNgheSi);
+            imLove = itemView.findViewById(R.id.imgLove);
+
+
+
+
         }
+
     }
 }
