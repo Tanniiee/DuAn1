@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
@@ -5,7 +6,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
+
 
     <application
         android:allowBackup="true"
@@ -17,12 +20,68 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DuAn1_CatMusic"
         tools:targetApi="31">
-        <activity
-            android:name=".Activity.Screen_ListSong_YeuThich"
+       <activity
+            android:name=".Activity.Profile_View"
             android:exported="false" />
         <activity
             android:name=".Activity.DanhSachBaiHat"
             android:exported="false" />
+        <activity
+            android:name=".Activity.Screen_Chon5NgheSi"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Screen_DangNhap"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Screen_DnKMK"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Screen_GioiTinh"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Screen_listening_music"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Screen_ListSong_YeuThich"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Screen_mail"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Screen_Next"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Screen_Ngay"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Screen_nhacTheotheloai"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Screen_NhapTTDangnhap"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Screen_QuangCao"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Screen_TaoMatKhau"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Screen_Ten"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.TRANGCHU"
+            android:exported="false" />
+
+        <activity
+            android:name=".Activity.TrangChuAdmin"
+            android:exported="false" />
+
+
+
+
+
+
+
         <activity
             android:name=".Activity.Sreen_Chao"
             android:exported="true">
@@ -37,45 +96,7 @@
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3940256099942544~3347511713" />
 
-        <activity
-            android:name=".Activity.Screen_QuangCao"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.Screen_Chon5NgheSi"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.Screen_nhacTheotheloai"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.Screen_listening_music"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.Screen_Next"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.TRANGCHU"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.Screen_DnKMK"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.TrangChuAdmin"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.Screen_TaoMatKhau"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.Screen_mail"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.Screen_DangNhap"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.Screen_Ngay"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.Screen_NhapTTDangnhap"
-            android:exported="false" />
+
     </application>
 
 </manifest>
