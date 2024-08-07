@@ -77,7 +77,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
-                        android:layout_toEndOf="@id/img_song"
+                        android:layout_toEndOf="@id/img_list_yeuthich"
                         android:text="Bài hát đã thích"
                         android:textColor="@color/white"
                         android:textSize="16sp"
@@ -87,22 +87,24 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/songtitle"
                             android:layout_marginTop="10dp"
-                            android:layout_toEndOf="@id/img_song"
+                            android:layout_toEndOf="@id/img_list_yeuthich"
                             android:text="Danh sách phát -"
                             android:textColor="@color/white"
                             android:textSize="16sp" />
+
                         <TextView
                             android:id="@+id/SoluongBaiHat"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/songtitle"
                             android:layout_marginTop="10dp"
-                            android:layout_toEndOf="@id/img_song"
+                            android:layout_toEndOf="@id/img_list_yeuthich"
                             android:text=" 1 bài hát"
                             android:textColor="@color/white"
                             android:textSize="16sp" />

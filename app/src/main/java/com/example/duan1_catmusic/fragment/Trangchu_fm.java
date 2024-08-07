@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.duan1_catmusic.Activity.DanhSachBaiHat;
+import com.example.duan1_catmusic.Activity.Screen_listening_music;
 import com.example.duan1_catmusic.Adapter.MusicAdapter;
 import com.example.duan1_catmusic.Adapter.casiAdapter;
 import com.example.duan1_catmusic.DAO.casiDAO;
@@ -63,6 +64,18 @@ public class Trangchu_fm extends Fragment {
         rcvtop.setLayoutManager(linearLayoutManager);
         adapternhac = new MusicAdapter(listnhac, getContext()); // Khởi tạo MusicAdapter
         rcvtop.setAdapter(adapternhac);
+
+
+        // Đặt trình nghe sự kiện khi bấm vào item để mở Screen_listening_music
+        adapternhac.setOnItemClickListener(new MusicAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Intent intent = new Intent(getContext(), Screen_listening_music.class);
+                intent.putExtra("playlist", new ArrayList<>(listnhac)); // Truyền danh sách phát
+                intent.putExtra("currentTrackIndex", position); // Truyền vị trí bài hát hiện tại
+                startActivity(intent);
+            }
+        });
 
         btn_allSong.setOnClickListener(new View.OnClickListener() {
             @Override
