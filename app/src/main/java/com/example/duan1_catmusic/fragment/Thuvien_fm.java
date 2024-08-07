@@ -36,8 +36,7 @@ public class Thuvien_fm extends Fragment {
         View view = inflater.inflate(R.layout.fragment_thuvien, container, false);
 
         TextView tvListyeuThich = view.findViewById(R.id.tvListYeuThich);
-        TextView tvSoLuongSong = view.findViewById(R.id.SoluongBaiHat);
-        ImageView img_list_yeuthich= view.findViewById(R.id.img_list_yeuthich);
+
         casiDAO  =new casiDAO(getContext());
         TextView tvListNgheSi = view.findViewById(R.id.tvListNgheSi);
 
