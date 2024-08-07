@@ -44,17 +44,13 @@ public class Trangchu_fm extends Fragment {
 
         casiDAO = new casiDAO(getContext());
         ArrayList<Casi> list = casiDAO.getcasi();
-
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         manager.setOrientation(RecyclerView.HORIZONTAL);
         rcvnghesi.setLayoutManager(manager);
-
         casiAdapter adapter = new casiAdapter(list, getContext());
         rcvnghesi.setAdapter(adapter);
 
-
-
-        rcvtop = view.findViewById(R.id.rcvtop);
+        rcvtop = view.findViewById(R.id.rvNhac);
 
         //data
         nhacDAO = new nhacDAO(getContext());
