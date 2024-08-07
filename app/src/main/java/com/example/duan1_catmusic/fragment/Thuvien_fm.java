@@ -40,6 +40,7 @@ public class Thuvien_fm extends Fragment {
         casiDAO  =new casiDAO(getContext());
         TextView tvListNgheSi = view.findViewById(R.id.tvListNgheSi);
 
+
         tvListNgheSi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
