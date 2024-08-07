@@ -48,12 +48,7 @@ public class Screen_ListSong_YeuThich extends AppCompatActivity {
         boolean showAllSongs = intent.getBooleanExtra("all_songs", false);
         list = new ArrayList<>();
         nhac_DAO = new nhacDAO(this);
-//        if (showAllSongs) {
-//            loadAllData();
-//        } else {
-//            String artistName = intent.getStringExtra("ten_nghe_si");
-//            loaddata(artistName);
-//        }
+
         loadAllData();
 
 

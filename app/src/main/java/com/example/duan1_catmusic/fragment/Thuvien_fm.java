@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.duan1_catmusic.Activity.Screen_ListSong_YeuThich;
+import com.example.duan1_catmusic.Activity.Screen_ThuVien_NgheSi;
 import com.example.duan1_catmusic.Activity.TRANGCHU;
 import com.example.duan1_catmusic.Adapter.thuvienAdapter;
 import com.example.duan1_catmusic.DAO.casiDAO;
@@ -37,18 +38,25 @@ public class Thuvien_fm extends Fragment {
         TextView tvListyeuThich = view.findViewById(R.id.tvListYeuThich);
         TextView tvSoLuongSong = view.findViewById(R.id.SoluongBaiHat);
         ImageView img_list_yeuthich= view.findViewById(R.id.img_list_yeuthich);
-        rvlistCasi = view.findViewById(R.id.rvListCaSi);
         casiDAO  =new casiDAO(getContext());
+        TextView tvListNgheSi = view.findViewById(R.id.tvListNgheSi);
 
 
-        ArrayList<Casi> list = casiDAO.getcasi();
-        LinearLayoutManager manager = new LinearLayoutManager(getContext());
-        Casi casi;
-                manager.setOrientation(RecyclerView.VERTICAL);
-        rvlistCasi.setLayoutManager(manager);
-
-        thuvienAdapter adapter = new thuvienAdapter(getContext(), list);
-        rvlistCasi.setAdapter(adapter);
+        tvListNgheSi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), Screen_ThuVien_NgheSi.class);
+                startActivity(intent);
+            }
+        });
+//        ArrayList<Casi> list = casiDAO.getcasi();
+//        LinearLayoutManager manager = new LinearLayoutManager(getContext());
+//        Casi casi;
+//                manager.setOrientation(RecyclerView.VERTICAL);
+//        rvlistCasi.setLayoutManager(manager);
+//
+//        thuvienAdapter adapter = new thuvienAdapter(getContext(), list);
+//        rvlistCasi.setAdapter(adapter);
 
         tvListyeuThich.setOnClickListener(new View.OnClickListener() {
             @Override

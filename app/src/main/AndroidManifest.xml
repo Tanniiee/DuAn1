@@ -5,9 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
-
-
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:allowBackup="true"
@@ -19,7 +17,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DuAn1_CatMusic"
         tools:targetApi="31">
-       <activity
+        <activity
+            android:name=".Activity.Screen_ThuVien_NgheSi"
+            android:exported="false" />
+        <activity
             android:name=".Activity.Profile_View"
             android:exported="false" />
         <activity
@@ -68,21 +69,13 @@
             android:name=".Activity.Screen_Ten"
             android:exported="false" />
         <activity
-            android:name=".Activity.TRANGCHU"
+            android:name=".Activity.Sreen_Chao"
             android:exported="false" />
-
         <activity
             android:name=".Activity.TrangChuAdmin"
             android:exported="false" />
-
-
-
-
-
-
-
         <activity
-            android:name=".Activity.Sreen_Chao"
+            android:name=".Activity.TRANGCHU"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -94,8 +87,6 @@
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3940256099942544~3347511713" />
-
-
     </application>
 
 </manifest>

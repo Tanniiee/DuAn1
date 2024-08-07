@@ -79,75 +79,67 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:orientation="horizontal">
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_margin="10dp"-->
+            <!--                android:orientation="horizontal">-->
 
-                <ImageView
-                    android:id="@+id/img_list_yeuthich"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginEnd="10dp"
-                    android:background="#00BCD4"
-                    android:src="@drawable/heart1" />
+            <!--                <ImageView-->
+            <!--                    android:id="@+id/img_list_yeuthich"-->
+            <!--                    android:layout_width="100dp"-->
+            <!--                    android:layout_height="100dp"-->
+            <!--                    android:layout_marginEnd="10dp"-->
+            <!--                    android:background="#00BCD4"-->
+            <!--                    android:src="@drawable/heart1" />-->
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="vertical">-->
 
-                    <TextView
-                        android:id="@+id/songtitle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:layout_toEndOf="@id/img_list_yeuthich"
-                        android:text="Bài hát đã thích"
-                        android:textColor="@color/white"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/songtitle"-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_marginTop="20dp"-->
+            <!--                        android:layout_toEndOf="@id/img_list_yeuthich"-->
+            <!--                        android:text="Bài hát đã thích"-->
+            <!--                        android:textColor="@color/white"-->
+            <!--                        android:textSize="16sp"-->
+            <!--                        android:textStyle="bold" />-->
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+            <!--                    <LinearLayout-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:orientation="horizontal">-->
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/songtitle"
-                            android:layout_marginTop="10dp"
-                            android:layout_toEndOf="@id/img_list_yeuthich"
-                            android:text="Danh sách phát -"
-                            android:textColor="@color/white"
-                            android:textSize="16sp" />
+            <!--                        <TextView-->
+            <!--                            android:layout_width="wrap_content"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:layout_below="@id/songtitle"-->
+            <!--                            android:layout_marginTop="10dp"-->
+            <!--                            android:layout_toEndOf="@id/img_list_yeuthich"-->
+            <!--                            android:text="Danh sách phát -"-->
+            <!--                            android:textColor="@color/white"-->
+            <!--                            android:textSize="16sp" />-->
 
-                        <TextView
-                            android:id="@+id/SoluongBaiHat"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/songtitle"
-                            android:layout_marginTop="10dp"
-                            android:layout_toEndOf="@id/img_list_yeuthich"
-                            android:text=" 1 bài hát"
-                            android:textColor="@color/white"
-                            android:textSize="16sp" />
-                    </LinearLayout>
-
-
-                </LinearLayout>
-            </LinearLayout>
+            <!--                        <TextView-->
+            <!--                            android:id="@+id/SoluongBaiHat"-->
+            <!--                            android:layout_width="wrap_content"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:layout_below="@id/songtitle"-->
+            <!--                            android:layout_marginTop="10dp"-->
+            <!--                            android:layout_toEndOf="@id/img_list_yeuthich"-->
+            <!--                            android:text=" 1 bài hát"-->
+            <!--                            android:textColor="@color/white"-->
+            <!--                            android:textSize="16sp" />-->
+            <!--                    </LinearLayout>-->
 
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvListCaSi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp">
+            <!--                </LinearLayout>-->
+            <!--            </LinearLayout>-->
 
-            </androidx.recyclerview.widget.RecyclerView>
 
             <LinearLayout
                 android:layout_width="match_parent"
