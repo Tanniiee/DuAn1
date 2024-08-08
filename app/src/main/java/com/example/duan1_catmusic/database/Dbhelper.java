@@ -11,7 +11,7 @@ public class Dbhelper extends SQLiteOpenHelper {
 
     public Dbhelper(Context context){
 
-        super(context,"music",null,26);
+        super(context,"music",null,27);
     }
 
     @Override
@@ -195,11 +195,11 @@ public class Dbhelper extends SQLiteOpenHelper {
         String insertNhac5 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
                 "VALUES ('N5', 'stayloralbum' , 'Love Story', 'L5', 'TG5', 'CS9', 'Loi5', 'love_story')";
         String insertNhac6 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
-                "VALUES ('N6', 'sio' , 'Shake it off', 'L1', 'TG5', 'CS9', 'Loi5', 'shake_it_off')";
+                "VALUES ('N6', 'snake_it_off2' , 'Shake it off', 'L1', 'TG5', 'CS9', 'Loi5', 'shake_it_off')";
         String insertNhac7 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
                 "VALUES ('N7', 'blank_space' , 'Blank Space', 'L1', 'TG5', 'CS9', 'Loi5', 'blank_space')";
         String insertNhac8 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
-                "VALUES ('N8', 'you_belong_with_me' , 'You Belong With Me', 'L1', 'TG5', 'CS9', 'Loi5', 'you_belong_with_me')";
+                "VALUES ('N8', 'you_belong_with_me2' , 'You Belong With Me', 'L1', 'TG5', 'CS9', 'Loi5', 'you_belong_with_me')";
         String insertNhac9 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
                 "VALUES ('N9', 'still_with_you' , 'Still With You', 'L4', 'TG5', 'CS4', 'Loi9', 'still_with_you')";
         String insertNhac10 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
@@ -215,7 +215,7 @@ public class Dbhelper extends SQLiteOpenHelper {
         String insertNhac15 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
                 "VALUES ('N15', 'money' , 'Money', 'L6', 'TG5', 'CS5', 'Loi9', 'money')";
         String insertNhac16 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
-                "VALUES ('N16', 'rockstar' , 'RockStar', 'L2', 'TG5', 'CS5', 'Loi9', 'rockstar')";
+                "VALUES ('N16', 'rockstar2' , 'RockStar', 'L2', 'TG5', 'CS5', 'Loi9', 'rockstar')";
         String insertNhac17 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
                 "VALUES ('N17', 'attention' , 'Attention', 'L4', 'TG5', 'CS6', 'Loi9', 'attention')";
         String insertNhac18 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
@@ -227,7 +227,7 @@ public class Dbhelper extends SQLiteOpenHelper {
         String insertNhac21 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
                 "VALUES ('N21', 'how_long' , 'How Long', 'L1', 'TG5', 'CS6', 'Loi9', 'how_long')";
         String insertNhac22 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
-                "VALUES ('N22', 'gone' , 'Gone', 'L1', 'TG5', 'CS7', 'Loi9', 'gone')";
+                "VALUES ('N22', 'gone2' , 'Gone', 'L1', 'TG5', 'CS7', 'Loi9', 'gone')";
         String insertNhac23 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
                 "VALUES ('N23', 'stigma' , 'Stigma', 'L4', 'TG5', 'CS8', 'Loi9', 'stigma')";
         String insertNhac24 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
