@@ -57,7 +57,6 @@
         android:id="@+id/rcvtheloai"
         android:layout_width="match_parent"
         android:layout_height="420dp"
-
         android:clipToPadding="false"
         android:padding="10dp"
         tools:listitem="@layout/item_theloai" />
