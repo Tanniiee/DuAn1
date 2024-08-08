@@ -8,61 +8,81 @@
     android:orientation="vertical">
 
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-        <Button
-            android:id="@+id/btn_allSong"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:text="Tất cả nhạc"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:backgroundTint="#4CAF50"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp">
 
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Nghệ sĩ Bạn Yêu Thích"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-
-        android:textSize="20dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"/>
+                <Button
+                    android:id="@+id/btn_allSong"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:text="Tất cả nhạc"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:backgroundTint="#4CAF50"/>
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcvnghesi"
-        android:layout_width="wrap_content"
-        android:layout_height="205dp"
-        android:layout_marginLeft="10dp"
-        android:clipToPadding="false"
-        android:padding="10dp"
-        tools:listitem="@layout/item_casi" />
+            </LinearLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Những bài hát được nghe nhiều nhất"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="15dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nghệ sĩ Bạn Yêu Thích"
+                android:textColor="@color/white"
+                android:textStyle="bold"
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvNhac"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clipToPadding="false"
+                android:textSize="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"/>
 
-        android:layout_marginLeft="10dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvnghesi"
+                android:layout_width="wrap_content"
+                android:layout_height="205dp"
+                android:layout_marginLeft="10dp"
+                android:clipToPadding="false"
+                android:padding="10dp"
+                tools:listitem="@layout/item_casi" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Những bài hát được nghe nhiều nhất"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvNhac"
+                android:layout_width="match_parent"
+                android:layout_height="800dp"
+                android:layout_marginLeft="10dp"
+                tools:listitem="@layout/item_bai_nhac"/>
+
+
+
+        </LinearLayout>
+
+
+
+
+    </ScrollView>
+
+
 
 </LinearLayout>
