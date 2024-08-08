@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/bg"
-    android:layout_margin="10dp">
+    >
 
     <LinearLayout
         android:background="@color/bg"
@@ -14,7 +14,7 @@
         android:orientation="horizontal">
         <ImageView
             android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_height="80dp"
             android:src="@drawable/killthislove"
             android:id="@+id/img_item_listnhac"/>
 
