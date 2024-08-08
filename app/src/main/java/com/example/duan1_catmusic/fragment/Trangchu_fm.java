@@ -58,7 +58,7 @@ public class Trangchu_fm extends Fragment {
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         rcvtop.setLayoutManager(linearLayoutManager);
-        adapternhac = new MusicAdapter(listnhac, getContext()); // Khởi tạo MusicAdapter
+        adapternhac = new MusicAdapter(getContext(),listnhac); // Khởi tạo MusicAdapter
         rcvtop.setAdapter(adapternhac);
 
 
@@ -84,4 +84,6 @@ public class Trangchu_fm extends Fragment {
 
         return view;
     }
+
+
 }

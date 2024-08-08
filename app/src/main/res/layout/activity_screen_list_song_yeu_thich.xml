@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:paddingRight="25dp"
-            android:text="bài hát yêu thích"
+            android:text="Danh sách bài hát"
             android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="bold" />

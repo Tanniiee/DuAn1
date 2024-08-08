@@ -46,7 +46,7 @@ public class BaiHatyeuThichAdapter extends RecyclerView.Adapter<BaiHatyeuThichAd
             imgNhac = itemView.findViewById(R.id.img_item_listnhac);
             tvTenNhac = itemView.findViewById(R.id.tvTenNhac);
             tvNgheSi = itemView.findViewById(R.id.tvNgheSi);
-            imLove = itemView.findViewById(R.id.imgLove);
+//            imLove = itemView.findViewById(R.id.imgLove);
 
 
 

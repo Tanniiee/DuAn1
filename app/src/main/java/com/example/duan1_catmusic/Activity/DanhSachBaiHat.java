@@ -61,7 +61,7 @@ public class DanhSachBaiHat extends AppCompatActivity {
         manager.setOrientation(RecyclerView.VERTICAL);
         rcv_list_danh_sach_nhac.setLayoutManager(manager);
 
-        MusicAdapter adapter = new MusicAdapter(list, this);
+        MusicAdapter adapter = new MusicAdapter(this, list);
         rcv_list_danh_sach_nhac.setAdapter(adapter);
 
         // Set item click listener to open Screen_listening_music
@@ -88,7 +88,7 @@ public class DanhSachBaiHat extends AppCompatActivity {
         manager.setOrientation(RecyclerView.VERTICAL);
         rcv_list_danh_sach_nhac.setLayoutManager(manager);
 
-        MusicAdapter adapter = new MusicAdapter(list, this);
+        MusicAdapter adapter = new MusicAdapter(this, list);
         rcv_list_danh_sach_nhac.setAdapter(adapter);
 
         // Đặt trình nghe sự kiện khi bấm vào item để mở Screen_listening_music
