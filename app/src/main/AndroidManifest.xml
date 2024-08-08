@@ -74,6 +74,9 @@
         <activity
             android:name=".Activity.TrangChuAdmin"
             android:exported="false" />
+        <activity
+            android:name=".Activity.Screen_ThuVien_NgheSi"
+            android:exported="false" />
 
         <activity
             android:name=".Activity.Sreen_Chao"

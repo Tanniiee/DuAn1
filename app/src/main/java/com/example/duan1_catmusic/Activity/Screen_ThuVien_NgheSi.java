@@ -51,6 +51,7 @@ public class Screen_ThuVien_NgheSi extends AppCompatActivity {
         ThuVien_NgheSi_Adapter adapter = new ThuVien_NgheSi_Adapter(this,list);
         rcvnghesi.setAdapter(adapter);
         nhacDAO = new nhacDAO(this);
+
 //        List<Nhac> listnhac = nhacDAO.getSongArtistList();
 
         edt_timkiem.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
