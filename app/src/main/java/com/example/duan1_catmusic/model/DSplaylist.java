@@ -19,15 +19,18 @@ public class DSplaylist implements Serializable {
 
     private String HINH;
 
+    private String hinhNhac;
 
-    public DSplaylist(String maDanhSachPlayList, String maloai, String tenLoai, String tenNhac, String maNhac, String tenDSPlaylist,String HINH) {
-        this.MaDanhSachPlayList = maDanhSachPlayList;
-        this.Maloai = maloai;
-        this.TenLoai = tenLoai;
-        this.TenNhac = tenNhac;
-        this.MaNhac = maNhac;
-        this.TenDSPlaylist = tenDSPlaylist;
+
+    public DSplaylist(String maDanhSachPlayList, String maloai, String tenLoai, String tenNhac, String maNhac, String tenDSPlaylist, String HINH, String hinhNhac) {
+        MaDanhSachPlayList = maDanhSachPlayList;
+        Maloai = maloai;
+        TenLoai = tenLoai;
+        TenNhac = tenNhac;
+        MaNhac = maNhac;
+        TenDSPlaylist = tenDSPlaylist;
         this.HINH = HINH;
+        this.hinhNhac = hinhNhac;
     }
 
     public String getMaDanhSachPlayList() {
@@ -84,5 +87,13 @@ public class DSplaylist implements Serializable {
 
     public void setHINH(String HINH) {
         this.HINH = HINH;
+    }
+
+    public String getHinhNhac() {
+        return hinhNhac;
+    }
+
+    public void setHinhNhac(String hinhNhac) {
+        this.hinhNhac = hinhNhac;
     }
 }

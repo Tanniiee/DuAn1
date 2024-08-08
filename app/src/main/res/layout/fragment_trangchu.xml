@@ -31,14 +31,16 @@
         android:text="Nghệ sĩ Bạn Yêu Thích"
         android:textColor="@color/white"
         android:textStyle="bold"
+
         android:textSize="20dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp"/>
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvnghesi"
         android:layout_width="wrap_content"
-        android:layout_height="272dp"
+        android:layout_height="205dp"
         android:layout_marginLeft="10dp"
         android:clipToPadding="false"
         android:padding="10dp"

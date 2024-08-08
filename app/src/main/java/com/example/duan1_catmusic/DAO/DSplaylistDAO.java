@@ -41,20 +41,21 @@ public class DSplaylistDAO {
 
     public List<DSplaylist> getTenloai(){
         List<DSplaylist> list = new ArrayList<>();
+//        String theLoai = "?";
         SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("SELECT DISTINCT T.MaLoai,T.TenLoai, N.TenNhac , DSP.HINH\n" +
-                "FROM TheLoai T\n" +
-                "JOIN Nhac N ON T.MaLoai = N.MaLoai\n" +
-                "JOIN DanhSachPlaylist DSP ON N.MaNhac = DSP.MaNhac;", null);
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT N.MaNhac, N.TenNhac, N.hinhNhac, N.MaLoai, TL.TenLoai\n" +
+                "FROM Nhac N\n" +
+                "JOIN TheLoai TL ON N.MaLoai = TL.MaLoai\n", null);
         if (cursor.getCount() > 0){
             cursor.moveToFirst();
             do{
-                String maLoai = cursor.getString(0);
-                String tenLoai = cursor.getString(1);
-                String tenNhac = cursor.getString(2);
-                String hinh = cursor.getString(3);
+                String manhac = cursor.getString(0);
+                String tenNhac = cursor.getString(1);
+                String hinhnhac = cursor.getString(2);
+                String maloai = cursor.getString(3);
+                String tenloai = cursor.getString(4);
 
-                DSplaylist dsplaylist = new DSplaylist("",maLoai,tenLoai,tenNhac,"","",hinh);
+                DSplaylist dsplaylist = new DSplaylist("",maloai,tenloai,tenNhac,manhac,"","",hinhnhac);
                 list.add(dsplaylist);
             }while (cursor.moveToNext());
         }cursor.close();
