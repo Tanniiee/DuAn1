@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.SearchView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,6 +34,7 @@ public class Screen_ListSong_YeuThich extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen_list_song_yeu_thich);
 
+        SearchView edt_timkiem = findViewById(R.id.edt_timkiem);
         back = findViewById(R.id.back);
         recyclerView = findViewById(R.id.rvList_yeuthich);
 
@@ -46,10 +48,41 @@ public class Screen_ListSong_YeuThich extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         Intent intent = getIntent();
         boolean showAllSongs = intent.getBooleanExtra("all_songs", false);
-        list = new ArrayList<>();
+//        list = new ArrayList<>();
         nhac_DAO = new nhacDAO(this);
+//        list = nhac_DAO.getSongArtistList();
+        list = nhac_DAO.getSongArtistList();
+        LinearLayoutManager manager = new LinearLayoutManager(this);
+        manager.setOrientation(RecyclerView.VERTICAL);
+        recyclerView.setLayoutManager(manager);
+        MusicAdapter adapter = new MusicAdapter(this, list);
+        recyclerView.setAdapter(adapter);
 
-        loadAllData();
+        edt_timkiem.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                adapter.getFilter().filter(s);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapter.getFilter().filter(newText);
+                return true;
+            }
+        });
+        // Set item click listener to open Screen_listening_music
+        adapter.setOnItemClickListener(new MusicAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Intent intent = new Intent(Screen_ListSong_YeuThich.this, Screen_listening_music.class);
+                intent.putExtra("playlist", (ArrayList<Nhac>) list); // Truyền danh sách phát
+                intent.putExtra("currentTrackIndex", position); // Truyền vị trí bài hát hiện tại
+                startActivity(intent);
+            }
+        });
+//        loadAllData();
+
 
 
     }
@@ -61,8 +94,10 @@ public class Screen_ListSong_YeuThich extends AppCompatActivity {
         manager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(manager);
 
-        MusicAdapter adapter = new MusicAdapter(list, this);
+        MusicAdapter adapter = new MusicAdapter(this, list);
         recyclerView.setAdapter(adapter);
+
+
 
         // Set item click listener to open Screen_listening_music
         adapter.setOnItemClickListener(new MusicAdapter.OnItemClickListener() {
@@ -83,9 +118,25 @@ public class Screen_ListSong_YeuThich extends AppCompatActivity {
         manager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(manager);
 
-        MusicAdapter adapter = new MusicAdapter(list, this);
+        MusicAdapter adapter = new MusicAdapter(this, list);
         recyclerView.setAdapter(adapter);
 
+        SearchView edt_timkiem = findViewById(R.id.edt_timkiem);
+
+
+        edt_timkiem.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                adapter.getFilter().filter(s);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                adapter.getFilter().filter(s);
+                return true;
+            }
+        });
         // Set item click listener to open Screen_listening_music
         adapter.setOnItemClickListener(new MusicAdapter.OnItemClickListener() {
             @Override

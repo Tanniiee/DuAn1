@@ -1,49 +1,51 @@
 package com.example.duan1_catmusic.Adapter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
-import android.media.MediaPlayer;
-import android.net.Uri;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.duan1_catmusic.Activity.Screen_listening_music;
+import com.example.duan1_catmusic.DAO.nhacDAO;
 import com.example.duan1_catmusic.R;
 import com.example.duan1_catmusic.model.Nhac;
 
-import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Collections;
-import java.util.Comparator;
 
 import android.os.Handler;
 import android.os.Looper;
 
-public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder> {
-    private List<Nhac> list;
+public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder> implements Filterable {
+
     private Context context;
+    private List<Nhac> list;
+    private nhacDAO nhacDAO;
+    private List<Nhac> filteredList;
     private OnItemClickListener onItemClickListener;
     private Map<Integer, Integer> clickCountMap = new HashMap<>(); // Đếm số lần click cho từng item
     private Handler handler = new Handler(Looper.getMainLooper());
     private Runnable sortRunnable;
     private   boolean isImageOne = true;
-    public MusicAdapter(List<Nhac> list, Context context) {
-        this.list = list;
+
+    public MusicAdapter(Context context, List<Nhac> list) {
         this.context = context;
-        // Khởi tạo số lần click cho từng item
+        this.list = list;
+        this.nhacDAO = new nhacDAO(context);
+        this.filteredList = new ArrayList<>(list);
+
         for (int i = 0; i < list.size(); i++) {
             clickCountMap.put(i, 0);
         }
@@ -134,6 +136,38 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder> 
     @Override
     public int getItemCount() {
         return list.size();
+    }
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                String filterPattern = charSequence.toString().toLowerCase().trim();
+                List<Nhac> filtered = null;
+                if (filterPattern.isEmpty()) {
+                    list = filteredList;
+                } else {
+                    filtered = new ArrayList<>();
+                    for (Nhac item : filteredList) {
+                        if (item.getTenNhac().toLowerCase().contains(filterPattern)) {
+                            filtered.add(item);
+                        }
+                    }
+                    list = filtered;
+                }
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = list;
+//                filterResults.count = filtered;
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                list = (List<Nhac>) filterResults.values;
+                notifyDataSetChanged();
+            }
+        };
     }
 
     public interface OnItemClickListener {

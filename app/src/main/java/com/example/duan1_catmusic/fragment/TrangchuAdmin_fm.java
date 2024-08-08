@@ -53,7 +53,7 @@ public class TrangchuAdmin_fm extends Fragment {
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         rcvlistDanhsachnhacadmin.setLayoutManager(linearLayoutManager);
-        adapter = new MusicAdapter(list, getContext()); // Khởi tạo MusicAdapter
+        adapter = new MusicAdapter(getContext(), list); // Khởi tạo MusicAdapter
         rcvlistDanhsachnhacadmin.setAdapter(adapter);
 
         // Tìm nút btnaddnewmusic theo ID

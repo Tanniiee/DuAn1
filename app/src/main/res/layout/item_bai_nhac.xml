@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:text="Ten Bai Hat"
                 android:textColor="@color/white"
-                android:textSize="22sp"
+                android:textSize="16dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:text="Ten nghe si"
                 android:textColor="@color/white"
-                android:textSize="22sp" />
+                android:textSize="12dp" />
         </LinearLayout>
         <ImageView
             android:id="@+id/imgLove"

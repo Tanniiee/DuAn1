@@ -42,7 +42,6 @@ public class Screen_ThuVien_NgheSi extends AppCompatActivity {
 
         SearchView edt_timkiem = findViewById(R.id.edt_timkiem);
         rcvnghesi = findViewById(R.id.rcvnghesi);
-//        btn_allSong = findViewById(R.id.btn_allSong);
 
         casiDAO = new casiDAO(this);
         ArrayList<Casi> list = casiDAO.getcasi();
@@ -51,9 +50,8 @@ public class Screen_ThuVien_NgheSi extends AppCompatActivity {
         rcvnghesi.setLayoutManager(manager);
         ThuVien_NgheSi_Adapter adapter = new ThuVien_NgheSi_Adapter(this,list);
         rcvnghesi.setAdapter(adapter);
-
         nhacDAO = new nhacDAO(this);
-        List<Nhac> listnhac = nhacDAO.getSongArtistList();
+//        List<Nhac> listnhac = nhacDAO.getSongArtistList();
 
         edt_timkiem.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
