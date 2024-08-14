@@ -41,7 +41,7 @@ public class casiAdapter extends RecyclerView.Adapter<casiAdapter.ViewHoder>{
     @Override
     public void onBindViewHolder(@NonNull casiAdapter.ViewHoder holder, int position) {
         Casi casi = list.get(position);
-        holder.name.setText(list.get(position).getTenCaSi());
+  //      holder.name.setText(list.get(position).getTenCaSi());
         holder.ten.setText(list.get(position).getTenCaSi());
         String imgName = String.valueOf(list.get(position).getHinhalbum());
         int resID = ((Activity)context).getResources().getIdentifier(imgName,"drawable",((Activity)context).getPackageName());
