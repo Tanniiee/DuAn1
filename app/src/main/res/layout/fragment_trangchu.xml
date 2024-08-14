@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg"
-    tools:context=".fragment.Trangchu_fm"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".fragment.Trangchu_fm">
 
 
     <ScrollView
@@ -21,31 +21,28 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp">
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp">
 
                 <Button
                     android:id="@+id/btn_allSong"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
-                    android:text="Tất cả nhạc"
+                    android:backgroundTint="#4CAF50"
+                    android:text="Trang Chủ"
                     android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:backgroundTint="#4CAF50"/>
-
-
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
                 android:text="Nghệ sĩ Bạn Yêu Thích"
                 android:textColor="@color/white"
-                android:textStyle="bold"
-
                 android:textSize="20dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"/>
+                android:textStyle="bold" />
 
 
             <androidx.recyclerview.widget.RecyclerView
@@ -60,29 +57,19 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
                 android:text="Những bài hát được nghe nhiều nhất"
                 android:textColor="@color/white"
-                android:textStyle="bold"
                 android:textSize="20dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="15dp"/>
+                android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvNhac"
                 android:layout_width="match_parent"
-                android:layout_height="800dp"
+                android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
-                tools:listitem="@layout/item_bai_nhac"/>
-
-
-
+                android:layout_marginBottom="70dp"/>
         </LinearLayout>
-
-
-
-
     </ScrollView>
-
-
-
 </LinearLayout>

@@ -73,14 +73,14 @@ public class Trangchu_fm extends Fragment {
             }
         });
 
-        btn_allSong.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(), DanhSachBaiHat.class);
-                intent.putExtra("all_songs", true);
-                startActivity(intent);
-            }
-        });
+//        btn_allSong.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getContext(), DanhSachBaiHat.class);
+//                intent.putExtra("all_songs", true);
+//                startActivity(intent);
+//            }
+//        });
 
         return view;
     }

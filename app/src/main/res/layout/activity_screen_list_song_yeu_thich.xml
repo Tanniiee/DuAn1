@@ -40,7 +40,7 @@
         android:layout_marginTop="5dp"
         android:background="@drawable/custom_tiemkiem"
         android:backgroundTint="@color/white"
-        android:layout_margin="5dp"
+        android:layout_margin="15dp"
         >
 
         <LinearLayout
