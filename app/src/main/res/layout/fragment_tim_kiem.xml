@@ -7,16 +7,21 @@
     android:background="@color/bg"
     tools:context=".fragment.Tim_kiem_fm"
     android:orientation="vertical">
-
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tìm Kiếm"
-        android:textColor="@color/white"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp">
+
+        <Button
+            android:id="@+id/btn_allSong"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:backgroundTint="#4CAF50"
+            android:text="Loại Nhạc"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
 
     <com.google.android.material.textfield.TextInputLayout

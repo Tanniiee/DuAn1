@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.SearchView;
 
 import androidx.activity.EdgeToEdge;
@@ -39,6 +40,13 @@ public class Screen_ThuVien_NgheSi extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen_thu_vien_nghe_si);
+        ImageView back = findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         SearchView edt_timkiem = findViewById(R.id.edt_timkiem);
         rcvnghesi = findViewById(R.id.rcvnghesi);
