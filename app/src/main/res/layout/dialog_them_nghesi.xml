@@ -27,28 +27,32 @@
             android:layout_gravity="center"
             android:textColor="@color/white"/>
         <EditText
-
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
             android:id="@+id/edtmanghesi"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Mã nghệ sĩ" />
         <EditText
-
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
             android:id="@+id/edttennghesi"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Tên nghệ sĩ" />
         <EditText
-
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
             android:id="@+id/edtquenghesi"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Quê quán" />
         <EditText
-
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
             android:id="@+id/edtnamnghesi"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
