@@ -11,7 +11,7 @@ public class Dbhelper extends SQLiteOpenHelper {
 
     public Dbhelper(Context context){
 
-        super(context,"music",null,27);
+        super(context,"music",null,28);
     }
 
     @Override
@@ -201,7 +201,7 @@ public class Dbhelper extends SQLiteOpenHelper {
         String insertNhac8 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
                 "VALUES ('N8', 'you_belong_with_me2' , 'You Belong With Me', 'L1', 'TG5', 'CS9', 'Loi5', 'you_belong_with_me')";
         String insertNhac9 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
-                "VALUES ('N9', 'still_with_you' , 'Still With You', 'L4', 'TG5', 'CS4', 'Loi9', 'still_with_you')";
+                "VALUES ('N9', 'still_with' , 'Still With You', 'L4', 'TG5', 'CS4', 'Loi9', 'still_with_you')";
         String insertNhac10 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +
                 "VALUES ('N10', 'my_time' , 'My Time', 'L4', 'TG5', 'CS4', 'Loi9', 'my_time')";
         String insertNhac11 = "INSERT INTO Nhac (MaNhac, HinhNhac, TenNhac, MaLoai, MaTacGia, MaCaSi, MaLoi, FileNhac) " +

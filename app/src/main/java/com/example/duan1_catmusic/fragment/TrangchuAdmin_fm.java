@@ -57,7 +57,7 @@ public class TrangchuAdmin_fm extends Fragment {
         rcvlistDanhsachnhacadmin.setAdapter(adapter);
 
         // Tìm nút btnaddnewmusic theo ID
-        Button btnAddNewMusic = view.findViewById(R.id.btnaddnewmusic);
+        ImageButton btnAddNewMusic = view.findViewById(R.id.btnaddnewmusic);
 
         // Đặt sự kiện click cho nút
         btnAddNewMusic.setOnClickListener(v -> showDialogThemNhac());
